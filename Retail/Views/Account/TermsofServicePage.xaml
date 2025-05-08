@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.Account.TermsofServicePage">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+             <Label    x:Name="labelLoading" Grid.Row="0" FontAttributes="Bold" Text="Loading..." IsVisible="false" />
+            <WebView x:Name="wvData" Grid.Row="0" Source="http://www.xamarin.com" Navigated="WebView_Navigated"  />
+            <!--<Label    Margin="40" x:Name="lblName"  TextType="Html"  Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />-->
+            <Grid Grid.Row="1" >
+                <Grid  Padding="40">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                  
+                    
+                    <Button Grid.Row="0" Text="Agreed" BackgroundColor="#E62E75" TextColor="White" FontAttributes="Bold" WidthRequest="100" Clicked="Button_Clicked" />
+                </Grid>
+                </Grid>
+        </Grid>
+     </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

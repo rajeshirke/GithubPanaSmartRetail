@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls" xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+    x:Class="Retail.Views.Dashboard.SamplePicker"
+    Title="SamplePicker">
+    <ContentPage.Content>
+        <StackLayout Grid.Row="1" Grid.RowSpan="2">
+            <Grid Padding="5" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+                         
+                <Grid  Padding="0,0,0,0">
+                    <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android">0,0,0,0</On>
+                        <On Platform="iOS">0,0,0,0</On>
+                    </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>      
+                        <RowDefinition Height="auto"/>
+                        
+                    </Grid.RowDefinitions>
+                            
+                    <Grid Padding="5" Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="Center"
+                                     Spacing="10"
+                                     Margin="20" Grid.Row="0">
+                        <Picker HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Center"
+                                BackgroundColor="LawnGreen"
+                                ItemDisplayBinding="{Binding Name}"
+                                SelectedIndexChanged="dropdown_SelectedIndexChanged"
+                                x:Name="dropdown" />
+                        <Picker HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Center"
+                                BackgroundColor="MediumSlateBlue"
+                                SelectedIndexChanged="dropdown1_SelectedIndexChanged"
+                                ItemDisplayBinding="{Binding Name}"
+                                x:Name="dropdown1" />
+                            </StackLayout>
+
+                        
+
+                    </Grid>
+
+                    
+                </Grid>
+            </Grid>
+        </StackLayout>  
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:radialMenu="clr-namespace:Syncfusion.SfRadialMenu.XForms;assembly=Syncfusion.SfRadialMenu.XForms" xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
+    x:Class="Retail.Views.Dashboard.DashboardMasterPage"
+    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+    FlowDirection="{Binding flowDirection}"
+    Title="Panasonic Smart Retail"
+    x:Name="DashboardMaster">
+    
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0"
+                               EndPoint="1,1">
+            <GradientStop Color="White"
+                            Offset="0.1" />
+            <GradientStop Color="White"
+                            Offset="0.6" />
+            <GradientStop Color="White"
+                            Offset="0.5" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <!--<ScrollView>-->
+    <Grid>
+    <AbsoluteLayout>
+
+        <BoxView Style="{StaticResource CardBlueStyle}"
+                 AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+
+        <Grid HorizontalOptions="Center"
+              VerticalOptions="Center"
+              AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+              AbsoluteLayout.LayoutFlags="All"
+              RowSpacing="0" Padding="10">
+        
+            <Grid.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="0,0,0,0" Android="0,0,0,0" />
+                    </OnIdiom.Phone>
+                </OnIdiom>
+            </Grid.Padding>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid  Grid.Row="0" Padding="20,10,20,20"
+                   BackgroundColor="Transparent">
+                <Grid.RowDefinitions>
+                   <RowDefinition Height="25"/>
+                   <RowDefinition Height="7.5*"/>          
+                </Grid.RowDefinitions>            
+                <Grid Grid.Row="0" >               
+                    <Label FontFamily="LeagueSpartan-SemiBold"  Grid.Row="0" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" VerticalOptions="Start"   FontAttributes="Bold">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Hello " FontFamily="LeagueSpartan-SemiBold" FontSize="16" TextColor="{StaticResource WhiteColor}" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>
+                                <Span  Text="{Binding Person.FirstName}" FontFamily="LeagueSpartan-SemiBold" FontSize="16" TextColor="{StaticResource WhiteColor}" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>
+                                <Span  Text=" "/>
+                                <Span Text="{Binding Person.LastName}" FontFamily="LeagueSpartan-SemiBold" FontSize="16" TextColor="{StaticResource WhiteColor}" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>                            
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                 <Label FontFamily="LeagueSpartan-SemiBold"  Grid.Row="0" x:Name="currentdate" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Start" FontSize="16" TextColor="{StaticResource WhiteColor}"  FontAttributes="Bold"/>
+                </Grid>
+                <Grid Grid.Row="1" Padding="5">
+                    <CollectionView Grid.Row="0" ItemsSource="{Binding DashboarMasterTileList}"
+                                    SelectedItem="{Binding }" BackgroundColor="Transparent"
+                                    EmptyView="No Tiles"
+                                    SelectionChangedCommand="{Binding SelectTileCommand}"
+                                    SelectionChangedCommandParameter="{Binding .}">  
+                        <CollectionView.EmptyViewTemplate>
+                            <DataTemplate>
+                                <Label HorizontalTextAlignment="Center" FontFamily="LeagueSpartan-SemiBold" LineBreakMode="WordWrap" HorizontalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center" FontSize="15"
+                                        Style="{StaticResource EnteryTxtValues}"
+                                        Text="No Tiles" HeightRequest="60" WidthRequest="80"/>
+                            </DataTemplate>
+                        </CollectionView.EmptyViewTemplate>
+                        <CollectionView.ItemsLayout>
+                             <GridItemsLayout Orientation="Vertical" Span="2"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>  
+                           <DataTemplate>
+                               <Grid Padding="5">
+                                   <cards:SfCardView 
+                                       HeightRequest="120"
+                                       WidthRequest="40"
+                                       CornerRadius="30">
+                                        <contr:RoundedCornerView>
+                                            <Grid Padding="3,5,3,5">
+                                                <Grid.Behaviors>
+                                                    <xamanimation:EntranceTransition Duration="400"/>
+                                                </Grid.Behaviors>
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="7*"/>
+                                                    <RowDefinition Height="3*"/>
+                                                </Grid.RowDefinitions>
+                                                <Image Grid.Row="0" Source="{Binding Image1}" Aspect="AspectFit"
+                                                       HorizontalOptions="Center" HeightRequest="40"
+                                                       VerticalOptions="CenterAndExpand" />                                       
+                                                    <Label Grid.Row="1" Text="{Binding Label1}"
+                                                           HorizontalOptions="CenterAndExpand"
+                                                           HorizontalTextAlignment="Center"
+                                                           VerticalTextAlignment="Start"
+                                                           Style="{StaticResource LabelMediumBlack}"
+                                                           MaxLines="2" LineBreakMode="TailTruncation"
+                                                           TextColor="{StaticResource BlackColor}" FontFamily="LeagueSpartan-SemiBold">
+                                                     <Label.FontSize>
+                                                            <OnPlatform x:TypeArguments="x:Double" iOS="16" Android="12"/>
+                                                      </Label.FontSize>
+                                                    </Label>
+                                         
+                                            </Grid>
+                                            <contr:RoundedCornerView.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                            Command="{Binding BindingContext.SelectTileCommand, Source={x:Reference DashboardMaster}}"
+                                                            CommandParameter="{Binding .}"
+                                                            NumberOfTapsRequired="1" />
+                                            </contr:RoundedCornerView.GestureRecognizers>
+                                        </contr:RoundedCornerView>                              
+                                    </cards:SfCardView>
+                               </Grid>
+                           </DataTemplate>  
+                        </CollectionView.ItemTemplate>  
+                    </CollectionView>
+
+                </Grid>
+
+            </Grid>
+        
+        </Grid>
+
+        <contr:LoaderAnimView 
+            AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}"
+            AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+        <!--<StackLayout  Padding="12"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
+                            <contr:LoaderAnimView                     
+                            AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                             />
+                    </StackLayout>-->
+
+    </AbsoluteLayout>
+    
+    <radialMenu:SfRadialMenu
+        x:Name="radialMenu"
+        Point="100, 150"
+        EnableCenterButtonAnimation="True"       
+        CenterButtonBorderColor="{StaticResource BlackColor}"
+        CenterButtonBackgroundColor="{StaticResource BlueColor}"
+        CenterButtonBorderThickness="{OnPlatform Android='3', iOS='4'}"
+        RimColor="{StaticResource LighterGray}"           
+        CenterButtonRadius="30"                
+        CenterButtonText="Quick"
+        CenterButtonBackFontFamily="LeagueSpartan-SemiBold"
+        CenterButtonFontSize="10"        
+        CenterButtonFontAttributes="Bold"            
+        SelectionColor="{StaticResource LightGray}"
+        IsVisible="{Binding IsMarketInsights}"
+        StartAngle="50"
+        DragBegin="Handle_DragBegin" DragEnd="Handle_DragEnd">
+
+        <radialMenu:SfRadialMenu.Items>
+            <radialMenu:SfRadialMenuItem Image="marketinteldashboard"
+                                            FontSize="15"
+                                            Command="{Binding MarketInsightsCommand}">
+            </radialMenu:SfRadialMenuItem>
+            <radialMenu:SfRadialMenuItem 
+                                            FontSize="15"
+                                            Image="questionnairedashboard"
+                                            Command="{Binding QuestionnaireCommand}"/>
+            <radialMenu:SfRadialMenuItem 
+                                            FontSize="15"
+                                            Image="ptdashboard"
+                                            Command="{Binding ProductTestCommand}"
+                                            />
+            <radialMenu:SfRadialMenuItem 
+                                            FontSize="15"
+                                            Image="surveydashboard"
+                                            Command="{Binding SurveyCommand}"/>
+            <radialMenu:SfRadialMenuItem 
+                                            FontSize="15"
+                                            Image="qrcodedashboard"
+                                            Command="{Binding ScanQRCodeCommand}"/>
+            <radialMenu:SfRadialMenuItem 
+                                            FontSize="15"
+                                            Image="barcodedashboard"
+                                            Command="{Binding ScanBarcodeCommand}"/>
+        </radialMenu:SfRadialMenu.Items>
+    </radialMenu:SfRadialMenu>
+    </Grid>
+
+</ContentPage>

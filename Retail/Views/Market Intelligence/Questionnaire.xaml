@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Retail.Views.MarketIntelligence.Questionnaire"
+    BackgroundColor="{StaticResource LighterGray}"
+    FlowDirection="{Binding flowDirection}"
+    x:Name="RootQuestionnaire"
+    Title="{Binding Title}"
+    xmlns:cvrt="clr-namespace:Retail.Converters"
+    xmlns:questionAction="clr-namespace:Retail.Views.MarketIntelligence">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cvrt:BooleanTrueFalseConverter x:Key="BooleanTrueFalseConverters"/>
+            <cvrt:TaskSummaryTickConverter x:Key="TaskSummaryTickConverters"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <Grid Padding="5" VerticalOptions="FillAndExpand"
+                      RowSpacing="0"
+                      AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                      AbsoluteLayout.LayoutFlags="All">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>                
+                        <RowDefinition Height="auto"/>                
+                    </Grid.RowDefinitions>
+            
+                    <Grid Grid.Row="1"  Margin="5" HeightRequest="50" IsVisible="{Binding TaskQuestionListVisible, Converter={StaticResource BooleanTrueFalseConverters}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <contr:RoundedCornerView Grid.Column="0" BorderColor="{StaticResource BlueColor}" BorderWidth="1" RoundedCornerRadius="6" BackgroundColor="{StaticResource TransparentColor}">
+                            <Grid x:Name="Start" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="FillAndExpand">
+                            <Label  Text="Start" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center"
+                                    Style="{StaticResource LabelMediumWhite}" />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        Tapped="TapGestureRecognizer_Tapped_Start"
+                                        NumberOfTapsRequired="1" />
+                            </Grid.GestureRecognizers>
+                            </Grid>
+                        </contr:RoundedCornerView>                                    
+                    </Grid>
+
+                    <Grid Padding="5,0,5,0" Grid.Row="1" IsVisible="{Binding TaskQuestionListVisible}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <contr:RoundedCornerView Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >  
+                            <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>                                
+                                </Grid.RowDefinitions>
+                                <Label  Grid.Row="0"  Text="Task Actions" HorizontalOptions="Start" FontSize="16"
+                                       HorizontalTextAlignment="Start"  Style="{StaticResource MyTitleLabel}" />
+                         
+                                <Label  Grid.Row="0"  Text="{Binding TaskCount}" HorizontalOptions="End" FontSize="16"
+                                       HorizontalTextAlignment="End"  Style="{StaticResource EnteryTxtValues}" />
+
+                                <Grid Grid.Row="1">
+                                    <StackLayout x:Name="MainLayout" >
+
+                                        <StackLayout Orientation="Vertical"
+                                             VerticalOptions="Fill"
+                                             HorizontalOptions="StartAndExpand">
+
+                                            <!--HeightRequest="{Binding ScreenHeightSize}"-->
+                                             <CollectionView
+                                                      ItemsSource="{Binding BindingContext.MarketIntelQuestionAnswerToSubmitResponses, Source={x:Reference RootQuestionnaire}}"
+                                                      BackgroundColor="{StaticResource WhiteColor}"
+                                                      HeightRequest="450"
+                                                      EmptyView="No record"
+                                                      x:Name="ListPage">
+                                                <CollectionView.ItemTemplate>  
+                                                    <DataTemplate>  
+                                                        <StackLayout Padding="2" Orientation="Vertical"
+                                                                            BackgroundColor="{StaticResource WhiteColor}">
+                                                            <Grid>
+                                                                <Label  
+                                                                        Style="{StaticResource MyTitleLabel}"
+                                                                        BackgroundColor="Transparent"
+                                                                        MaxLines="2"
+                                                                        LineBreakMode="TailTruncation"
+                                                                        >
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span   Text="{Binding SrNo}" Style="{StaticResource MyTitleLabel}"/>
+                                                                            <Span   Text=".  " Style="{StaticResource MyTitleLabel}"/>
+                                                                            <Span   Text="{Binding QuestionTitle}" Style="{StaticResource MyTitleLabel}"/>                                                                        
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                                <Image Source="checkcircle" IsVisible="{Binding StatusId, Converter={StaticResource TaskSummaryTickConverters}}"
+                                                                        WidthRequest="20" HeightRequest="20"
+                                                                        HorizontalOptions="EndAndExpand"/>
+                                                            </Grid>
+                                                            <!--<Grid>
+                                                                <Button Text=" > "
+                                                                        Margin="10,-45,0,10"
+                                                                        HorizontalOptions="EndAndExpand"
+                                                                        />
+                                                            </Grid>-->
+                                                            <!--#region dynamic answer-->
+                                                            <questionAction:QuestionnaireAnswers
+                                                                QuestionDataList="{Binding BindingContext.MarketIntelQuestionAnswerToSubmitResponses, Source={x:Reference RootQuestionnaire}}"
+                                                                QId="{Binding SrNo}"
+                                                                />
+                                                            <!--#endregion-->
+                                                        </StackLayout>
+                                                    </DataTemplate>  
+                                                </CollectionView.ItemTemplate>  
+                                            </CollectionView>
+
+                                        </StackLayout>
+
+                                    </StackLayout>                           
+                                </Grid>                            
+                            </Grid>
+                        </contr:RoundedCornerView>
+                    </Grid>
+
+                    <!--<Grid Grid.Row="2"  Margin="5" HeightRequest="50" IsVisible="{Binding TaskQuestionListVisible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <contr:RoundedCornerView Grid.Column="0" BorderColor="{StaticResource BlueColor}" BorderWidth="1" RoundedCornerRadius="6" BackgroundColor="{StaticResource TransparentColor}">
+                    <Grid x:Name="Save" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="FillAndExpand">
+                    <Label   Text="Save" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center"
+                            Style="{StaticResource LabelMediumWhite}" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Tapped="TapGestureRecognizer_Tapped"                                                    
+                                NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    </Grid>
+                </contr:RoundedCornerView>
+
+                <contr:RoundedCornerView Grid.Column="1" BorderColor="{StaticResource PinkColor}" BorderWidth="1" RoundedCornerRadius="6" BackgroundColor="{StaticResource TransparentColor}">
+                    <Grid BackgroundColor="{StaticResource PinkColor}" VerticalOptions="FillAndExpand">
+                    <Label  Text="Cancel" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center"
+                           Style="{StaticResource LabelMediumWhite}" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Command="{Binding CancelCommand}"
+                                NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    </Grid>
+                </contr:RoundedCornerView>                                       
+            </Grid>-->
+            
+                    <Grid Grid.Row="3"  Margin="5" HeightRequest="50" IsVisible="{Binding TaskQuestionListVisible}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <contr:RoundedCornerView Grid.Column="0" BorderColor="{StaticResource BlueColor}" BorderWidth="1" RoundedCornerRadius="6" BackgroundColor="{StaticResource TransparentColor}">
+                        <Grid x:Name="Stop" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="FillAndExpand">
+                        <Label  HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               VerticalOptions="Center"
+                               Style="{StaticResource LabelMediumWhite}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span   Text="Finish " Style="{StaticResource LabelMediumWhite}" />
+                                    <Span   Text="{Binding TaskQuestionListTimer}" Style="{StaticResource LabelMediumWhite}" />                                                  
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped_Stop"
+                                    NumberOfTapsRequired="1" />
+                        </Grid.GestureRecognizers>
+                        </Grid>
+                    </contr:RoundedCornerView>                                    
+                 </Grid>
+
+                </Grid>
+
+                <contr:LoaderAnimView AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+            </AbsoluteLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

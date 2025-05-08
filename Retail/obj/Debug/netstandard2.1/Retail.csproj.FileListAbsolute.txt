@@ -1,0 +1,238 @@
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/bin/Debug/netstandard2.1/Retail.deps.json
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/bin/Debug/netstandard2.1/Retail.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/bin/Debug/netstandard2.1/ref/Retail.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/bin/Debug/netstandard2.1/Retail.pdb
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/bin/Debug/netstandard2.1/Retail.Infrastructure.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/bin/Debug/netstandard2.1/Retail.Infrastructure.pdb
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.csproj.AssemblyReference.cache
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.Resx.AppResources.resources
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.csproj.GenerateResource.cache
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.GeneratedMSBuildEditorConfig.editorconfig
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/App.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/Calendar.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/CalendarCarouselView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/CalenderEvent.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/CustomNavigationPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/DayView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/DefaultFooterSection.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/DefaultHeaderSection.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/DropDownPopupPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/ImagePopupView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/LoaderAnimView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/MonthDaysView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/PickerView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/TitledDateTimePicker.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/TitledEntryView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/TitledEntryWithIcon.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/TitledMonthYearControl.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Controls/TitleDropdownView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/MainPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/ChangePassword.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/ForgotPagePasswordUpdate.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/ForgotPasswordPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/LoginPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/MyProfileNew.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/ProfileUpdatePage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/SignUpPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/SingUpProfileUpdatePage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/TermsofServicePage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Account/VerifyPhonePage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Attendance/AttendanceSummaries.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Attendance/PromoterAttendance.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/CommonPages/FeedBackSuccessPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/CommonPages/MultiselectPopupView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/DashboardMasterPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/DashboardMenuPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/NotificationPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/SampleCalender.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/SampleCharts.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/SamplePicker.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Inventory Stock/AddInventoryStock.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Inventory Stock/ConfirmInventoryPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Inventory Stock/InventoryStockDetails.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/ActiveMarketIntelList.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Barcode.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/MarketInsights.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/MarketIntelligenceView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/QRCode.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaire.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/QuestionnaireAnswers.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/Barcode.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/ManagerSignature.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/QRCode.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/TakeDisplayPhoto.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/TakeDisplayVideo.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/PlannedVisitsView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/StoreSelection.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/Barcode.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/ManagerSignature.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/QRCode.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/TakeDisplayPhoto.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/TakeDisplayVideo.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/TaskActionAnswers.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/TaskActionsView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/TaskSummaryView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/VisitLocation.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/My Visits/VisitTasksView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/CategorySubCategoryForDisplayTrackerPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/CategorySubCategorySearchPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/ConfirmPriceTrackerPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/DisplayTrackerUploadPhotoPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/DisplayTrackerView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/PriceTrackerCategorySubcategoryPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/PriceTrackerView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/StoreSelectionPopupPriceTracker.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/ProductCatalogue/Brochures.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/ProductCatalogue/PDFViewerPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/CategorywiseContributionReport.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/CategorywiseContributionChart.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/DailySalesTrendBySubcategoryChart.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/PromoterAchievedPercentage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/SalesAchievedvsCountry.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/SalesAchievedvsProductCat.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/DailySalesTrendBySubcategory.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/PromoterAttendanceReport.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/ReportsView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/SalesReports.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/SalesTargetPromoterAchievementView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/Reports/VisitTargetsReport.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/ConfirmSlesDataEntryPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/MonthlyTargetView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/MultiselectStorePopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/ProductCategoryPopupView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/ProgressBarPopupModel.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/RecentlyUsedModelNoPopupView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/SalesDataEntry.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/SalesDataReturnEntry.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/SubcategorySalesEntriesPopup.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/TargetsByProductCategoryView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/TargetsOverview.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SupervisorFlow/PromoterTargetsView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Views/SupervisorFlow/VisitsAndTasksView.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.AssemblyInfoInputs.cache
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.AssemblyInfo.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.csproj.CoreCompileInputs.cache
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/XamlC.stamp
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.csproj.CopyComplete
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/ref/Retail.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail/obj/Debug/netstandard2.1/Retail.pdb
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.deps.json
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.dll
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/ref/Retail.dll
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.pdb
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.Infrastructure.dll
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.Infrastructure.pdb
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.csproj.AssemblyReference.cache
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.Resx.AppResources.resources
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.csproj.GenerateResource.cache
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.GeneratedMSBuildEditorConfig.editorconfig
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/App.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/Calendar.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/CalendarCarouselView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/CalenderEvent.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/CustomNavigationPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/DayView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/DefaultFooterSection.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/DefaultHeaderSection.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/DropDownPopupPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/ImagePopupView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/LoaderAnimView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/MonthDaysView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/PickerView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/TitledDateTimePicker.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/TitledEntryView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/TitledEntryWithIcon.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/TitledMonthYearControl.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Controls/TitleDropdownView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/MainPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/ChangePassword.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/ForgotPagePasswordUpdate.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/ForgotPasswordPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/LoginPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/MyProfileNew.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/ProfileUpdatePage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/SignUpPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/SingUpProfileUpdatePage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/TermsofServicePage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Account/VerifyPhonePage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Attendance/AttendanceSummaries.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Attendance/PromoterAttendance.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/CommonPages/FeedBackSuccessPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/CommonPages/MultiselectPopupView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/DashboardMasterPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/DashboardMenuPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/NotificationPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/SampleCalender.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/SampleCharts.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Dashboard/SamplePicker.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Inventory Stock/AddInventoryStock.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Inventory Stock/ConfirmInventoryPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Inventory Stock/InventoryStockDetails.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/ActiveMarketIntelList.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Barcode.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/MarketInsights.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/MarketIntelligenceView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/QRCode.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaire.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/QuestionnaireAnswers.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/Barcode.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/ManagerSignature.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/QRCode.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/TakeDisplayPhoto.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Market Intelligence/Questionnaires/TakeDisplayVideo.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/PlannedVisitsView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/StoreSelection.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/Barcode.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/ManagerSignature.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/QRCode.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/TakeDisplayPhoto.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/Task Summary/TakeDisplayVideo.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/TaskActionAnswers.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/TaskActionsView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/TaskSummaryView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/VisitLocation.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/My Visits/VisitTasksView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/CategorySubCategoryForDisplayTrackerPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/CategorySubCategorySearchPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/ConfirmPriceTrackerPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/DisplayTrackerUploadPhotoPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/DisplayTrackerView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/PriceTrackerCategorySubcategoryPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/PriceTrackerView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Price Tracker/StoreSelectionPopupPriceTracker.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/ProductCatalogue/Brochures.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/ProductCatalogue/PDFViewerPage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/CategorywiseContributionReport.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/CategorywiseContributionChart.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/DailySalesTrendBySubcategoryChart.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/PromoterAchievedPercentage.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/SalesAchievedvsCountry.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/Charts/SalesAchievedvsProductCat.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/DailySalesTrendBySubcategory.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/PromoterAttendanceReport.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/ReportsView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/SalesReports.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/SalesTargetPromoterAchievementView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/Reports/VisitTargetsReport.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/ConfirmSlesDataEntryPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/MonthlyTargetView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/MultiselectStorePopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/ProductCategoryPopupView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/ProgressBarPopupModel.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/RecentlyUsedModelNoPopupView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/SalesDataEntry.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/SalesDataReturnEntry.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/SubcategorySalesEntriesPopup.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/TargetsByProductCategoryView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SalesTargetViews/TargetsOverview.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SupervisorFlow/PromoterTargetsView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Views/SupervisorFlow/VisitsAndTasksView.xaml.g.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.AssemblyInfoInputs.cache
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.AssemblyInfo.cs
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.csproj.CoreCompileInputs.cache
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/XamlC.stamp
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.csproj.CopyComplete
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.dll
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/ref/Retail.dll
+/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/obj/Debug/netstandard2.1/Retail.pdb

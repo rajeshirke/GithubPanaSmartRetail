@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             x:Class="Retail.Views.CommonPages.FeedBackSuccessPage"
+             Title="Success"
+             BackgroundColor="White"
+             Shell.BackgroundColor="{StaticResource BlueColor}"
+             Shell.ForegroundColor="{StaticResource BlueColor}"
+             Shell.TitleColor="{StaticResource BlueColor}"             
+             FlowDirection="{Binding flowDirection}">
+     <!--<Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled ="False" IconOverride="okay.png" />
+    </Shell.BackButtonBehavior>-->
+    <ContentPage.Content>
+        <ScrollView>
+          <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                 <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="checkednew.png" Aspect="AspectFit" Grid.Row="0"/>
+            <Label Text="Success" Grid.Row="1" HorizontalTextAlignment="Center" Style="{StaticResource LabelLargeBlack}"/>
+            <Label x:Name="lblMsg" Grid.Row="2" Text=""  HorizontalTextAlignment="Center" Style="{StaticResource MyTitleLabel}" LineBreakMode="WordWrap"/>
+            
+        </Grid>
+            <Grid Grid.Row="1" BackgroundColor="White" >
+               
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                
+                <!--<Button x:Name="Button1" Margin="30,0,30,0" Grid.Row="1" Clicked="Button_Clicked"
+                        Text="Go to Home" FontSize="14" TextColor="{StaticResource WhiteColor}"
+                        Style="{StaticResource ButtonBlueStyle}"/>-->
+                <Button x:Name="Button1" Grid.Row="1"
+                        Text="Go to Home" Margin="30,0,30,0"
+                        HeightRequest="45"                                  
+                        Style="{StaticResource ButtonBlueStyle}"
+                        CornerRadius="5" FontSize="14" 
+                        Clicked="Button_Clicked" />
+            </Grid>
+            </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

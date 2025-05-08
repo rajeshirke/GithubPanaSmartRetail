@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    x:Class="Retail.Views.InventoryStock.InventoryStockDetails"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    Title="Stock Entries"
+    BackgroundColor="{StaticResource WhiteColor}" >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary"  Icon="noteadd.png" Text="Item 1" Priority="0" Command="{Binding AddInventoryCommand}" />        
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <BoxView Style="{StaticResource CardBlueStyle}"
+                 AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+            
+                <StackLayout>
+                <Grid Padding="5" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>                   
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                   
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Padding="5,0,5,0" >
+                        <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}"
+                                                  BorderWidth="2" RoundedCornerRadius="10" >                         
+                            <!--<Grid VerticalOptions="Center" Padding="8" RowSpacing="0"
+                                  BackgroundColor="{StaticResource WhiteColor}" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
+                                <Label    Grid.Row="0" Text="Select Store"  HorizontalOptions="Start" Style="{StaticResource MyTitleLabel}" />
+                                <Grid Grid.Row="1" >
+                                    <Grid.RowDefinitions>                                
+                                        <RowDefinition Height="auto"/>
+                                            
+                                    </Grid.RowDefinitions>
+                                    <contr:TitleDropdownView
+                                        Grid.Row="0"
+                                        Title="Select Store"
+                                        Placeholder="Select Store"
+                                        PickerItemsSource="{Binding StoreDropDown}"
+                                        ItemDisplayBinding="Title"
+                                        SelectedItem="{Binding SelectedStore}"
+                                        Command="{Binding SelectStoreCommand}" />
+                                </Grid>                             
+                                <BoxView Grid.Row="2" Opacity="0.8" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                            </Grid>-->
+
+                            <Grid Grid.Row="0" RowSpacing="0" Padding="8" BackgroundColor="{StaticResource WhiteColor}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Label    Grid.Row="0" Text="Select Store"  HorizontalOptions="Start" Style="{StaticResource MyTitleLabel}" />
+                                <contr:RoundedCornerView Grid.Row="1" HeightRequest="42">
+                                    <Grid Padding="{OnPlatform iOS='-2,-2,-2,5',Android='0,0,0,5'}" RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="1"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0" >
+                                            <contr:TitleDropdownView
+                                                Grid.Row="0"
+                                                Title="Select Store"
+                                                Placeholder="Select Store"
+                                                PickerItemsSource="{Binding StoreDropDown}"
+                                                ItemDisplayBinding="Title"
+                                                SelectedItem="{Binding SelectedStore}"
+                                                Command="{Binding SelectStoreCommand}" />
+                                        </Grid>
+                                        <Grid Grid.Row="1" Padding="5,0">
+                                            <BoxView Grid.Row="0" BackgroundColor="{StaticResource LightGray}" VerticalOptions="Start"/>
+                                        </Grid>
+                                    </Grid>
+                                </contr:RoundedCornerView>
+                            </Grid>
+                       </contr:RoundedCornerView>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Padding="5,0,5,0" >
+                        <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="10" >                         
+                            <Grid VerticalOptions="Center" BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>                             
+                                </Grid.RowDefinitions>
+                                <Label    Grid.Row="0" Text="Inventory Details"  HorizontalOptions="Start"
+                                        Style="{StaticResource LabelLargeBlack}" />
+
+                                <CollectionView   Grid.Row="1" ItemsSource="{Binding listInventoryStockEntryResponse}" BackgroundColor="Transparent" EmptyView="No Stock Details">  
+                                        <CollectionView.EmptyViewTemplate>
+                                            <DataTemplate>
+                                                <Label     HorizontalTextAlignment="Center" VerticalTextAlignment="Start"  Style="{StaticResource LabelLargeBlack}" Text="No Stock Details" HeightRequest="60" />                 
+                                            </DataTemplate>
+                                        </CollectionView.EmptyViewTemplate>
+                                        <CollectionView.ItemTemplate>  
+                                            <DataTemplate> 
+                                                <Grid BackgroundColor="Transparent" >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>                                                    
+                                                    </Grid.RowDefinitions>                       
+                                                    <contr:RoundedCornerView Grid.Row="0"                                                                          >
+                                                        <Grid Grid.Row="0" Padding="8" BackgroundColor="White">                                                       
+                                                            <Grid.RowDefinitions>
+                                                                 <RowDefinition Height="auto"/>
+                                                                 <RowDefinition Height="*"/>
+                                                                <RowDefinition Height="1"/>
+                                                             </Grid.RowDefinitions>
+
+                                                             <Label    Grid.Row="0" HorizontalOptions="Start" LineBreakMode="TailTruncation" MaxLines="1"
+                                                                    Text="{Binding ProductModel.CategoryLevel2}"  Style="{StaticResource MyTitleLabel}" />
+                                                         
+                                                             <Label    Grid.Row="1" HorizontalOptions="Start" Text="{Binding ProductModelNumber}"
+                                                                    Style="{StaticResource MyTitleLabel}" LineBreakMode="TailTruncation" MaxLines="1" />
+                                                            
+                                                             <Label    Grid.Row="0" HorizontalOptions="End" LineBreakMode="TailTruncation" MaxLines="1"
+                                                                    Text="{Binding CreationDate,StringFormat='{0:dd MMM,yyyy hh:mm tt}'}"
+                                                                    Style="{StaticResource MyTitleLabel}" />
+
+                                                            <Label    Grid.Row="1" HorizontalOptions="End" LineBreakMode="TailTruncation" MaxLines="1" Text="Out of stock"
+                                                                   Style="{StaticResource LabelMediumRed}" IsVisible="{Binding IsOutofStockEntry}" />
+
+                                                            <Label    Grid.Row="1" HorizontalOptions="End" LineBreakMode="TailTruncation" MaxLines="1" Style="{StaticResource LabelMediumBlack}" IsVisible="{Binding IsQuantityAvailable}" >
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span   Text="Qty : " Style="{StaticResource MyTitleLabel}"/>
+                                                                        <Span   Text="{Binding Quantity}" Style="{StaticResource MyValueLabel}"/>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+                                                            <BoxView Grid.Row="2" BackgroundColor="{StaticResource LightGray}"/>
+                                                        </Grid>
+                                                    </contr:RoundedCornerView>                                  
+                                      
+                                                    </Grid>
+                                            </DataTemplate>  
+                                        </CollectionView.ItemTemplate>  
+                                   </CollectionView> 
+                            </Grid>                       
+                        </contr:RoundedCornerView>
+                    </Grid>
+
+                </Grid>
+            </StackLayout>
+
+                <contr:LoaderAnimView 
+                    AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+            </AbsoluteLayout>
+        </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,322 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework> <!--netstandard2.0-->
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <BuildWithMSBuildOnMono>true</BuildWithMSBuildOnMono>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Microsoft.AppCenter" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.2.0" />
+    <PackageReference Include="Xamarin.Plugin.Calendar" Version="1.4.5304" />
+    <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />
+    <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms" Version="3.0.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="5.0.0.2337">
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
+    <PackageReference Include="Xamarin.Forms.DebugRainbows" Version="1.1.4" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="OxyPlot.Xamarin.Forms" Version="1.0.0" />
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+    <PackageReference Include="Shiny.Notifications" Version="2.0.0.2639" />
+    <PackageReference Include="Octane.Xam.VideoPlayer" Version="3.1.0" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.13" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.4.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="19.4.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="19.4.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.4.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.4.0.55" />
+     <PackageReference Include="Syncfusion.Xamarin.SfRadialMenu" Version="19.4.0.55">
+    </PackageReference>
+     <PackageReference Include="Syncfusion.Xamarin.Expander" Version="19.4.0.55" />
+
+     <PackageReference Include="XF.Material" Version="1.8.0" />
+
+     <PackageReference Include="Xam.Plugin.Iconize" Version="3.5.0.129" />
+     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="19.4.0.55" />
+
+
+     <PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="19.4.0.55" />
+
+     <PackageReference Include="Xamanimation" Version="1.3.0" />
+
+     <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox" Version="19.4.0.55" />
+     <PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="19.4.0.55" />
+     <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete" Version="19.4.0.55" />
+     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+     <PackageReference Include="GeoTimeZone" Version="5.3.0" />
+     <PackageReference Include="TimeZoneConverter" Version="6.1.0" />
+     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+    <Folder Include="Controls\Templates\" />
+    <Folder Include="Converters\" />
+    <Folder Include="DataServices\" />
+    <Folder Include="DependencyServices\" />
+    <Folder Include="Fonts\" />
+    <Folder Include="Hepler\" />
+    <Folder Include="Models\" />
+    <Folder Include="Renderers\" />
+    <Folder Include="Resx\" />
+    <Folder Include="ServiceLayer\" />
+    <Folder Include="Styles\" />
+    <Folder Include="UIEffects\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\SalesTargetViews\" />
+    <Folder Include="ViewModels\SalesTarget\" />
+    <Folder Include="Views\Dashboard\" />
+    <Folder Include="ViewModels\Dashboard\" />
+    <Folder Include="Views\My Visits\" />
+    <Folder Include="ViewModels\My Visits\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="ViewModels\Account\" />
+    <Folder Include="ViewModels\ProfileView\" />
+    <Folder Include="Views\ProductCatalogue\" />
+    <Folder Include="ViewModels\ProductCatalogue\" />
+    <Folder Include="ViewModels\DemoControls\" />
+    <Folder Include="ViewModels\ImagePopUp\" />
+    <Folder Include="Views\Market Intelligence\" />
+    <Folder Include="ViewModels\Market Intelligence\" />
+    <Folder Include="ViewModels\MonthYearPickerViewModel\" />
+    <Folder Include="Views\Inventory Stock\" />
+    <Folder Include="ViewModels\Inventory Stock\" />
+    <Folder Include="Views\Attendance\" />
+    <Folder Include="ViewModels\Attendance\" />
+    <Folder Include="Database\" />
+    <Folder Include="Views\SupervisorFlow\" />
+    <Folder Include="ViewModels\SupervisorFlow\" />
+    <Folder Include="Views\CommonPages\" />
+    <Folder Include="Views\My Visits\Task Summary\" />
+    <Folder Include="ViewModels\My Visits\Task Summary\" />
+    <Folder Include="Views\Market Intelligence\Questionnaires\" />
+    <Folder Include="ViewModels\Market Intelligence\Questionnaires\" />
+    <Folder Include="Views\Reports\" />
+    <Folder Include="ViewModels\Reports\" />
+    <Folder Include="ViewModels\Reports\Charts\" />
+    <Folder Include="Views\Reports\Charts\" />
+    <Folder Include="Database\SupervisorWorkflow\" />
+    <Folder Include="Models\SupervisorWorkflow\" />
+    <Folder Include="ViewModels\SupervisorFlow\SupervisorWorkflow\" />
+    <Folder Include="Views\Price Tracker\" />
+    <Folder Include="ViewModels\PriceTracker\" />
+    <Folder Include="Controls\Behaviors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\segoemediacentersemibold.ttf" />
+    <EmbeddedResource Include="Fonts\SEGOEUI.TTF" />    
+    <EmbeddedResource Include="Fonts\US101.TTF" />    
+    <EmbeddedResource Include="Fonts\Zachery.otf" />
+    <EmbeddedResource Include="Fonts\Vacaciones-font-ffp-defharo.ttf" />
+    <EmbeddedResource Include="Fonts\Sabatica-regular.ttf" />
+    <EmbeddedResource Include="Fonts\Yamdum style.ttf" />
+    <EmbeddedResource Include="Fonts\Zabdilus.ttf" />
+    <EmbeddedResource Include="Fonts\xeros_karma.ttf" />
+    <EmbeddedResource Include="Fonts\F25_Executive.otf" />
+    <EmbeddedResource Include="Fonts\LeagueSpartan-SemiBold.ttf" />   
+    <EmbeddedResource Include="Fonts\Roboto-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Roboto-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\timesnewroman.ttf" />
+    <EmbeddedResource Include="Fonts\timesnewromanbold.ttf" />
+    <EmbeddedResource Include="Fonts\calibrib.ttf" />
+    <EmbeddedResource Include="Fonts\Calibri.ttf" />
+    <EmbeddedResource Include="Fonts\calibribold.ttf" />
+    <EmbeddedResource Include="Fonts\Dubai-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Dubai-Medium.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resx\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resx\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SalesTargetViews\ProductCategoryPopupView.xaml.cs">
+      <DependentUpon>ProductCategoryPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\TitledDateTimePicker.xaml.cs">
+      <DependentUpon>TitledDateTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Account\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\My Visits\VisitLocation.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Task Summary\Barcode.xaml.cs">
+      <DependentUpon>..\..\My Visits\Task Summary\Barcode.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Task Summary\ManagerSignature.xaml.cs">
+      <DependentUpon>ManagerSignature.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Task Summary\QRCode.xaml.cs">
+      <DependentUpon>QRCode.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Task Summary\TakeDisplayPhoto.xaml.cs">
+      <DependentUpon>..\..\My Visits\Task Summary\TakeDisplayPhoto.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Task Summary\TakeDisplayVideo.xaml.cs">
+      <DependentUpon>..\..\My Visits\Task Summary\TakeDisplayVideo.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Questionnaires\Barcode.xaml.cs">
+      <DependentUpon>Barcode.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Questionnaires\ManagerSignature.xaml.cs">
+      <DependentUpon>ManagerSignature.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Questionnaires\QRCode.xaml.cs">
+      <DependentUpon>QRCode.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Questionnaires\TakeDisplayPhoto.xaml.cs">
+      <DependentUpon>TakeDisplayPhoto.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\Market Intelligence\Questionnaires\TakeDisplayVideo.xaml.cs">
+      <DependentUpon>TakeDisplayVideo.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>Views\App.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\11.2.2.1\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\11.2.2.1\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>..\..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\11.2.2.1\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v1.0\Facades\System.Drawing.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+  <!-- https://bugzilla.xamarin.com/show_bug.cgi?id=55591 -->
+  <None Remove="**\*.xaml" />
+
+
+  <Compile Update="**\*.xaml.cs" DependentUpon="StoreSelectionPopupPriceTracker.xaml" />
+
+  <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="**\*.xaml.cs" DependentUpon="App.xaml" />
+
+  <None Remove="Views\CommonPages\" />
+  <None Remove="Xamarin.CommunityToolkit" />
+  <None Remove="Xamarin.Forms.DebugRainbows" />
+  <None Remove="Views\My Visits\Task Summary\" />
+  <None Remove="ViewModels\My Visits\Task Summary\" />
+  <None Remove="Views\Market Intelligence\Task Summary\" />
+  <None Remove="ViewModels\Market Intelligence\Task Summary\" />
+  <None Remove="Microsoft.CSharp" />
+  <None Remove="Views\Reports\" />
+  <None Remove="ViewModels\Reports\" />
+  <None Remove="ViewModels\Reports\Charts\" />
+  <None Remove="Views\Reports\Charts\" />
+  <None Remove="OxyPlot.Xamarin.Forms" />
+  <None Remove="ViewModels\Reports\DailySalesTrendBySubcategoryViewModel" />
+  <None Remove="ViewModels\Reports\DailySalesTrendBySubcategoryViewModel.cs" />
+  <None Remove="ZXing.Net.Mobile" />
+  <None Remove="ZXing.Net.Mobile.Forms" />
+  <None Remove="Shiny.Core" />
+  <None Remove="Shiny.Notifications" />
+  <None Remove="Shiny" />
+  <None Remove="Database\SupervisorWorkflow\" />
+  <None Remove="Models\SupervisorWorkflow\" />
+  <None Remove="ViewModels\SupervisorFlow\SupervisorWorkflow\" />
+  <None Remove="Octane.Xam.VideoPlayer" />
+  <None Remove="CwwOnline.TabbedPageExt.Xamarin" />
+  <None Remove="Xam.Plugin.DeviceInfo" />
+  <None Remove="Microsoft.AspNetCore.SignalR.Client" />
+  <None Remove="Syncfusion.Xamarin.Buttons" />
+  <None Remove="Syncfusion.Xamarin.SfBusyIndicator" />
+  <None Remove="Syncfusion.Xamarin.Cards" />
+  <None Remove="Syncfusion.Xamarin.SfComboBox" />
+  <None Remove="Syncfusion.Xamarin.Core" />
+  <None Remove="Syncfusion.Xamarin.Expander" />
+
+  <None Remove="XF.Material" />
+
+  <None Remove="Xam.Plugin.Iconize" />
+  <None Remove="Syncfusion.Xamarin.SfChart" />
+
+
+  <None Remove="Syncfusion.Xamarin.SfPicker" />
+
+  <None Remove="Xamanimation" />
+
+  <None Remove="Fonts\segoemediacentersemibold.ttf" />
+  <None Remove="Fonts\SEGOEUI.TTF" />
+  <None Remove="Fonts\timesnewroman.ttf" />
+  <None Remove="Fonts\US101.TTF" />
+  <None Remove="Fonts\Zachery.otf" />
+  <None Remove="Fonts\Vacaciones-font-ffp-defharo.ttf" />
+  <None Remove="Fonts\Sabatica-regular.ttf" />
+  <None Remove="Fonts\Yamdum style.ttf" />
+  <None Remove="Fonts\Zabdilus.ttf" />
+  <None Remove="Fonts\xeros_karma.ttf" />
+  <None Remove="Fonts\F25_Executive.otf" />
+  <None Remove="Fonts\LeagueSpartan-SemiBold.ttf" />
+  <None Remove="Fonts\timesnewroman.ttf" />
+  <None Remove="Fonts\Roboto-Regular.ttf" />
+  <None Remove="Fonts\timesnewroman.ttf" />
+  <None Remove="Fonts\timesnewroman.ttf" />
+  <None Remove="Fonts\timesnewromanbold.ttf" />
+  <None Remove="Fonts\calibrib.ttf" />
+  <None Remove="Fonts\Calibri.ttf" />
+  <None Remove="Fonts\calibribold.ttf" />
+  <None Remove="Syncfusion.Xamarin.SfNumericTextBox" />
+  <None Remove="Fonts\Dubai-Regular.ttf" />
+  <None Remove="Fonts\Dubai-Medium.ttf" />
+  <None Remove="Views\PriceTracker\" />
+  <None Remove="ViewModels\PriceTracker\" />
+  <None Remove="Syncfusion.Xamarin.SfDataGrid" />
+  <None Remove="Syncfusion.Xamarin.SfAutoComplete" />
+  <None Remove="Controls\Behaviors\" />
+  <None Remove="Newtonsoft.Json" />
+  <None Remove="GeoTimeZone" />
+  <None Remove="TimeZoneConverter" />
+  <None Remove="NtpClient" />
+</ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Retail.Library\Retail.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>

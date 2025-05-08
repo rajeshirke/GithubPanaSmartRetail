@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00588E9D-B59E-44B9-90B3-C03E8B3B6064}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Retail.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Retail.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <ProvisioningType>automatic</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <MtouchLink>None</MtouchLink>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
+    <IOSDebuggerPort>40197</IOSDebuggerPort>
+    <MtouchArch>x86_64</MtouchArch>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>Apple Development: prajakta@mastcgroup.com (9W39C6TCP7)</CodesignKey>
+    <LangVersion>9.0</LangVersion>
+    <ConsolePause>true</ConsolePause>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <OptimizePNGs>
+    </OptimizePNGs>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <OnDemandResourcesInitialInstallTags>
+    </OnDemandResourcesInitialInstallTags>
+    <CrashReportingApiKey>
+    </CrashReportingApiKey>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodesignProvision>iOS Team Provisioning Profile: com.mastcgroup.com.test</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <LangVersion>9.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>Apple Development: prajakta@mastcgroup.com (9W39C6TCP7)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchVerbosity>
+    </MtouchVerbosity>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebuggerPort>26374</IOSDebuggerPort>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>9.0</LangVersion>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>iOS Team Provisioning Profile: com.mastcgroup.com.test</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <!--<CodesignKey>Apple Development: prajakta@mastcgroup.com (9W39C6TCP7)</CodesignKey>-->
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <LangVersion>9.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!--<CodesignProvision>iOS Team Provisioning Profile: com.mastc.Retail</CodesignProvision>-->
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\RoundedCornerViewRenderer.cs" />
+    <Compile Include="Renderers\EntryWithRoundedCornerRenderer.cs" />
+    <Compile Include="Renderers\SwipeAwareContainerRenderer.cs" />
+    <Compile Include="Renderers\MessagingExtensions.cs" />
+    <Compile Include="Renderers\GMMultiImpagePickerImplementation.cs" />
+    <Compile Include="DependencyServices\QrScanningService.cs" />
+    <Compile Include="Renderers\DatePickerCtrlRenderer.cs" />
+    <Compile Include="Renderers\PickerDateModel.cs" />
+    <Compile Include="Renderers\MonthYearPickerRenderer.cs" />
+    <Compile Include="DependencyServices\SQLiteDb.cs" />
+    <Compile Include="Renderers\CustomPickerRenderer.cs" />
+    <Compile Include="DependencyServices\Utils\EWProgress.cs" />
+    <Compile Include="LoginViewModel.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Compile Include="Renderers\SafeAreaPaddingEffect.cs" />
+    <Compile Include="Renderers\ImageEntryRenderer.cs" />
+    <Compile Include="Renderers\ExtendedSearchBarRenderer.cs" />
+    <Compile Include="Renderers\CustomNavigationRenderer.cs" />
+    <Compile Include="Renderers\BorderlessTimePicker.cs" />
+    <Compile Include="Renderers\BorderlessDatePickerRenderer.cs" />
+    <Compile Include="DependencyServices\MediaService.cs" />
+    <Compile Include="DependencyServices\ImageResizer_iOS.cs" />
+    <Compile Include="DependencyServices\iOSNotificationManager.cs" />
+    <Compile Include="DependencyServices\iOSNotificationReceiver.cs" />
+    <Compile Include="DependencyServices\IClearCookiesImplementation.cs" />
+    <Compile Include="DependencyServices\MessageIOS.cs" />
+    <Compile Include="DependencyServices\AppTrackingTransparencyPermission.cs" />
+    <Compile Include="DependencyServices\OrientationService.cs" />
+    <Compile Include="Renderers\TwoMonthYearPickerRenderer.cs" />
+    <Compile Include="Renderers\EntryWithoutDoneBtnRenderer.cs" />
+    <Compile Include="DependencyServices\DateTimeSettings.cs" />
+    <Compile Include="DependencyServices\DeviceTimeService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WinHttpHandler" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.22.2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+    <PackageReference Include="Microsoft.AppCenter" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.2.0" />
+    <PackageReference Include="Shiny.Notifications" Version="2.0.0.2639" />
+    <PackageReference Include="Octane.Xam.VideoPlayer" Version="3.1.0" />
+    <PackageReference Include="Syncfusion.Xamarin.SfRadialMenu">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="BTProgressHUD">
+      <Version>1.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.KeyboardOverlap">
+      <Version>1.0.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Controls.SignaturePad.Forms">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="XamForms.Autocomplete">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="GMImagePicker.Xamarin">
+      <Version>2.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.7.335</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>2.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.DebugRainbows">
+      <Version>1.1.4</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Xamarin.Forms">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Memory">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client">
+      <Version>5.0.13</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Cards">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Expander">
+      <Version>20.1.0.50</Version>
+    </PackageReference>
+    <PackageReference Include="XF.Material">
+      <Version>1.8.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Iconize">
+      <Version>3.5.0.129</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfChart">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.Maps">
+      <Version>5.0.0.2337</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Xamanimation">
+      <Version>1.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfNumericTextBox">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfDataGrid">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete">
+      <Version>19.4.0.55</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="GeoTimeZone">
+      <Version>5.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="TimeZoneConverter">
+      <Version>6.1.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\Retail\Retail.csproj">
+      <Project>{C58202F5-6E34-4295-A003-2F926D4ED7E9}</Project>
+      <Name>Retail</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DependencyServices\" />
+    <Folder Include="pdfview\" />
+    <Folder Include="Renderers\" />
+    <Folder Include="UIEffects\" />
+    <Folder Include="DependencyServices\Utils\" />
+    <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dbforwardarrow.png" />
+    <BundleResource Include="Resources\noteadd.png" />
+    <BundleResource Include="Resources\info%401x.png" />
+    <BundleResource Include="Resources\info%402x.png" />
+    <BundleResource Include="Resources\defultuser.png" />
+    <BundleResource Include="Resources\next.png" />
+    <BundleResource Include="Resources\Cancel.png" />
+    <BundleResource Include="Resources\downloadwhite.png" />
+    <BundleResource Include="Resources\cameraicon.png" />
+    <BundleResource Include="Resources\close.png" />
+    <BundleResource Include="Resources\Password.png" />
+    <BundleResource Include="Resources\language.png" />
+    <BundleResource Include="Resources\callicon.png" />
+    <BundleResource Include="Resources\wechat.png" />
+    <BundleResource Include="Resources\warranty%401x.png" />
+    <BundleResource Include="Resources\wallettravel.png" />
+    <BundleResource Include="Resources\wallet_member.png" />
+    <BundleResource Include="Resources\visibility.svg.png" />
+    <BundleResource Include="Resources\useradd%401x.png" />
+    <BundleResource Include="Resources\user%403x.png" />
+    <BundleResource Include="Resources\user%402x.png" />
+    <BundleResource Include="Resources\user%401x.png" />
+    <BundleResource Include="Resources\trashsmall.png" />
+    <BundleResource Include="Resources\topbg2.png" />
+    <BundleResource Include="Resources\topbg.png" />
+    <BundleResource Include="Resources\survey%403x.png" />
+    <BundleResource Include="Resources\survey%402x.png" />
+    <BundleResource Include="Resources\survey%401x.png" />
+    <BundleResource Include="Resources\successicon.png" />
+    <BundleResource Include="Resources\srdetails.png" />
+    <BundleResource Include="Resources\signout.png" />
+    <BundleResource Include="Resources\servicetips.png" />
+    <BundleResource Include="Resources\services%401x.png" />
+    <BundleResource Include="Resources\servicerequest%401x.png" />
+    <BundleResource Include="Resources\servicemanual.png" />
+    <BundleResource Include="Resources\service1.png" />
+    <BundleResource Include="Resources\send.png" />
+    <BundleResource Include="Resources\selected.png" />
+    <BundleResource Include="Resources\seachicon.png" />
+    <BundleResource Include="Resources\scphonecall.png" />
+    <BundleResource Include="Resources\sclocation.png" />
+    <BundleResource Include="Resources\refresh.png" />
+    <BundleResource Include="Resources\receipt.png" />
+    <BundleResource Include="Resources\psmartlogo.png" />
+    <BundleResource Include="Resources\pslogo.png" />
+    <BundleResource Include="Resources\promotion%403x.png" />
+    <BundleResource Include="Resources\promotion%402x.png" />
+    <BundleResource Include="Resources\promotion%401x.png" />
+    <BundleResource Include="Resources\promotion2.jpg" />
+    <BundleResource Include="Resources\promotion1.jpg" />
+    <BundleResource Include="Resources\products.png" />
+    <BundleResource Include="Resources\productinfo.png" />
+    <BundleResource Include="Resources\prod1.png" />
+    <BundleResource Include="Resources\power.png" />
+    <BundleResource Include="Resources\plus.png" />
+    <BundleResource Include="Resources\phonecall.png" />
+    <BundleResource Include="Resources\phone%401x.png" />
+    <BundleResource Include="Resources\phone1%401x.png" />
+    <BundleResource Include="Resources\partrequests.png" />
+    <BundleResource Include="Resources\oldnoteadd%401x.png" />
+    <BundleResource Include="Resources\noteaddcolor.png" />
+    <BundleResource Include="Resources\noteadd%401x.png" />
+    <BundleResource Include="Resources\mylocation.png" />
+    <BundleResource Include="Resources\myjobs.png" />
+    <BundleResource Include="Resources\minus.png" />
+    <BundleResource Include="Resources\menuuser.png" />
+    <BundleResource Include="Resources\menuservices.png" />
+    <BundleResource Include="Resources\menuproducts.png" />
+    <BundleResource Include="Resources\mail%401x.png" />
+    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\lock%401x.png" />
+    <BundleResource Include="Resources\locationsmall.png" />
+    <BundleResource Include="Resources\location%403x.png" />
+    <BundleResource Include="Resources\location%402x.png" />
+    <BundleResource Include="Resources\location%401x.png" />
+    <BundleResource Include="Resources\location.png" />
+    <BundleResource Include="Resources\keypwd%401x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%401x.png" />
+    <BundleResource Include="Resources\hmenu.png" />
+    <BundleResource Include="Resources\headphone.jpg" />
+    <BundleResource Include="Resources\gps.png" />
+    <BundleResource Include="Resources\geocircle.png" />
+    <BundleResource Include="Resources\forwardarrow.png" />
+    <BundleResource Include="Resources\fillstar.png" />
+    <BundleResource Include="Resources\faq.png" />
+    <BundleResource Include="Resources\emptystar.png" />
+    <BundleResource Include="Resources\dropdown.png" />
+    <BundleResource Include="Resources\download.png" />
+    <BundleResource Include="Resources\directioniconblue.png" />
+    <BundleResource Include="Resources\directionicon.png" />
+    <BundleResource Include="Resources\details%401x.png" />
+    <BundleResource Include="Resources\defaultprod.png" />
+    <BundleResource Include="Resources\dbservices.png" />
+    <BundleResource Include="Resources\dbproduct.png" />
+    <BundleResource Include="Resources\dbnoteadd.png" />
+    <BundleResource Include="Resources\dblocation.png" />
+    <BundleResource Include="Resources\dbinquery.png" />
+    <BundleResource Include="Resources\dbbuyemc.png" />
+    <BundleResource Include="Resources\dbbackarrow.png" />
+    <BundleResource Include="Resources\dbaddsr.png" />
+    <BundleResource Include="Resources\dbaccessories.png" />
+    <BundleResource Include="Resources\checkcircle.png" />
+    <BundleResource Include="Resources\chatbot.png" />
+    <BundleResource Include="Resources\cart%402x.png" />
+    <BundleResource Include="Resources\cart%401x.png" />
+    <BundleResource Include="Resources\downarrow.png" />
+    <BundleResource Include="Resources\dropdown%402x.png" />
+    <BundleResource Include="Resources\dropdown%403x.png" />
+    <BundleResource Include="Resources\Editicon%402x.png" />
+    <BundleResource Include="Resources\Editicon.png" />
+    <BundleResource Include="Resources\Editicon%403x.png" />
+    <BundleResource Include="Resources\Deleteicon%402x.png" />
+    <BundleResource Include="Resources\Deleteicon.png" />
+    <BundleResource Include="Resources\Deleteicon%403x.png" />
+    <BundleResource Include="Resources\Myprofileicon.png" />
+    <BundleResource Include="Resources\Myprofileicon%402x.png" />
+    <BundleResource Include="Resources\Myprofileicon%403x.png" />
+    <BundleResource Include="Resources\Reportsicon.png" />
+    <BundleResource Include="Resources\Reportsicon%402x.png" />
+    <BundleResource Include="Resources\Reportsicon%403x.png" />
+    <BundleResource Include="Resources\Locationicon.png" />
+    <BundleResource Include="Resources\Locationicon%402x.png" />
+    <BundleResource Include="Resources\Locationicon%403x.png" />
+    <BundleResource Include="Resources\servicetips%403x.png" />
+    <BundleResource Include="Resources\servicetips%402x.png" />
+    <BundleResource Include="Resources\servicemanual%403x.png" />
+    <BundleResource Include="Resources\servicemanual%402x.png" />
+    <BundleResource Include="Resources\partrequests%403x.png" />
+    <BundleResource Include="Resources\partrequests%402x.png" />
+    <BundleResource Include="Resources\myjobs%403x.png" />
+    <BundleResource Include="Resources\myjobs%402x.png" />
+    <BundleResource Include="Resources\cart.png" />
+    <BundleResource Include="Resources\camera_96px.png" />
+    <BundleResource Include="Resources\camera%401x.png" />
+    <BundleResource Include="Resources\camera.png" />
+    <BundleResource Include="Resources\call.png" />
+    <BundleResource Include="Resources\calendar.png" />
+    <BundleResource Include="Resources\btpartrequests%403.png" />
+    <BundleResource Include="Resources\btpartrequests%402.png" />
+    <BundleResource Include="Resources\btpartrequests%401x.png" />
+    <BundleResource Include="Resources\btSpareParts%403x.png" />
+    <BundleResource Include="Resources\btSpareParts%402x.png" />
+    <BundleResource Include="Resources\btSpareParts%401x.png" />
+    <BundleResource Include="Resources\bottonproduct%403x.png" />
+    <BundleResource Include="Resources\bottonproduct%402x.png" />
+    <BundleResource Include="Resources\bottonproduct%401x.png" />
+    <BundleResource Include="Resources\bottonService%403x.png" />
+    <BundleResource Include="Resources\bottonService%402x.png" />
+    <BundleResource Include="Resources\bottonService%401x.png" />
+    <BundleResource Include="Resources\bottomcart%403x.png" />
+    <BundleResource Include="Resources\bottomcart%402x.png" />
+    <BundleResource Include="Resources\bottomcart%401x.png" />
+    <BundleResource Include="Resources\bnr2.jpg" />
+    <BundleResource Include="Resources\baricon.png" />
+    <BundleResource Include="Resources\backicon.png" />
+    <BundleResource Include="Resources\backarrow.png" />
+    <BundleResource Include="Resources\back%401x.png" />
+    <BundleResource Include="Resources\avatar%401x.png" />
+    <BundleResource Include="Resources\arrowred.png" />
+    <BundleResource Include="Resources\amcrequest.png" />
+    <BundleResource Include="Resources\amcicon.png" />
+    <BundleResource Include="Resources\account%401x.png" />
+    <BundleResource Include="Resources\accessories.png" />
+    <BundleResource Include="Resources\SurveyBule.png" />
+    <BundleResource Include="Resources\Serialno.png" />
+    <BundleResource Include="Resources\PartStock.png" />
+    <BundleResource Include="Resources\PLogo.png" />
+    <BundleResource Include="Resources\OvalSelected.png" />
+    <BundleResource Include="Resources\Oval.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Banner.png" />
+    <BundleResource Include="Resources\forward.png" />
+    <BundleResource Include="Resources\forward%402x.png" />
+    <BundleResource Include="Resources\forward%403x.png" />
+    <BundleResource Include="Resources\SalesReturnEntry.png" />
+    <BundleResource Include="Resources\SalesReturnEntry%402x.png" />
+    <BundleResource Include="Resources\SalesReturnEntry%403x.png" />
+    <BundleResource Include="Resources\SalesEntry.png" />
+    <BundleResource Include="Resources\SalesEntry%402x.png" />
+    <BundleResource Include="Resources\SalesEntry%403x.png" />
+    <BundleResource Include="Resources\Reports%403x.png" />
+    <BundleResource Include="Resources\Reports.png" />
+    <BundleResource Include="Resources\Reports%402x.png" />
+    <BundleResource Include="Resources\myprofile.png" />
+    <BundleResource Include="Resources\myprofile%402x.png" />
+    <BundleResource Include="Resources\myprofile%403x.png" />
+    <BundleResource Include="Resources\homeblue%402x.png" />
+    <BundleResource Include="Resources\homeblue.png" />
+    <BundleResource Include="Resources\homeblue%403x.png" />
+    <BundleResource Include="Resources\marketintel%403x.png" />
+    <BundleResource Include="Resources\marketintel%402x.png" />
+    <BundleResource Include="Resources\salestarget%402x.png" />
+    <BundleResource Include="Resources\salestarget%403x.png" />
+    <BundleResource Include="Resources\salesreturn.png" />
+    <BundleResource Include="Resources\salesreturn%402x.png" />
+    <BundleResource Include="Resources\salesreturn%403x.png" />
+    <BundleResource Include="Resources\attendance.png" />
+    <BundleResource Include="Resources\attendance%402x.png" />
+    <BundleResource Include="Resources\attendance%403x.png" />
+    <BundleResource Include="Resources\salestarget.png" />
+    <BundleResource Include="Resources\marketintel.png" />
+    <BundleResource Include="Resources\productcatalogue.png" />
+    <BundleResource Include="Resources\inventorystock%403x.png" />
+    <BundleResource Include="Resources\productcatalogue%403x.png" />
+    <BundleResource Include="Resources\productcatalogue%402x.png" />
+    <BundleResource Include="Resources\inventorystock.png" />
+    <BundleResource Include="Resources\inventorystock%402x.png" />
+    <BundleResource Include="Resources\salesentryicon.png" />
+    <BundleResource Include="Resources\attendanceicon.png" />
+    <BundleResource Include="Resources\salestargeticon.png" />
+    <BundleResource Include="Resources\salesreturnicon.png" />
+    <BundleResource Include="Resources\marketintelicon.png" />
+    <BundleResource Include="Resources\locationiconblue.png" />
+    <BundleResource Include="Resources\footersalesentry%403x.png" />
+    <BundleResource Include="Resources\footersalesentry%401x.png" />
+    <BundleResource Include="Resources\footersalesentry%402x.png" />
+    <BundleResource Include="Resources\footerreports%401x.png" />
+    <BundleResource Include="Resources\footerreports%402x.png" />
+    <BundleResource Include="Resources\footerreports%403x.png" />
+    <BundleResource Include="Resources\footerlocation%401x.png" />
+    <BundleResource Include="Resources\footerlocation%402x.png" />
+    <BundleResource Include="Resources\footerlocation%403x.png" />
+    <BundleResource Include="Resources\staricon.png" />
+    <BundleResource Include="Resources\staricon%402x.png" />
+    <BundleResource Include="Resources\staricon%403x.png" />
+    <BundleResource Include="Resources\platinum.png" />
+    <BundleResource Include="Resources\bronz.png" />
+    <BundleResource Include="Resources\gold.png" />
+    <BundleResource Include="Resources\silver.png" />
+    <BundleResource Include="Resources\barcode.png" />
+    <BundleResource Include="Resources\qrcode.png" />
+    <BundleResource Include="Resources\marketsurvey.png" />
+    <BundleResource Include="Resources\producttest.png" />
+    <BundleResource Include="Resources\questionnair.png" />
+    <BundleResource Include="Resources\crossblue.png" />
+    <BundleResource Include="Resources\calendarblue.png" />
+    <BundleResource Include="Resources\videoblue.png" />
+    <BundleResource Include="Resources\timeblue.png" />
+    <BundleResource Include="Resources\forwardblue.png" />
+    <BundleResource Include="Resources\DashboardReports.png" />
+    <BundleResource Include="Resources\chart.png" />
+    <BundleResource Include="Resources\applogo.png" />
+    <BundleResource Include="Resources\footersalestarget%401x.png" />
+    <BundleResource Include="Resources\footersalestarget%402x.png" />
+    <BundleResource Include="Resources\footersalestarget%403x.png" />
+    <BundleResource Include="Resources\userblue.png" />
+    <BundleResource Include="Resources\eyehide.png" />
+    <BundleResource Include="Resources\eyeshow.png" />
+    <BundleResource Include="Resources\upicon.png" />
+    <BundleResource Include="Resources\downicon.png" />
+    <BundleResource Include="Resources\inventorystocktile.png" />
+    <BundleResource Include="Resources\collapsearrow.png" />
+    <BundleResource Include="Resources\expandarrow.png" />
+    <BundleResource Include="Resources\userwhite.png" />
+    <BundleResource Include="Resources\menubg.png" />
+    <BundleResource Include="Resources\dashboardimg.png" />
+    <BundleResource Include="Resources\rptcircle.png" />
+    <BundleResource Include="Resources\headerbg.png" />
+    <BundleResource Include="Resources\iconimage.png" />
+    <BundleResource Include="Resources\hometrans.png" />
+    <BundleResource Include="Resources\locationdashboard.png" />
+    <BundleResource Include="Resources\reportsdashbaord.png" />
+    <BundleResource Include="Resources\inventorydashboard.png" />
+    <BundleResource Include="Resources\marketinteldashboard.png" />
+    <BundleResource Include="Resources\salesentrydashboard.png" />
+    <BundleResource Include="Resources\salesreturnsadhboard.png" />
+    <BundleResource Include="Resources\attendancedashboard.png" />
+    <BundleResource Include="Resources\targetdashboard.png" />
+    <BundleResource Include="Resources\ptdashboard.png" />
+    <BundleResource Include="Resources\questionnairedashboard.png" />
+    <BundleResource Include="Resources\qrcodedashboard.png" />
+    <BundleResource Include="Resources\barcodedashboard.png" />
+    <BundleResource Include="Resources\surveydashboard.png" />
+    <BundleResource Include="Resources\homedashboard.png" />
+    <BundleResource Include="Resources\logoutdashboard.png" />
+    <BundleResource Include="Resources\userdashbaord.png" />
+    <BundleResource Include="Resources\passdashboard.png" />
+    <BundleResource Include="Resources\cataloguedashboard.png" />
+    <BundleResource Include="Resources\checkednew.png" />
+    <BundleResource Include="Resources\downnew.png" />
+    <BundleResource Include="Resources\clocknew.png" />
+    <BundleResource Include="Resources\editnew.png" />
+    <BundleResource Include="Resources\cancelnew.png" />
+    <BundleResource Include="Resources\nextnew.png" />
+    <BundleResource Include="Resources\calendarnew.png" />
+    <BundleResource Include="Resources\downarrowgray.png" />
+    <BundleResource Include="Resources\searchnew.png" />
+    <BundleResource Include="Resources\addnew.png" />
+    <BundleResource Include="Resources\videonew.png" />
+    <BundleResource Include="Resources\cameranew.png" />
+    <BundleResource Include="Resources\closenew.png" />
+    <BundleResource Include="Resources\menubacks.png" />
+    <BundleResource Include="Resources\segoeuibold.ttf" />
+    <BundleResource Include="Resources\Yamdum style.ttf" />
+    <BundleResource Include="Resources\Sabatica-regular.ttf" />
+    <BundleResource Include="Resources\Vacaciones-font-ffp-defharo.ttf" />
+    <BundleResource Include="Resources\Zachery.otf" />
+    <BundleResource Include="Resources\Yagora.ttf" />
+    <BundleResource Include="Resources\US101.TTF" />
+    <BundleResource Include="Resources\segoemediacentersemibold.ttf" />
+    <BundleResource Include="Resources\SEGOEUI.TTF" />
+    <BundleResource Include="Resources\Zabdilus.ttf" />
+    <BundleResource Include="Resources\leftsideheader.png" />
+    <BundleResource Include="Resources\hesderprofile.png" />
+    <BundleResource Include="Resources\Fonts\calibri-bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\checked.png" />
+    <BundleResource Include="Resources\displaytracker.png" />
+    <BundleResource Include="Resources\pricetracker.png" />
+  </ItemGroup>
+</Project>

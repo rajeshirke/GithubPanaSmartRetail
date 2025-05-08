@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Retail.Views.SalesTargetViews.ProductCategoryPopupView"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" BackgroundColor="#C0808080" x:Name="Root">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center" PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8" DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <ScrollView>
+        <AbsoluteLayout VerticalOptions="CenterAndExpand">
+            <Grid VerticalOptions="CenterAndExpand">
+                <StackLayout Margin="10" Padding="10" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="WhiteSmoke">
+                    <Grid Padding="5" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Padding="0,0,0,0">
+                            <Grid.Padding>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="Android">0,0,0,0</On>
+                                    <On Platform="iOS">0,0,0,0</On>
+                                </OnPlatform>
+                            </Grid.Padding>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Image x:Name="CancelImg" Source="cancelnew" HeightRequest="15" WidthRequest="15" HorizontalOptions="End" VerticalOptions="Start">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="Product Category" HorizontalOptions="StartAndExpand" Padding="5" Style="{StaticResource LabelLargeBlack}" FontAttributes="Bold" />
+                            </Grid>
+                            <Grid Padding="5" Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>                                
+                                    </Grid.RowDefinitions>
+
+                                    <contr:RoundedCornerView Grid.Row="0" HeightRequest="42" RoundedCornerRadius="10">
+                                        <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="{OnPlatform iOS='-2,-2,-2,5',Android='0,0,0,5'}" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="1"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <contr:TitleDropdownView Grid.Row="0" HeightRequest="35" Placeholder="Select category" HorizontalOptions="StartAndExpand" PickerItemsSource="{Binding CategoryDropDown}" ItemDisplayBinding="Title" SelectedItem="{Binding SelectedCategory}" Command="{Binding SelectCategoryCommand}" />
+                                            </Grid>
+                                            <Grid Grid.Row="1" Padding="5,0">
+                                                <BoxView Grid.Row="0" BackgroundColor="#B4B1B1" VerticalOptions="CenterAndExpand"/>
+                                            </Grid>
+                                        </Grid>
+                                    </contr:RoundedCornerView>
+                                </Grid>
+
+                                <Grid Grid.Row="1" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <contr:RoundedCornerView Grid.Row="0" HeightRequest="42" RoundedCornerRadius="10">
+                                        <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="{OnPlatform iOS='-2,-2,-2,5',Android='0,0,0,5'}" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="1"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0">
+                                                <contr:TitleDropdownView HeightRequest="35"
+                                                                         Placeholder="Select subcategory"
+                                                                         HorizontalOptions="StartAndExpand"
+                                                                         PickerItemsSource="{Binding SubCategoryDropDown}"
+                                                                         ItemDisplayBinding="Title" SelectedItem="{Binding SelectedSubCategory}"
+                                                                         Command="{Binding SelectSubCategoryCommand}" />
+                                            </Grid>
+                                            <Grid Grid.Row="1" Padding="5,0">
+                                                <BoxView Grid.Row="0" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                            </Grid>
+                                        </Grid>
+                                    </contr:RoundedCornerView>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Margin="5" HeightRequest="45">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" Text="Search" Style="{StaticResource ButtonBlueStyle}"   Command="{Binding SearchCommand}"/>
+                                    <Button Grid.Column="1" Text="Clear" Style="{StaticResource ButtonPinkStyle}"   Command="{Binding ClearCommand}" />
+                                </Grid>
+
+                                <Grid Grid.Row="3" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="280"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Padding="10,0,0,0" Grid.Row="0" Text="Select Model Number" Style="{StaticResource MyTitleLabel}"/>
+                                    <CollectionView Grid.Row="1" ItemsSource="{Binding lstModelNo}" BackgroundColor="Transparent" EmptyView="No record">
+                                        <CollectionView.EmptyViewTemplate>
+                                            <DataTemplate>
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="15" Style="{StaticResource EnteryTxtValues}" Text="No Entries" HeightRequest="60" />
+                                            </DataTemplate>
+                                        </CollectionView.EmptyViewTemplate>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid BackgroundColor="Transparent">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0" Padding="10">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="1"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Label Grid.Row="0" HorizontalOptions="Start" x:Name="lblModelNo" Text="{Binding ModelNumber}" LineBreakMode="WordWrap" Style="{StaticResource EnteryTxtValues}">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding BindingContext.SelectModelNoCommand, Source={x:Reference Name=Root}}" CommandParameter="{Binding .}" NumberOfTapsRequired="1"/>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                        <BoxView Grid.Row="1" BackgroundColor="{StaticResource GrayColor}"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <contr:LoaderAnimView 
+                AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        </AbsoluteLayout>
+        
+    </ScrollView>
+</pages:PopupPage>

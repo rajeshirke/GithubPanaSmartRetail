@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.MyVisits.TaskSummary.ManagerSignature"
+    xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+    x:Name="RootPhoto"
+    FlowDirection="{Binding flowDirection}"
+    BackgroundColor="{StaticResource LighterGray}"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:cvrt="clr-namespace:Retail.Converters"
+    Title="Manager Signature">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cvrt:TaskSummaryTickConverter x:Key="TaskSummaryTickConverters"/>
+            <cvrt:Base64ToImageSource x:Key="Base64ToImageSource"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height=".5*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="{Binding FileInfos.DisplayPhoto}"
+                        BackgroundColor="{StaticResource LightGray}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Aspect="AspectFill"/>
+                <Image Source="{Binding FileInfos.FileFullPath,Converter={StaticResource Key=Base64ToImageSource}}"
+                        BackgroundColor="{StaticResource LightGray}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Aspect="AspectFill"
+                       IsVisible="{Binding FileInfos.FileInfoId, Converter={StaticResource Key=TaskSummaryTickConverters}}"/>
+
+                <forms:SignaturePadView x:Name="spForms" Grid.Row="1"
+                        BackgroundColor="White"
+                        WidthRequest="250"
+                        HeightRequest="250"
+                        StrokeColor="Black"
+                        Margin="10,0,10,0"
+                        IsBlank="{Binding IsSigBlank}"
+                        StrokeWidth="3" />
+
+                
+                <Grid Grid.Row="2"  Margin="5" HeightRequest="45" VerticalOptions="EndAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <contr:RoundedCornerView Grid.Column="0"
+                                             BackgroundColor="{StaticResource BlueColor}"
+                                             BorderWidth="2" RoundedCornerRadius="6" >
+                        <Grid x:Name="Save" BackgroundColor="{StaticResource TransparentColor}"
+                              VerticalOptions="FillAndExpand">
+                        <Label  Text="Done" HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center" 
+                                VerticalOptions="Center"
+                                Style="{StaticResource LabelMediumWhite}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"                                                    
+                                    NumberOfTapsRequired="1" />
+                        </Grid.GestureRecognizers>
+                        </Grid>
+                    </contr:RoundedCornerView>
+
+                    <contr:RoundedCornerView Grid.Column="1"
+                                             BackgroundColor="{StaticResource PinkColor}"
+                                             BorderWidth="2" RoundedCornerRadius="6">
+                        <Grid BackgroundColor="{StaticResource TransparentColor}"
+                              VerticalOptions="FillAndExpand">
+                        <Label    Text="Cancel" HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" VerticalOptions="Center" 
+                               Style="{StaticResource LabelMediumWhite}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped_Cancel"
+                                    NumberOfTapsRequired="1" />
+                        </Grid.GestureRecognizers>
+                        </Grid>
+                    </contr:RoundedCornerView>                                       
+                </Grid>
+
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

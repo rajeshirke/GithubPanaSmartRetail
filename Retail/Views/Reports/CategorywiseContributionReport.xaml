@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.Reports.CategorywiseContributionReport"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"    
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns:expander="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms" xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"   
+    ios:Page.UseSafeArea="true"
+    x:Name="root"
+    BackgroundColor="{StaticResource LighterGray}"
+    Title="Category wise Contribution">
+    <ContentPage.Content>
+       
+    <ScrollView>
+        <AbsoluteLayout Padding="-5" VerticalOptions="FillAndExpand">
+             
+            <Grid Padding="5" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>                
+                </Grid.RowDefinitions>                         
+                    <Grid >
+                    <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android">0,0,0,0</On>
+                        <On Platform="iOS">0,0,0,0</On>
+                    </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                                            
+                    </Grid.RowDefinitions>                            
+                        <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>                        
+                        </Grid.RowDefinitions>
+                        <Frame Margin="5" HasShadow="False" Grid.Row="0" CornerRadius="10" BackgroundColor="{StaticResource WhiteColor}" Padding="5">
+
+                        </Frame>
+                        <Grid Margin="5"  Grid.Row="0" RowSpacing="0" Padding="2">
+                            
+                            <expander:SfExpander BackgroundColor="{StaticResource WhiteColor}"
+                                                 HeaderBackgroundColor="{StaticResource WhiteColor}"
+                                                 AnimationDuration="200" Grid.Row="0" IsExpanded="False"
+                                                 HeaderIconPosition="End">
+                                 <expander:SfExpander.Header >                                     
+                                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                                        <Label Text="Apply Filter" Style="{StaticResource MyTitleLabel}" Padding="0,0,2,0"/>                                    
+                                    </Grid>                                                    
+                                </expander:SfExpander.Header >
+                                <expander:SfExpander.Content>
+                                    <Grid RowSpacing="0" Padding="10,0,10,0" BackgroundColor="{StaticResource WhiteColor}">
+                                        <Grid.HeightRequest>
+                                                 <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="Android">140</On>
+                                                        <On Platform="iOS">120</On>
+                                                </OnPlatform>
+                                            </Grid.HeightRequest>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>                                                                                                     
+                                        </Grid.RowDefinitions>
+                                         <Grid Grid.Row="0" VerticalOptions="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>                                        
+                                            </Grid.RowDefinitions>
+                                           <Label   Grid.Row="0" Text="Select Month" Style="{StaticResource MyTitleLabel}" Padding="5,5,2,0"  />
+                                            <contr:RoundedCornerView Grid.Row="1" BorderWidth="2" RoundedCornerRadius="5"  >                         
+                                                <Grid Padding="5,0" BackgroundColor="{StaticResource WhiteColor}">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="1"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>                    
+                                                    <Grid Grid.Row="0" HorizontalOptions="StartAndExpand">
+                                
+                                                        <contr:TwoMonthYearPicker
+                                                                x:Name="monthyearpicker"
+                                                                Date="{Binding Date}"                      
+                                                                BackgroundColor="Transparent"
+                                                                WidthRequest="1500"
+                                                                HorizontalOptions="StartAndExpand"                                                        
+                                                                Image="downarrowgray"                                                                                                     
+                                                                ImageAlignment="Right"
+                                                                TextColor="{StaticResource GrayShade}"
+                                                                FontSize="Micro"
+                                                                TextFont="calibribold"
+                                                                FontAttributes="Bold">                                                      
+                                                   
+                                                        </contr:TwoMonthYearPicker>
+                                                            <Grid.Padding>
+                                                                <OnPlatform x:TypeArguments="Thickness">
+                                                                    <On Platform="Android">0,0,0,0</On>
+                                                                    <On Platform="iOS">5,0,0,5</On>
+                                                                </OnPlatform>
+                                                            </Grid.Padding>
+                                                        <Grid.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="Android">60</On>
+                                                                    <On Platform="iOS">42</On>
+                                                                </OnPlatform>
+                                                        </Grid.HeightRequest>
+                                                    </Grid>
+
+                                                    <BoxView  Grid.Row="1" 
+                                                                BackgroundColor="#B4B1B1"
+                                                                VerticalOptions="CenterAndExpand"/>
+                                           
+                                                </Grid>
+                                                <contr:RoundedCornerView.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                                    <On Platform="Android">50</On>
+                                                                    <On Platform="iOS">42</On>
+                                                                </OnPlatform>
+                                                </contr:RoundedCornerView.HeightRequest>
+                                            </contr:RoundedCornerView>
+                                        </Grid>
+                                        <Grid Grid.Row="1" Padding="5"  >
+                                            <Button  Text="View" HeightRequest="45"
+                                                    FontAttributes="Bold" FontSize="15"
+                                                    CornerRadius="5" Clicked="Button_Clicked"
+                                                    Style="{StaticResource ButtonBlueStyle}"/>
+                                        
+                                        </Grid>
+                                    </Grid>
+                                </expander:SfExpander.Content>
+                            </expander:SfExpander>
+                          
+                        </Grid>
+                   
+                        <Grid Grid.Row="1" Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>                            
+                            </Grid.RowDefinitions>
+                        
+                            <CollectionView Grid.Row="0" ItemsSource="{Binding obSalesEntryReportView}" BackgroundColor="Transparent" EmptyView="No Records">  
+                                <CollectionView.EmptyViewTemplate>
+                                    <DataTemplate>
+                                        <Label     HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Style="{StaticResource LabelLargeBlack}" Text="No Records" HeightRequest="60" />                 
+                                    </DataTemplate>
+                                </CollectionView.EmptyViewTemplate>
+                                <CollectionView.ItemTemplate>  
+                                    <DataTemplate> 
+                                        <Grid BackgroundColor="Transparent" Padding="3">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>                                                 
+                                            </Grid.RowDefinitions>
+                       
+                                            <contr:RoundedCornerView Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="10">
+                                                <Grid Grid.Row="1" Padding="8" BackgroundColor="White">                                                       
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="Auto"/>                                                         
+                                                    </Grid.RowDefinitions> 
+
+                                                    <Grid Grid.Row="0" Margin="5,0,5,0">                                                 
+
+                                                        <Label    Text="{Binding PersonName}" LineBreakMode="TailTruncation" MaxLines="1"
+                                                        HorizontalOptions="StartAndExpand" Style="{StaticResource LabelLargeBlack}" Grid.Row="0" />
+
+                                                    
+                                                        <Label    
+                                                            HorizontalOptions="StartAndExpand"    LineBreakMode="NoWrap"                                                               
+                                                            Grid.Row="1">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span   Text="Category: " Style="{StaticResource MyTitleLabel}"/>
+                                                                    <Span   Text="{Binding ProductCategoryName}" Style="{StaticResource EnteryTxtValues}" />                                                                                                                                  
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+
+                                                        <Label    
+                                                            HorizontalOptions="StartAndExpand"    LineBreakMode="NoWrap"                                                               
+                                                            Grid.Row="2">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span   Text="Sub Category: " Style="{StaticResource MyTitleLabel}"/>
+                                                                    <Span   Text="{Binding ProductSubCategoryName}" Style="{StaticResource EnteryTxtValues}" />                                                                                                                                  
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    
+                                                        <Label    
+                                                            HorizontalOptions="StartAndExpand"    LineBreakMode="NoWrap"                                                               
+                                                            Grid.Row="3">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span   Text="Achieved: " Style="{StaticResource MyTitleLabel}"/>
+                                                                    <Span   Text="{Binding SalesValueOnly,StringFormat='{0:0,0.00}'}" Style="{StaticResource EnteryTxtValues}" />                                                                                                                                  
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                       
+                                                    </Grid>
+                                                        
+                                                </Grid>
+                                            </contr:RoundedCornerView>                                  
+                                      
+                                            </Grid>
+                                    </DataTemplate>  
+                                </CollectionView.ItemTemplate>  
+                            </CollectionView>                     
+                        </Grid>  
+
+                    </Grid>                
+                </Grid>
+            </Grid>
+
+            <contr:LoaderAnimView 
+                AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        </AbsoluteLayout>
+    </ScrollView>
+      
+    </ContentPage.Content>
+</ContentPage>

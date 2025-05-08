@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Retail.Views.SalesTargetViews.TargetsByProductCategoryView"
+    Title="Targets By Product Category"
+    x:Name="Root"
+    BackgroundColor="{StaticResource WhiteColor}" >
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid VerticalOptions="FillAndExpand"  RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Padding="10">
+                <contr:RoundedCornerView BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12">
+                    <SearchBar  PlaceholderColor="{StaticResource GrayColor}" BackgroundColor="{StaticResource WhiteColor}" Placeholder="Search Model Number" SearchButtonPressed="SearchBar_SearchButtonPressed" TextChanged="SearchBar_TextChanged"/>
+                </contr:RoundedCornerView>
+            </Grid>
+
+            <Label    Padding="10,0,10,0" Grid.Row="1" LineBreakMode="WordWrap" Style="{StaticResource LabelMediumBlue}" HorizontalOptions="FillAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span   Text="Category : " Style="{StaticResource LabelMediumBlue}"/>
+                        <Span   Text="{Binding ModelName}" Style="{StaticResource LabelMediumBlue}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <ListView Grid.Row="2" ItemsSource="{Binding TargetByProductData}" HasUnevenRows="True"  SeparatorVisibility="None"  BackgroundColor="{StaticResource TransparentColor}">  
+               <ListView.ItemTemplate>  
+                   <DataTemplate>  
+                       <ViewCell>
+                           <Grid Padding="10,5,10,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>                            
+                                <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                                     <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                                     <Grid.RowDefinitions>
+                                         <RowDefinition Height="auto"/>
+                                         <RowDefinition Height="auto"/>
+                                         <RowDefinition Height="auto"/>
+                                     </Grid.RowDefinitions>
+                                     <Grid.ColumnDefinitions>
+                                         <ColumnDefinition Width="auto" />
+                                         <ColumnDefinition Width="auto" />
+                                     </Grid.ColumnDefinitions>
+                                     
+                                     <Label    Grid.Row="0" Text="{Binding TargetModelName}"  Style="{StaticResource LabelMediumBlack}" LineBreakMode="WordWrap" />                                           
+                                     <Label    Grid.Row="0" Padding="10,0,0,0" LineBreakMode="WordWrap" Grid.Column="1" Text="{Binding TargetDate}"  Style="{StaticResource LabelSmallBlack}" />
+
+                                     <Label    Grid.Row="1" LineBreakMode="WordWrap" Style="{StaticResource LabelMediumBlack}" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span   Text="Qty : " Style="{StaticResource LabelSmallBlack}"/>
+                                                    <Span   Text="{Binding Quantity}" Style="{StaticResource LabelMediumBlack}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                     </Label>
+                                     <Label    Grid.Row="1" Grid.Column="1" Padding="10,0,0,0" LineBreakMode="WordWrap" Style="{StaticResource LabelMediumBlack}" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span   Text="Amount : " Style="{StaticResource LabelSmallBlack}"/>
+                                                    <Span   Text="{Binding Amount}" Style="{StaticResource LabelMediumBlack}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                     </Label>
+
+                                         <Image  Grid.Column="2" Margin="0,20,0,0" HorizontalOptions="End" VerticalOptions="CenterAndExpand"  x:Name="tempimage" Source="next" HeightRequest="20" WidthRequest="20">
+                                         <Image.GestureRecognizers>
+                                             <TapGestureRecognizer
+                                                 Command="{Binding BindingContext.TargetItemCommand, Source={x:Reference Name=Root}}"
+                                                 CommandParameter="{Binding .}"
+                                                 NumberOfTapsRequired="1"/>
+                                         </Image.GestureRecognizers>                                             
+                                     </Image>  
+                                   </Grid>
+                                </contr:RoundedCornerView>
+                           </Grid>
+                       </ViewCell>
+                   </DataTemplate>  
+               </ListView.ItemTemplate>  
+            </ListView>    
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

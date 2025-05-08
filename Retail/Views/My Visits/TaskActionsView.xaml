@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.MyVisits.TaskActionsView"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:contr="clr-namespace:Retail.Controls"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource WhiteColor}"
+    Title="Task Actions">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid Padding="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>                
+            </Grid.RowDefinitions>
+             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>  
+             <Grid Grid.Row="0" Padding="5">
+                <CollectionView ItemsSource="{Binding TaskActionsData}" BackgroundColor="{StaticResource TransparentColor}" EmptyView="No record">
+                    <CollectionView.EmptyViewTemplate>
+                        <DataTemplate>
+                            <Label     HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Style="{StaticResource LabelLargeBlack}" Text="No record" HeightRequest="60" />                
+                        </DataTemplate>
+                    </CollectionView.EmptyViewTemplate>
+                    <CollectionView.ItemTemplate>  
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label    Grid.Row="0" HorizontalOptions="Start" Text="{Binding TaskActionName}" Style="{StaticResource MyTitleLabel}"  />                                            
+                                        <Image Grid.Row="0" HorizontalOptions="End" VerticalOptions="CenterAndExpand" x:Name="tempimage" Source="nextnew" HeightRequest="20" WidthRequest="20">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding TaskActionCommand}"
+                                                    NumberOfTapsRequired="1"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>  
+                                    </Grid>
+                                </contr:RoundedCornerView>
+                            </Grid>
+                        </DataTemplate>  
+                    </CollectionView.ItemTemplate>  
+                </CollectionView>
+             </Grid>
+        </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

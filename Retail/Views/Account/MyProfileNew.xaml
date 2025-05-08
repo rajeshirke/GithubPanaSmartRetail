@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    BackgroundColor="{StaticResource LighterGray}"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    Title="My Profile"  FlowDirection="{Binding flowDirection}"
+    x:Class="Retail.Views.Account.MyProfileNew" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary"  Text="" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ScrollView BackgroundColor="White">
+        <AbsoluteLayout Padding="-5" VerticalOptions="FillAndExpand">
+            <BoxView Style="{StaticResource CardBlueStyle}"
+                 AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+            
+                <Grid VerticalOptions="FillAndExpand"
+                      RowSpacing="0" Padding="5" Margin="10"
+                      AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                      AbsoluteLayout.LayoutFlags="All">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                     <border:SfBorder HasShadow="True" BorderThickness="2" BorderWidth="2" BackgroundColor="{StaticResource WhiteColor}"
+                                 CornerRadius="15,0,15,0"  Margin="10" Grid.Row="0" BorderColor="{StaticResource LightGray}">
+                            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="10,0">
+                                 <Frame  Grid.Row="0" BorderColor="White" VerticalOptions="Start" HeightRequest="180" HasShadow="False"
+                                       CornerRadius="10" Margin="10" Padding="0" IsClippedToBounds="True">
+                                    <Image Source="hesderprofile" Aspect="AspectFill" Opacity="0.5"/>
+                                </Frame>
+                                 <Frame Grid.Row="1" Margin="0,-90,0,0" BorderColor="White" HorizontalOptions="Center" WidthRequest="100" HeightRequest="{OnPlatform iOS='110', Android='70'}" HasShadow="False" CornerRadius="{OnPlatform iOS='55', Android='50'}" Padding="0" IsClippedToBounds="True">
+                                    <Image x:Name="PhotoImage" Margin="5" Source="userdashbaord" Aspect="Fill">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                                <Grid  Grid.Row="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                     <Label   Grid.Row="0" Text="{Binding Name}"
+                                             HorizontalTextAlignment="Center" Style="{StaticResource MyTitleLabel}" >
+                                    </Label>
+                                    <Label  Grid.Row="1" LineBreakMode="WordWrap" HorizontalTextAlignment="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>                                                  
+                                            <Span Text="{Binding Email}" Style="{StaticResource MyTitleLabel}" />                                                  
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                    
+                                <Label   Grid.Row="2" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" IsVisible="{Binding IsVisibleMobNo}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span   Text="M.  " Style="{StaticResource MyTitleLabel}" />
+                                            <Span    Text="{Binding MobileNumber}" Style="{StaticResource MyTitleLabel}"/>                                                  
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label    Text="{Binding Country}" Grid.Row="3" Style="{StaticResource MyTitleLabel}"
+                                          LineBreakMode="WordWrap" HorizontalTextAlignment="Center">                        
+                                </Label>
+                                <Label  Margin="0,5,0,0"  Style="{StaticResource LabelMediumBlack}" Grid.Row="4"
+                                        LineBreakMode="WordWrap" HorizontalTextAlignment="Center" IsVisible="{Binding IsProfileStatusVisible}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span    Text="Status: " Style="{StaticResource MyTitleLabel}" />
+                                            <Span    Text="{Binding Status}" Style="{StaticResource EnteryTxtValues}" />                                                  
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Image  Grid.Row="4" HorizontalOptions="EndAndExpand" Source="{Binding StatusImage}" Aspect="AspectFit"  >
+                                    <Image.WidthRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">25</On>
+                                            <On Platform="Android">25</On>
+                                        </OnPlatform>
+                                    </Image.WidthRequest>
+                                    <Image.HeightRequest>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <On Platform="iOS">25</On>
+                                            <On Platform="Android">25</On>
+                                        </OnPlatform>
+                                    </Image.HeightRequest>
+                                </Image> 
+                                </Grid>
+                            </Grid>
+                        
+                        
+                    </border:SfBorder>                
+
+                    <border:SfBorder HasShadow="True" BackgroundColor="White" 
+                                     HeightRequest="150" BorderColor="{StaticResource LighterGray}" BorderThickness="2" BorderWidth="2"
+                        CornerRadius="0,15,0,15"  Margin="10" Grid.Row="1" >
+                          <Grid Grid.Row="1" Padding="0" Margin="0" RowSpacing="0" ColumnSpacing="0"  >
+                               
+                              <Grid.RowDefinitions>
+                                       <RowDefinition Height="auto"/>
+                                       <RowDefinition Height="auto" />               
+                              </Grid.RowDefinitions>
+                              <border:SfBorder Grid.Row="0" CornerRadius="5" Margin="20,20,20,0"
+                                               BorderThickness="2" BorderColor="{StaticResource LightGray}">
+                                  <Grid BackgroundColor="{StaticResource LighterGray}">
+                                        <StackLayout Orientation="Horizontal" Padding="10">
+                                        <Image Source="passdashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>
+                    
+                                        <Label     Text="Change Password" VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" Style="{StaticResource MyTitleLabel}"
+                                                FontSize="15" />
+                                        </StackLayout>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                    Tapped="ChnageTapGestureRecognizer_Tapped"
+                                                    NumberOfTapsRequired="1" />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                              </border:SfBorder>
+                    
+                              <border:SfBorder Grid.Row="1" CornerRadius="5" Margin="20,10,20,0" BorderThickness="2" BorderColor="{StaticResource LightGray}"> 
+                                   <Grid BackgroundColor="{StaticResource LighterGray}">                  
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                <Image Source="logoutdashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>
+                    
+                                <Label     Text="Logout" VerticalOptions="Center"
+                                        VerticalTextAlignment="Center" Style="{StaticResource MyTitleLabel}"
+                                        FontSize="15" />
+                                </StackLayout>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                            Command="{Binding LogoutCommand}" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                              </border:SfBorder>
+                   
+
+                          </Grid>
+                    </border:SfBorder>             
+       
+                </Grid>
+            </AbsoluteLayout>
+        </ScrollView>    
+</ContentPage>

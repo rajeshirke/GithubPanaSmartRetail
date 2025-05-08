@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    x:Class="Retail.Views.Dashboard.SampleCharts" >
+
+    <Grid>
+       
+    <forms:ChartView x:Name="Chart1" HeightRequest="200" Grid.Row="0"/>
+
+     <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <StackLayout x:Name="pickerStack" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">                
+                <!--layout to add picker control -->
+        </StackLayout>
+
+        <Button Text="+ add another group" Clicked="Button_Clicked" />
+
+    </StackLayout>
+
+</Grid>
+</ContentPage>

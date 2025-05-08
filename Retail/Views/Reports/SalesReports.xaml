@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls" x:Class="Retail.Views.Reports.SalesReports"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
+    ios:Page.UseSafeArea="true" x:Name="root"
+    BackgroundColor="{StaticResource LighterGray}" Title="Sales ">
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <AbsoluteLayout Padding="-5" VerticalOptions="FillAndExpand">
+                <BoxView AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+
+                <Grid Padding="5" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid Padding="0,0,0,0">
+                        <Grid.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="Android">0,0,0,0</On>
+                                <On Platform="iOS">0,0,0,0</On>
+                            </OnPlatform>
+                        </Grid.Padding>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Padding="2,0,2,0" Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <contr:RoundedCornerView Margin="10" RoundedCornerRadius="10" HeightRequest="42" VerticalOptions="Start" Grid.Row="0">
+                                <Grid VerticalOptions="Center" BackgroundColor="{StaticResource WhiteColor}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <RadioButton x:Name="rbSalesvsCountryReport" Value="0" Style="{StaticResource MyTitleLabel}" Grid.Row="0" Grid.Column="0" HorizontalOptions="EndAndExpand" Content="Sales vs Country" CheckedChanged="rbSalesvsCountryReport_CheckedChanged"/>
+                                    <RadioButton x:Name="rbSalesvsCCategoryReport" Style="{StaticResource MyTitleLabel}" IsChecked="{Binding IsCategoryChecked}" Value="1" Grid.Row="0" Grid.Column="1" HorizontalOptions="StartAndExpand" Content="Sales vs Category" />
+                                </Grid>
+                            </contr:RoundedCornerView>
+                            <Grid Grid.Row="1" x:Name="grSalesVSCountryReport">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Text="{Binding CurrentDate,StringFormat='{0:MMMM,yyyy}'}" HorizontalOptions="EndAndExpand" Style="{StaticResource MyTitleLabel}"/>
+                                </Grid>
+                                <Frame Margin="5" HasShadow="False" Grid.Row="1" CornerRadius="10" BackgroundColor="{StaticResource WhiteColor}" Padding="5">
+
+                                </Frame>
+                                <Grid Grid.Row="1" RowSpacing="0" Padding="2" Margin="5">
+                                    <syncfusion:SfExpander BackgroundColor="{StaticResource WhiteColor}" Grid.Row="0" HeaderBackgroundColor="{StaticResource WhiteColor}" IsExpanded="False">
+                                        <syncfusion:SfExpander.Header>
+                                            <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                                                <Label Text="Apply Filter" Style="{StaticResource MyTitleLabel}" Padding="0,0,2,0"/>
+                                            </Grid>
+                                        </syncfusion:SfExpander.Header>
+                                        <syncfusion:SfExpander.Content>
+                                            <Grid RowSpacing="0" BackgroundColor="{StaticResource WhiteColor}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <contr:RoundedCornerView Grid.Row="0" BorderWidth="2" RoundedCornerRadius="5" Padding="5" >                         
+                                                    <Grid Padding="5,0" BackgroundColor="{StaticResource WhiteColor}">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="1"/>
+                                                            <RowDefinition Height="auto"/>
+                                                        </Grid.RowDefinitions>                    
+                                                        <Grid Grid.Row="0" HorizontalOptions="StartAndExpand">
+                                
+                                                            <contr:TwoMonthYearPicker
+                                                                x:Name="monthyearpicker"
+                                                                Date="{Binding Date}"                      
+                                                                BackgroundColor="Transparent"
+                                                                WidthRequest="1500"
+                                                                HorizontalOptions="StartAndExpand"                                                        
+                                                                Image="downarrowgray"                                                                                                     
+                                                                ImageAlignment="Right"
+                                                                TextColor="{StaticResource DarkGray}">                                                   
+                                                   
+                                                            </contr:TwoMonthYearPicker>
+                                                                <Grid.Padding>
+                                                                    <OnPlatform x:TypeArguments="Thickness">
+                                                                        <On Platform="Android">0,0,0,0</On>
+                                                                        <On Platform="iOS">5,0,0,5</On>
+                                                                    </OnPlatform>
+                                                                </Grid.Padding>
+                                                            <Grid.HeightRequest>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="Android">60</On>
+                                                                        <On Platform="iOS">42</On>
+                                                                    </OnPlatform>
+                                                            </Grid.HeightRequest>
+                                                        </Grid>
+                                                       
+                                                        <BoxView  Grid.Row="1" 
+                                                                    BackgroundColor="#B4B1B1"
+                                                                    VerticalOptions="CenterAndExpand"/>
+                                           
+                                                    </Grid>
+                                                    <contr:RoundedCornerView.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="Android">50</On>
+                                                                        <On Platform="iOS">42</On>
+                                                                    </OnPlatform>
+                                                    </contr:RoundedCornerView.HeightRequest>
+                                                </contr:RoundedCornerView>
+                                                <Grid Grid.Row="1" Padding="5" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="1"/>
+                                                    </Grid.RowDefinitions>
+                                                    <contr:ImageEntry ImageHeight="20" ImageWidth="20" Focused="txtCountry_Focused" VerticalTextAlignment="Center" Grid.Row="0" BackgroundColor="Transparent" IsEnabled="False" Placeholder="Select Country" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" Image="downarrowgray" ImageAlignment="Right" x:Name="txtCountry" HorizontalTextAlignment="Start">
+                                                        <contr:ImageEntry.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">40</On>
+                                                                <On Platform="iOS">30</On>
+                                                            </OnPlatform>
+                                                        </contr:ImageEntry.HeightRequest>
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Disabled">
+                                                                    <VisualState.Setters>
+                                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                    </contr:ImageEntry>
+                                                    <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                                <Grid Grid.Row="2" Padding="5" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="1"/>
+                                                    </Grid.RowDefinitions>
+                                                    <contr:ImageEntry ImageHeight="20" ImageWidth="20" Focused="txtCity_Focused" VerticalTextAlignment="Center" Grid.Row="0" BackgroundColor="Transparent" IsEnabled="False" Placeholder="Select City" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" Image="downarrowgray" ImageAlignment="Right" x:Name="txtCity" HorizontalTextAlignment="Start">
+                                                        <contr:ImageEntry.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">40</On>
+                                                                <On Platform="iOS">30</On>
+                                                            </OnPlatform>
+                                                        </contr:ImageEntry.HeightRequest>
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Disabled">
+                                                                    <VisualState.Setters>
+                                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                    </contr:ImageEntry>
+                                                    <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                                <Grid Grid.Row="3" Padding="5" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="1"/>
+                                                    </Grid.RowDefinitions>
+                                                    <contr:ImageEntry ImageHeight="20" ImageWidth="20" Focused="txtAccount_Focused" VerticalTextAlignment="Center" Grid.Row="0" BackgroundColor="Transparent" IsEnabled="False" Placeholder="Select Account" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" Image="downarrowgray" ImageAlignment="Right" x:Name="txtAccount" HorizontalTextAlignment="Start">
+                                                        <contr:ImageEntry.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">40</On>
+                                                                <On Platform="iOS">30</On>
+                                                            </OnPlatform>
+                                                        </contr:ImageEntry.HeightRequest>
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Disabled">
+                                                                    <VisualState.Setters>
+                                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                    </contr:ImageEntry>
+                                                    <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                                <Grid Grid.Row="4" Padding="5" HeightRequest="40">                                                   
+                                                    <Button Text="View" Style="{StaticResource ButtonBlueStyle}" CornerRadius="5" Clicked="ShowSalesvsCountryReport_Clicked"/>
+                                                </Grid>
+                                            </Grid>
+                                        </syncfusion:SfExpander.Content>
+                                    </syncfusion:SfExpander>
+
+                                </Grid>
+
+                                <Grid Grid.Row="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <CollectionView Grid.Row="0" ItemsSource="{Binding obSalesTargetCountryCityAccountReportView}" BackgroundColor="Transparent" EmptyView="No Records">
+                                        <CollectionView.EmptyViewTemplate>
+                                            <DataTemplate>
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Style="{StaticResource LabelLargeBlack}" Text="No Records" HeightRequest="60" />
+                                            </DataTemplate>
+                                        </CollectionView.EmptyViewTemplate>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid BackgroundColor="Transparent" Padding="5">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <contr:RoundedCornerView Padding="5,0,5,0" Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="2" RoundedCornerRadius="10">
+                                                        <Grid Grid.Row="1" Padding="5" BackgroundColor="White">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+
+                                                            <Grid Grid.Row="0">
+                                                                <Label Grid.Row="0" HorizontalOptions="StartAndExpand" MaxLines="1" LineBreakMode="TailTruncation" Style="{StaticResource MyTitleLabel}">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding City}" Style="{StaticResource MyTitleLabel}" />
+                                                                            <Span Text="-" Style="{StaticResource MyTitleLabel}" />
+                                                                            <Span Text="{Binding LocationAccountName}" Style="{StaticResource MyTitleLabel}"/>
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                            </Grid>
+                                                            <Grid Grid.Row="1" >
+
+                                                                <Label Text="Target" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="0"/>
+                                                                <Label Text="Achieved" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="1"/>
+                                                                <Label Text="Balance" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="2"/>
+                                                                <Label Text="%" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="3"/>
+
+
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1"  Text="{Binding TotalTargets,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallBlack}" Grid.Row="1" Grid.Column="0"/>
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1" Text="{Binding AcheivedTargets,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallGreen}" Grid.Row="1" Grid.Column="1" />
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1" Text="{Binding BalanceTargets,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallRed}" Grid.Row="1" Grid.Column="2"/>
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1" Text="{Binding PercentageAchieved,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallRed}" Grid.Row="1" Grid.Column="3"/>
+
+
+                                                            </Grid>
+
+                                                        </Grid>
+                                                    </contr:RoundedCornerView>
+
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1" x:Name="grSalesVrCategoryReport">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Text="{Binding CurrentDate,StringFormat='{0:dd-MMM-yyyy}'}" HorizontalOptions="EndAndExpand" Style="{StaticResource MyTitleLabel}"/>
+                                </Grid>
+                                <Frame Margin="5" HasShadow="False" Grid.Row="1" CornerRadius="10" BackgroundColor="{StaticResource WhiteColor}" Padding="5">
+
+                                </Frame>
+                                <Grid Grid.Row="1" Padding="2" RowSpacing="0" Margin="5">
+                                    <syncfusion:SfExpander BackgroundColor="{StaticResource WhiteColor}" Grid.Row="0" HeaderBackgroundColor="{StaticResource WhiteColor}" IsExpanded="False">
+                                        <syncfusion:SfExpander.Header>
+                                            <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                                                <Label Text="Apply Filter" Style="{StaticResource MyTitleLabel}" Padding="0,0,2,0"/>
+
+                                            </Grid>
+                                        </syncfusion:SfExpander.Header>
+                                        <syncfusion:SfExpander.Content>
+                                            <Grid RowSpacing="0" BackgroundColor="{StaticResource WhiteColor}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <contr:RoundedCornerView Grid.Row="0" BorderWidth="2" RoundedCornerRadius="5" Padding="5" >                         
+                                                    <Grid Padding="5,0" BackgroundColor="{StaticResource WhiteColor}">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="1"/>
+                                                            <RowDefinition Height="auto"/>
+                                                        </Grid.RowDefinitions>                    
+                                                        <Grid Grid.Row="0" HorizontalOptions="StartAndExpand">
+                                
+                                                            <contr:TwoMonthYearPicker                                                                
+                                                                x:Name="monthyearpicker1"
+                                                                Date="{Binding Date}"                      
+                                                                BackgroundColor="Transparent"
+                                                                WidthRequest="1500"
+                                                                HorizontalOptions="StartAndExpand"                                                        
+                                                                Image="downarrowgray"                                                                                                     
+                                                                ImageAlignment="Right"
+                                                                TextColor="{StaticResource DarkGray}"
+                                                                FontSize="Micro"
+                                                                TextFont="calibribold.ttf"
+                                                                FontAttributes="Bold">                                                   
+                                                   
+                                                            </contr:TwoMonthYearPicker>
+                                                            
+                                                            <Grid.Padding>
+                                                                <OnPlatform x:TypeArguments="Thickness">
+                                                                    <On Platform="Android">0,0,0,0</On>
+                                                                    <On Platform="iOS">5,0,0,5</On>
+                                                                </OnPlatform>
+                                                            </Grid.Padding>
+                                                            <Grid.HeightRequest>
+                                                                <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="Android">60</On>
+                                                                        <On Platform="iOS">42</On>
+                                                                    </OnPlatform>
+                                                            </Grid.HeightRequest>
+                                                        </Grid>
+
+                                                        <BoxView  Grid.Row="1" 
+                                                                    BackgroundColor="#B4B1B1"
+                                                                    VerticalOptions="CenterAndExpand"/>
+                                           
+                                                    </Grid>
+                                                    <contr:RoundedCornerView.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="Android">50</On>
+                                                                        <On Platform="iOS">42</On>
+                                                                    </OnPlatform>
+                                                    </contr:RoundedCornerView.HeightRequest>
+                                                </contr:RoundedCornerView>
+                                                <Grid Grid.Row="1" Padding="5" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="1"/>
+                                                    </Grid.RowDefinitions>
+                                                    <contr:ImageEntry ImageHeight="20" ImageWidth="20" Focused="txtCountryIds_Focused" VerticalTextAlignment="Center" Grid.Row="0" BackgroundColor="Transparent" IsEnabled="False" Placeholder="Select Country" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" Image="downarrowgray" ImageAlignment="Right" x:Name="txtCountryIds" HorizontalTextAlignment="Start">
+                                                        <contr:ImageEntry.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">40</On>
+                                                                <On Platform="iOS">30</On>
+                                                            </OnPlatform>
+                                                        </contr:ImageEntry.HeightRequest>
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Disabled">
+                                                                    <VisualState.Setters>
+                                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                    </contr:ImageEntry>
+                                                    <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                                <Grid Grid.Row="2" Padding="5" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="1"/>
+                                                    </Grid.RowDefinitions>
+                                                    <contr:ImageEntry ImageHeight="20" ImageWidth="20" Focused="txtCityIds_Focused" VerticalTextAlignment="Center" Grid.Row="0" BackgroundColor="Transparent" IsEnabled="False" Placeholder="Select City" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" Image="downarrowgray" ImageAlignment="Right" x:Name="txtCityIds" HorizontalTextAlignment="Start">
+                                                        <contr:ImageEntry.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">40</On>
+                                                                <On Platform="iOS">30</On>
+                                                            </OnPlatform>
+                                                        </contr:ImageEntry.HeightRequest>
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Disabled">
+                                                                    <VisualState.Setters>
+                                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                    </contr:ImageEntry>
+                                                    <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4" NumberOfTapsRequired="1" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                                <Grid Grid.Row="3" Padding="5" BackgroundColor="White">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="1"/>
+                                                    </Grid.RowDefinitions>
+                                                    <contr:ImageEntry ImageHeight="20" ImageWidth="20" Focused="txtAccountIds_Focused" VerticalTextAlignment="Center" Grid.Row="0" BackgroundColor="Transparent" IsEnabled="False" Placeholder="Select Account" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" Image="downarrowgray" ImageAlignment="Right" x:Name="txtAccountIds" HorizontalTextAlignment="Start">
+                                                        <contr:ImageEntry.HeightRequest>
+                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">40</On>
+                                                                <On Platform="iOS">30</On>
+                                                            </OnPlatform>
+                                                        </contr:ImageEntry.HeightRequest>
+                                                        <VisualStateManager.VisualStateGroups>
+                                                            <VisualStateGroup x:Name="CommonStates">
+                                                                <VisualState x:Name="Disabled">
+                                                                    <VisualState.Setters>
+                                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                    </VisualState.Setters>
+                                                                </VisualState>
+                                                            </VisualStateGroup>
+                                                        </VisualStateManager.VisualStateGroups>
+                                                    </contr:ImageEntry>
+                                                    <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5" NumberOfTapsRequired="1" />
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                                <Grid Grid.Row="4" Padding="5">
+                                                    <!--<Button Text="View" HeightRequest="40" FontAttributes="Bold" FontSize="15" CornerRadius="5" x:Name="ShowSalesCategoryReports" Clicked="ShowSalesCategoryReports_Clicked" Style="{StaticResource ButtonBlueStyle}"/>-->
+                                                    <Button Text="View"
+                                                    FontAttributes = "Italic" HeightRequest="40" BorderColor="{StaticResource BlueColor}" TextColor="{StaticResource WhiteColor}" Style="{StaticResource ButtonBlueStyle}" CornerRadius="5" FontSize="14" Clicked="ShowSalesCategoryReports_Clicked" />
+                                                </Grid>
+                                            </Grid>
+                                        </syncfusion:SfExpander.Content>
+                                    </syncfusion:SfExpander>
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <CollectionView Grid.Row="0" ItemsSource="{Binding obSalesTargetProductCategoryReportView}" BackgroundColor="Transparent" EmptyView="No Records">
+                                        <CollectionView.EmptyViewTemplate>
+                                            <DataTemplate>
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="15" Style="{StaticResource LabelLargeBlack}" Text="No Records" HeightRequest="60" />
+                                            </DataTemplate>
+                                        </CollectionView.EmptyViewTemplate>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid BackgroundColor="Transparent" Padding="5">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <contr:RoundedCornerView Padding="5,0,5,0" Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="2" RoundedCornerRadius="10">
+                                                        <Grid Grid.Row="1" Padding="5" BackgroundColor="White">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="Auto"/>
+                                                                <RowDefinition Height="Auto"/>
+                                                            </Grid.RowDefinitions>
+
+                                                            <Grid Grid.Row="0">
+                                                                <Label Grid.Row="0" HorizontalOptions="StartAndExpand" MaxLines="1" LineBreakMode="TailTruncation" Style="{StaticResource MyTitleLabel}">
+                                                                    <Label.FormattedText>
+                                                                        <FormattedString>
+                                                                            <Span Text="{Binding City}" Style="{StaticResource MyTitleLabel}" />
+                                                                            <Span Text="-" Style="{StaticResource MyTitleLabel}" />
+                                                                            <Span Text="{Binding LocationAccountName}" Style="{StaticResource MyTitleLabel}"/>
+                                                                        </FormattedString>
+                                                                    </Label.FormattedText>
+                                                                </Label>
+                                                                <Label Grid.Row="0" HorizontalOptions="EndAndExpand" Text="{Binding Name}" LineBreakMode="WordWrap" Style="{StaticResource MyTitleLabel}" />
+                                                            </Grid>
+                                                            <Grid Grid.Row="1" >
+
+                                                                <Label Text="Target" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="0"/>
+                                                                <Label Text="Achieved" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="1"/>
+                                                                <Label Text="Balance" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="2"/>
+                                                                <Label Text="%" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" Grid.Row="0" Grid.Column="3"/>
+
+
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1" Text="{Binding TotalTargets,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallBlack}" Grid.Row="1" Grid.Column="0"/>
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1" Text="{Binding AcheivedTargets,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallGreen}" Grid.Row="1" Grid.Column="1" />
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1" Text="{Binding BalanceTargets,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallRed}" Grid.Row="1" Grid.Column="2"/>
+                                                                <Label LineBreakMode="TailTruncation" MaxLines="1" Text="{Binding PercentageAchieved,StringFormat='{0:0,0.00}'}" HorizontalOptions="CenterAndExpand" Style="{StaticResource LabelSmallRed}" Grid.Row="1" Grid.Column="3"/>
+
+
+                                                            </Grid>
+
+                                                        </Grid>
+                                                    </contr:RoundedCornerView>
+
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+                <contr:LoaderAnimView AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+            </AbsoluteLayout>
+        </ScrollView>
+
+
+
+    </ContentPage.Content>
+</ContentPage>

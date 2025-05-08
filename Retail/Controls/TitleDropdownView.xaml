@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Controls.TitleDropdownView">
+    <ContentView.Content>
+
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>               
+            </Grid.RowDefinitions>
+            
+             <Grid Grid.Row="0" VerticalOptions="Center"  BackgroundColor="Transparent" >
+                  
+                 <Grid.RowDefinitions>
+                     <RowDefinition Height="auto"/>                     
+                 </Grid.RowDefinitions>
+
+                    <Picker WidthRequest="2000" HorizontalOptions="StartAndExpand" x:Name="dropdown"
+                            Grid.Row="0" BackgroundColor="White" HeightRequest="45" 
+                            ItemsSource="{Binding PickerItemsSource}" ItemDisplayBinding="{Binding Title}"
+                            SelectedItem="{Binding SelectedItem, Mode=OneWay}"
+                            SelectedIndexChanged="dropdown_SelectedIndexChanged"                                     
+                            Style="{StaticResource EnteryTxtValues}"
+                            TitleColor="{StaticResource PlcGray}" Title="{Binding Placeholder}" >
+                        <!--Title="{Binding Placeholder}"-->
+                     
+                    </Picker>
+                    <Image Margin="{OnPlatform iOS='0,0,10,0'}" Source="downarrowgray" Grid.Row="0" Aspect="AspectFit" HorizontalOptions="EndAndExpand" VerticalOptions="Center"  HeightRequest="{OnPlatform iOS='20',Android='35'}" WidthRequest="{OnPlatform iOS='20',Android='35'}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"
+                                    NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                 
+              </Grid>
+          
+            
+                       
+        </Grid>
+    </ContentView.Content>
+</ContentView>

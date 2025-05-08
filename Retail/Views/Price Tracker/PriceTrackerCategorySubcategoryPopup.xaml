@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.PriceTracker.PriceTrackerCategorySubcategoryPopup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms"
+    BackgroundColor="#C0808080" x:Name="Root">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center" PositionOut="Center" ScaleIn="1.2" ScaleOut="0.8" DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <ScrollView>
+        <AbsoluteLayout VerticalOptions="CenterAndExpand">
+            <Grid VerticalOptions="CenterAndExpand">
+                <StackLayout Margin="10" Padding="10" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="WhiteSmoke">
+                    <Grid Padding="5" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Padding="0,0,0,0">
+                            <Grid.Padding>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="Android">0,0,0,0</On>
+                                    <On Platform="iOS">0,0,0,0</On>
+                                </OnPlatform>
+                            </Grid.Padding>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Image x:Name="CancelImg" Source="cancelnew" HeightRequest="15" WidthRequest="15" HorizontalOptions="End" VerticalOptions="Start">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                    </Image.GestureRecognizers>
+                                </Image>                                
+                            </Grid>
+                            <Grid Padding="5" Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" RowSpacing="0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/> 
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Text="Product Category" Style="{StaticResource MyTitleLabel}" Padding="2" />
+                                    <contr:RoundedCornerView Grid.Row="1" CornerRadius="8">
+                                        <Grid BackgroundColor="White" VerticalOptions="Center" Padding="5,0,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="auto"/> 
+                                            </Grid.RowDefinitions>
+                                            <contr:ImageEntry VerticalOptions="Center"
+                                                            Focused="txtCategory_Focused"
+                                                            Grid.Row="0" Placeholder="Select Catgeory"
+                                                            Style="{StaticResource MyValueLabel}" 
+                                                            x:Name="txtCategory" FontSize="15"
+                                                            Text="{Binding SelectedCategoryText}"
+                                                            HorizontalTextAlignment="Start" Image="downarrowgray"
+                                                            IsEnabled="False" ImageHeight="20" ImageWidth="20"
+                                                            ImageAlignment="Right">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Disabled">
+                                                                <VisualState.Setters>
+                                                                    <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                </VisualState.Setters>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                <contr:ImageEntry.HeightRequest>
+                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                        <On Platform="Android">40</On>
+                                                        <On Platform="iOS">42</On>
+                                                    </OnPlatform>
+                                                </contr:ImageEntry.HeightRequest>
+                                            </contr:ImageEntry>
+                                            <Grid Grid.Row="1">
+                                                <BoxView  BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                            </Grid>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Tapped="TapGestureRecognizer_Tapped_1"
+                                                    NumberOfTapsRequired="1"
+                                                    />
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </contr:RoundedCornerView>
+
+                                </Grid>
+
+                                <Grid Grid.Row="1" RowSpacing="0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0" Text="Product Subcategory" Style="{StaticResource MyTitleLabel}" Padding="2" />
+                                    <contr:RoundedCornerView Grid.Row="1" CornerRadius="8">
+                                        <Grid BackgroundColor="White" VerticalOptions="Center" Padding="5,0,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="1"/>
+                                                <RowDefinition Height="auto"/> 
+                                            </Grid.RowDefinitions>
+                                            <contr:ImageEntry VerticalOptions="Center"
+                                                            Focused="txtSubcategory_Focused"
+                                                            Grid.Row="0" Placeholder="Select Subcatgeory"
+                                                            Text="{Binding SelectedSubCategoryText}"
+                                                            Style="{StaticResource MyValueLabel}" 
+                                                            x:Name="txtSubcategory" FontSize="15"                                                        
+                                                            HorizontalTextAlignment="Start" Image="downarrowgray"
+                                                            IsEnabled="False" ImageHeight="20" ImageWidth="20"
+                                                            ImageAlignment="Right">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Disabled">
+                                                                <VisualState.Setters>
+                                                                    <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                </VisualState.Setters>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                <contr:ImageEntry.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">40</On>
+                                                                <On Platform="iOS">42</On>
+                                                            </OnPlatform>
+                                                </contr:ImageEntry.HeightRequest>
+                                            </contr:ImageEntry>
+                                            <Grid Grid.Row="1">
+                                                        <BoxView  BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                    </Grid>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Tapped="TapGestureRecognizer_Tapped_2"
+                                                    NumberOfTapsRequired="1"
+                                                    />
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </contr:RoundedCornerView>
+                                </Grid>
+
+                                <Grid Grid.Row="2" Margin="5" HeightRequest="45">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="0" Text="Search" Style="{StaticResource ButtonBlueStyle}"   Command="{Binding SearchCommand}"/>
+                                    <Button Grid.Column="1" Text="Clear" Style="{StaticResource ButtonPinkStyle}"   Command="{Binding ClearCommand}" />
+                                </Grid>
+
+                                <Grid Grid.Row="3" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="280"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" Padding="5">
+                                        <contr:RoundedCornerView BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12">
+                                            <SearchBar x:Name="SearchModel" PlaceholderColor="{StaticResource LightGray}" Style="{StaticResource SearchStyle}" Placeholder="Search Model Number" TextChanged="SearchModel_TextChanged"/>
+                                        </contr:RoundedCornerView>
+                                    </Grid>
+                                    <CollectionView Grid.Row="1" ItemsSource="{Binding obProductModelForPriceDisplayResponses}" BackgroundColor="Transparent" EmptyView="No record">
+                                        <CollectionView.EmptyViewTemplate>
+                                            <DataTemplate>
+                                                <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="15" Style="{StaticResource EnteryTxtValues}" Text="No Entries" HeightRequest="60" />
+                                            </DataTemplate>
+                                        </CollectionView.EmptyViewTemplate>
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid BackgroundColor="Transparent">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0" Padding="10">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="1"/>
+                                                        </Grid.RowDefinitions>
+
+                                                        <Label Grid.Row="0" HorizontalOptions="Start" x:Name="lblModelNo"
+                                                               Text="{Binding Name}" LineBreakMode="WordWrap"
+                                                               Style="{StaticResource MyTitleLabel}" TextColor="{Binding ModelNoStatus}">
+                                                            <Label.GestureRecognizers>
+                                                                <TapGestureRecognizer Command="{Binding BindingContext.SelectModelNoCommand, Source={x:Reference Name=Root}}" CommandParameter="{Binding .}" NumberOfTapsRequired="1"/>
+                                                            </Label.GestureRecognizers>
+                                                        </Label>
+                                                        <BoxView Grid.Row="1" BackgroundColor="{StaticResource GrayColor}"/>
+                                                    </Grid>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+            <contr:LoaderAnimView 
+                AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        </AbsoluteLayout>
+        
+    </ScrollView>
+</pages:PopupPage>

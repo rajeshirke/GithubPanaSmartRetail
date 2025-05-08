@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    x:Class="Retail.Views.Dashboard.NotificationPage"
+    FlowDirection="{Binding flowDirection}"
+    x:Name="root"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource WhiteColor}" >
+
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+            <BoxView Style="{StaticResource CardBlueStyle}"
+                 AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+
+             <Grid  VerticalOptions="FillAndExpand"  RowSpacing="0">
+               
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+               
+                </Grid.RowDefinitions>
+             
+                <Grid Grid.Row="1"  BackgroundColor="Transparent" Padding="10,0,10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <CollectionView   Grid.Row="0" ItemsSource="{Binding Notifications}"
+                                      BackgroundColor="Transparent"
+                                      EmptyView="No Notification">
+                        <CollectionView.ItemTemplate>  
+                            <DataTemplate>  
+
+                                <Grid  Padding="5,0,5,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="1"/>
+                                    </Grid.RowDefinitions>
+                                    <contr:RoundedCornerView  VerticalOptions="Center" Grid.Row="1"    BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12" BackgroundColor="Transparent" >
+                                        <Grid BackgroundColor="White" VerticalOptions="FillAndExpand" Padding="10,8,10,8" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                        
+                                            </Grid.RowDefinitions>
+                                
+                                            <Label Grid.Row="1"   Text="{Binding MessageSubject}" Style="{StaticResource MyTitleLabel}" HorizontalTextAlignment="Start"/>
+                                    
+                                            <Label LineBreakMode="WordWrap"   TextType="Html" Text="{Binding NotificationContent}" Grid.Row="2" Style="{StaticResource MyValueLabel}"/>                                     
+                                 
+                                        </Grid>
+                                    </contr:RoundedCornerView>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding BindingContext.SelectedItemCommand, Source={x:Reference Name=root}}"
+                                            CommandParameter="{Binding .}"
+                                            NumberOfTapsRequired="1" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+
+                            </DataTemplate>  
+                        </CollectionView.ItemTemplate>  
+                    </CollectionView> 
+                </Grid>
+              </Grid>
+
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

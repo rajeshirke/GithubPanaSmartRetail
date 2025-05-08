@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Controls.CalenderEvent"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    >
+    <ContentView.Content>
+         <StackLayout
+        Padding="15,0,0,0"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <Label    FontAttributes="Bold" FontSize="Medium">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource MyTitleLabel}"  Text="{Binding Starting, StringFormat='{0:MM/dd HH\\:mm}'}"  />
+                    <Span Style="{StaticResource MyTitleLabel}"  Text=" - " />
+                    <Span Style="{StaticResource MyTitleLabel}"  Text="{Binding Name}" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <Label
+            FontSize="Small"
+            LineBreakMode="WordWrap"
+            Text="{Binding Description}" Style="{StaticResource MyTitleLabel}" />
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+        </StackLayout.GestureRecognizers>
+    </StackLayout>
+    </ContentView.Content>
+</ContentView>

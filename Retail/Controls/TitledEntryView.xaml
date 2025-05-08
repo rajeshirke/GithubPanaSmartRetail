@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    x:Class="Retail.Controls.TitledEntryView">
+    <ContentView.Content>
+        <Grid RowSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1"/>
+            </Grid.RowDefinitions>
+            <Label Style="{StaticResource MyTitleLabel}" 
+                   Grid.Row="0" Margin="4,0,0,0" x:Name="LabelTitle" Text="{Binding Title}"
+                   VerticalTextAlignment="Center" />
+           
+            <contr:ImageEntry Margin="4,0,0,0" Grid.Row="1"  HeightRequest="40" x:Name="EntryContent"
+                              IsPassword="{Binding IsTextPassword}" BackgroundColor="White"
+                              Text="{Binding Text}" Placeholder="{Binding Placeholder}"
+                              VerticalOptions="Start" VerticalTextAlignment="Center" 
+                              Style="{StaticResource EnteryTxtValues}"  HorizontalTextAlignment="Start"
+                                />
+                  <BoxView Grid.Row="2" BackgroundColor="#DADADA" VerticalOptions="Start"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

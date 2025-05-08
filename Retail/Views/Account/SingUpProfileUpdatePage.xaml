@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:contr="clr-namespace:Retail.Controls"
+    x:Class="Retail.Views.Account.SingUpProfileUpdatePage">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled ="False" IconOverride="backarrow.png"
+                             />
+    </Shell.BackButtonBehavior>
+     <!--<ContentPage.ToolbarItems>
+          <ToolbarItem Name="MenuItem1" Order="Primary" Icon="location" Text="Item 1" Priority="0" Command="{Binding PickAddressCommand}" />
+    </ContentPage.ToolbarItems>-->
+    <ContentPage.Content>
+        <ScrollView>
+          <Grid Padding="20,10,20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Padding="10"  >
+                 <Grid.RowSpacing>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="10" Android="10"/>
+                                         </Grid.RowSpacing>
+                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                      <RowDefinition Height="1"/>
+                      <RowDefinition Height="auto"/>
+                       <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                  <contr:TitledEntryView Grid.Row="0" Placeholder="Full Name"  Text="{Binding Name}" IsEnabled="False"
+                                PlaceholderColor="Gray"/>
+                
+                 <Grid Grid.Row="1" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Label     Style="{StaticResource EnteryTitleLabel}" Grid.Row="0" Margin="4,0,0,0"    VerticalTextAlignment="Center"/>
+
+                        <Grid Grid.Row="1"  VerticalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label    Text="{Binding PhoneCode}" Style="{StaticResource EnteryLabelValues}" TextColor="#707070" FontAttributes="Bold" FontSize="16" Grid.Column="0" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                              <contr:ImageEntry Margin="0,0,0,0"  Grid.Column="1" BackgroundColor="White"  Text="{Binding AlternateNumber}"  Placeholder="Alternate Number"  Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" VerticalTextAlignment="Center"
+                                    Keyboard="Telephone"        PlaceholderColor="Gray" MaxLength="10"   HorizontalTextAlignment="Start"  />
+                        </Grid>
+                      
+                              <BoxView Grid.Row="2" BackgroundColor="#DADADA" VerticalOptions="Start"/>
+                 </Grid>
+
+                  <Grid Grid.Row="2" VerticalOptions="Center" RowSpacing="0"  BackgroundColor="Transparent" >
+                      <Grid.RowDefinitions>
+                          <RowDefinition Height="auto"/>
+                           <RowDefinition Height="auto"/>
+                      </Grid.RowDefinitions>
+                        <Label     Style="{StaticResource EnteryTitleLabel}" Grid.Row="0" Margin="0,0,0,0"    VerticalTextAlignment="Center"/>
+
+                      <Grid Grid.Row="1" RowSpacing="0">
+                      <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="8*"/>
+                           <ColumnDefinition Width="2*"/>
+                          <ColumnDefinition Width="2"/>
+                      </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                         <RowDefinition Height="auto"/>
+                         <RowDefinition Height="1"/>
+                     </Grid.RowDefinitions>
+                         <StackLayout Grid.Row="0" IsEnabled="False">
+                      <contr:ImageEntry   VerticalOptions="End"   Text="{Binding SelectCountry.Title}" Placeholder="Select Country"  Style="{StaticResource EnteryTxtValues}" TextColor="#707070" BackgroundColor="White"  VerticalTextAlignment="Center"
+                                    PlaceholderColor="#707070"   HorizontalTextAlignment="Start"
+                                    />
+                     </StackLayout>
+                      <Image  BackgroundColor="White" Grid.Column="1"  Source="dropdown" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,2,0" HeightRequest="30" WidthRequest="30">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        Command="{Binding CountryChangeCommand}"
+                                        NumberOfTapsRequired="1" />
+                          </Image.GestureRecognizers>
+                     </Image>
+                        <BoxView Grid.Row="1" Grid.ColumnSpan="3" BackgroundColor="#DADADA" VerticalOptions="Start"/>
+                          </Grid>
+                  </Grid>
+               
+                 <contr:TitleDropdownView Grid.Row="3"  Placeholder="Primary Language" PickerItemsSource="{Binding Languages}" ItemDisplayBinding="Title"  SelectedItem="{Binding SelectedLanguageType}" Command="{Binding LonguageChangeCommand}" />
+                 <Grid Grid.Row="5" >
+                     <Grid.ColumnDefinitions>
+                         <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="4*"/>
+                     </Grid.ColumnDefinitions>
+                      <Label    Grid.Column="0" Text="Primary Address" FontAttributes="Bold" FontSize="20" TextColor="#2D3EE1" HorizontalTextAlignment="Start" />
+                   <Image  BackgroundColor="White" Grid.Column="1"  Source="location" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,2,0" HeightRequest="30" WidthRequest="30">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        Command="{Binding PickAddressCommand}"
+                                        NumberOfTapsRequired="1" />
+                          </Image.GestureRecognizers>
+                     </Image>
+                </Grid>
+                 <Grid Grid.Row="6" VerticalOptions="FillAndExpand" RowSpacing="10"  Margin="0,0,0,0"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                     <RowDefinition Height="auto"/>
+                     <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                    <RowDefinition Height="20"/>
+                     <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                   <contr:TitledEntryView Grid.Row="0" Placeholder="Apartment / House No"   Text="{Binding ApartmentNumber}"
+                                PlaceholderColor="Gray"/>
+                     <contr:TitledEntryView Grid.Row="1"  Placeholder="Building / Villa Name"  Text="{Binding BuildingName}"
+                                PlaceholderColor="Gray"/>
+
+                    <contr:TitledEntryView Grid.Row="2"  Placeholder="Street"  Text="{Binding Street}"
+                                PlaceholderColor="Gray"/>
+
+                 
+
+               
+
+                <contr:TitledEntryView Grid.Row="3" Placeholder="Area"  Text="{Binding Area}"
+                                PlaceholderColor="Gray"/>
+                     <contr:TitledEntryView Grid.Row="4" Placeholder="City"  Text="{Binding City}"
+                                PlaceholderColor="Gray"/>
+                      <contr:TitledEntryView Grid.Row="5" Placeholder="State"  Text="{Binding State}"
+                                PlaceholderColor="Gray"/>
+
+                    
+
+                <contr:TitledEntryView Grid.Row="6" Placeholder="Postal Code"  Text="{Binding NewPostalCode}" EntryKeyboard="Numeric"
+                                PlaceholderColor="Gray"/>
+
+
+                      <Grid Grid.Row="7"  >
+              <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="5*"/>
+              </Grid.ColumnDefinitions>
+                 <Button Grid.Column="0" Command="{Binding ProfileUpdateCommand}" Text="Update" Style="{StaticResource ButtonPinkStyle}" />
+                    <Button Grid.Column="2" Command="{Binding SkipCommand}" Text="Skip" Style="{StaticResource ButtonBlueStyle}"  />
+                 
+
+            </Grid>
+                <!--<Button Text="Add new Address" Style="{StaticResource ButtonPinkStyle}"  BackgroundColor="#687089" TextColor="White" x:Name="btnFind" Grid.Row="9" Command="{Binding SaveAddressCommand}" />-->
+            </Grid>
+    
+                
+            </Grid>
+        </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

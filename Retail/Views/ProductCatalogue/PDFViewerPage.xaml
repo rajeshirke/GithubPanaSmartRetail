@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.ProductCatalogue.PDFViewerPage">
+    <ContentPage.Content>
+        <ScrollView>
+       <Grid BackgroundColor="AliceBlue" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                 <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label    x:Name="lblstatus" Text="Please wait file loading...." Grid.Row="0" />
+            <WebView x:Name="wbPDF" Grid.Row="1" PropertyChanging="wbPDF_PropertyChanging"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Navigated="wbPDF_Navigated"  />
+        </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

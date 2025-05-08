@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.Reports.Charts.CategorywiseContributionChart"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+    xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
+    xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+    BackgroundColor="#C0808080"
+    x:Name="Categorywisecontributionchart">
+   <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+     <ScrollView>
+        <StackLayout Margin="20" Padding="20" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="{StaticResource WhiteColor}">
+            <Grid Padding="5" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>             
+            </Grid.RowDefinitions>                         
+                <Grid  Padding="0,0,0,0">
+                    <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android">0,0,0,0</On>
+                        <On Platform="iOS">0,0,0,0</On>
+                    </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>                                
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>                        
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Image x:Name="CancelImg" Source="cancelnew.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="End" VerticalOptions="Start">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"
+                                    NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>       
+                    <Grid Padding="5" Grid.Row="1">
+                        <Grid.RowDefinitions>                         
+                            <RowDefinition Height="auto"/>                            
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="400"/>                                   
+                            </Grid.RowDefinitions>                               
+                            <Grid  Grid.Row="0" BackgroundColor="Transparent">
+                                <!--chart here-->
+                                <chart:SfChart>
+
+                                     <chart:SfChart.Title>
+
+		                                <chart:ChartTitle Text="Category wise Contribution" FontFamily="Calibri"  FontAttributes="Bold"  TextColor="{StaticResource BlackColor}" FontSize="18"/>
+
+	                                </chart:SfChart.Title>  
+
+
+                                    <chart:SfChart.ChartBehaviors>
+                                        <chart:ChartZoomPanBehavior x:Name="behave" ZoomMode="XY"  EnableZooming="true"/>             
+                                    </chart:SfChart.ChartBehaviors>
+   
+                                    <chart:SfChart.PrimaryAxis>    
+                                        <chart:CategoryAxis AutoScrollingMode="Start" AutoScrollingDelta="10" LabelsIntersectAction="MultipleRows">
+                                            <chart:CategoryAxis.LabelStyle>
+                                                <chart:ChartAxisLabelStyle FontFamily="Calibri"  FontAttributes="Bold"  TextColor="{StaticResource BlackColor}" FontSize="12"/>
+                                            </chart:CategoryAxis.LabelStyle>
+                                            <chart:CategoryAxis.Title>
+                                                  <chart:ChartAxisTitle Text="Categories" FontFamily="Calibri"  FontAttributes="Bold"  TextColor="{StaticResource BlackColor}" FontSize="12"> </chart:ChartAxisTitle>
+                                            </chart:CategoryAxis.Title>
+                                        </chart:CategoryAxis>   
+                                    </chart:SfChart.PrimaryAxis>
+
+                                    <chart:SfChart.SecondaryAxis>                                            
+                                       <chart:NumericalAxis AutoScrollingMode="Start" EdgeLabelsVisibilityMode="AlwaysVisible" EdgeLabelsDrawingMode="Fit">
+                                           <chart:NumericalAxis.LabelStyle>
+                                               <chart:ChartAxisLabelStyle LabelFormat="#,##0.##" FontFamily="Calibri"  FontAttributes="Bold"  TextColor="{StaticResource BlackColor}" FontSize="12"/>
+                                           </chart:NumericalAxis.LabelStyle>
+                                           <chart:NumericalAxis.Title>           
+                                                 <chart:ChartAxisTitle FontFamily="Calibri" Text="Sales Value" FontAttributes="Bold" TextColor="{StaticResource BlackColor}" FontSize="12" ></chart:ChartAxisTitle>           
+                                          </chart:NumericalAxis.Title>             
+                                      </chart:NumericalAxis>   
+                                    </chart:SfChart.SecondaryAxis>
+                                     
+                                    <chart:SfChart.Series>
+                                        <chart:ColumnSeries x:Name="CategorywiseContribution" DataMarkerPosition="Top" 
+                                                            EnableTooltip="true" EnableAnimation="True"
+                                                            StrokeWidth="1" Width="0.5"
+                                                            XBindingPath="Categories" YBindingPath="SalesValue">
+                                            
+                                            <chart:ColumnSeries.ColorModel>
+                                                  <chart:ChartColorModel Palette="Custom">
+                                                        <chart:ChartColorModel.CustomGradientColors>
+                                                              <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                                                    <chart:ChartGradientColor.GradientStops>
+                                                                      <chart:ChartGradientStop Color="#FFE7C7" Offset= "0"/>
+                                                                      <chart:ChartGradientStop Color="#FCB69F" Offset= "1"/>
+                                                                    </chart:ChartGradientColor.GradientStops>
+                                                              </chart:ChartGradientColor>
+                                                              <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                                                    <chart:ChartGradientColor.GradientStops>
+                                                                      <chart:ChartGradientStop Color="#DCFA97" Offset= "0"/>
+                                                                      <chart:ChartGradientStop Color="#96E6A1" Offset= "1"/>
+                                                                    </chart:ChartGradientColor.GradientStops>
+                                                              </chart:ChartGradientColor>
+                                                              <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                                                    <chart:ChartGradientColor.GradientStops>
+                                                                      <chart:ChartGradientStop Color="#DDD6F3" Offset= "0"/>
+                                                                      <chart:ChartGradientStop Color="#FAACA8" Offset= "1"/>
+                                                                    </chart:ChartGradientColor.GradientStops>
+                                                              </chart:ChartGradientColor>
+                                                              <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                                                    <chart:ChartGradientColor.GradientStops>
+                                                                      <chart:ChartGradientStop Color="#A8EAEE" Offset= "0"/>
+                                                                      <chart:ChartGradientStop Color="#7BB0F9" Offset= "1"/>
+                                                                    </chart:ChartGradientColor.GradientStops>
+                                                              </chart:ChartGradientColor>
+                                                             <chart:ChartGradientColor StartPoint="0.5,1" EndPoint="0.5, 0">
+                                                                    <chart:ChartGradientColor.GradientStops>
+                                                                      <chart:ChartGradientStop Color="#ff9999" Offset= "0"/>
+                                                                      <chart:ChartGradientStop Color="#D9DCFC" Offset= "1"/>
+                                                                    </chart:ChartGradientColor.GradientStops>
+                                                              </chart:ChartGradientColor>
+                                                        </chart:ChartColorModel.CustomGradientColors>
+                                                  </chart:ChartColorModel>
+                                            </chart:ColumnSeries.ColorModel>
+
+
+                                            <chart:ColumnSeries.DataMarker>
+                                                <chart:ChartDataMarker ShowLabel="True">
+	                                                <chart:ChartDataMarker.LabelStyle>
+		                                                <chart:DataMarkerLabelStyle
+                                                                  TextColor="{StaticResource BlackColor}"										                        
+										                        BackgroundColor="Transparent"
+                                                                LabelFormat="#,##0.##"										                            
+										                        FontSize="16"
+                                                                FontAttributes="Bold"
+                                                                FontFamily="Calibri"
+                                                                LabelPosition="Center" />
+	                                                </chart:ChartDataMarker.LabelStyle>
+                                                </chart:ChartDataMarker>
+                                            </chart:ColumnSeries.DataMarker>
+                                        </chart:ColumnSeries>                                        
+                                    </chart:SfChart.Series>
+                                 </chart:SfChart>
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</pages:PopupPage>

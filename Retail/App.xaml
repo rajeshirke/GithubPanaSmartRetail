@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Retail.App">
+    <Application.Resources>
+        <Color x:Key="WhiteColor">#FFFFFF</Color>
+        <Color x:Key="TransparentColor">Transparent</Color>
+        <Color x:Key="BlackColor">Black</Color>
+        <Color x:Key="YellowColor">Yellow</Color>
+        <!--<Color x:Key="BlueColor">#5956D2</Color>-->
+        <Color x:Key="BlueColor">#1E55A5</Color>
+        <Color x:Key="contentBG">#1E55A5</Color>
+        <Color x:Key="GreenColor">#008000</Color>
+        <Color x:Key="RedColor">#FF0000</Color>
+        <Color x:Key="GrayColor">#919191</Color>
+        <Color x:Key="PinkColor">#FF0000</Color>
+        <Color x:Key="borderColor">#ECECEC</Color>
+        <Color x:Key="NavigationPrimary">#9ABDEB</Color>
+        <Color x:Key="BottomTab">#FFFFFF</Color>
+        <Color x:Key="LightGray">LightGray</Color> 
+        <Color x:Key="DarkGray">#3A3A3A</Color>
+        <Color x:Key="btnbgColor">#FF0000</Color>
+        <Color x:Key="LoginBg">#eb7b5b</Color>
+        <Color x:Key="DarkCyanBg">#02d2ed</Color>
+        <Color x:Key="LabelGrayShade">#959493</Color>
+        <Color x:Key="LighterGray">#F2F3F4</Color>
+        <Color x:Key="PurpleColor">#7b39e0</Color>
+        <Color x:Key="SkyBlueolor">#0099FF</Color>
+        <Color x:Key="DarkBlueolor">#1867b2</Color>
+        <Color x:Key="Color1">#1E55A5</Color>
+        <Color x:Key="Color2">#E62E75</Color>
+        <Color x:Key="Color3">#9ABDEB</Color>
+        <Color x:Key="Color4">#80f9b7</Color>
+        <Color x:Key="GrayShade">#515151</Color>
+        <Color x:Key="PlcGray">#C1C1C1</Color>
+        <Color x:Key="PlcGray1">#C1C1C1C9</Color>
+       
+
+        <Font x:Key="LabelFont">F25_Executive</Font>
+        
+        <Style x:Key="FontLabelStyle" TargetType="Label">
+          <Setter Property="FontFamily" Value="Zabdilus"/>
+        </Style>
+
+         <OnPlatform x:Key="grideborderColor"
+            x:TypeArguments="Color"
+            iOS="Transparent"
+            Android="Gray" />
+
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="1.0"/>
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>               
+                <Setter Property="BarTextColor" Value="White" />
+        </Style>
+
+        <Font x:Key="TextFont">Vacaciones-font-ffp-defharo.ttf</Font>
+        <OnPlatform x:Key="FontFamilyName" x:TypeArguments="x:String" iOS="Zachery" Android="Zachery" />
+        <OnPlatform x:Key="semiFontFamilyName" x:TypeArguments="x:String" iOS="Zachery" Android="Zachery" />
+
+        <Style x:Key="EnteryTitleLabel" TargetType="Label" >             
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextColor" Value="#A6A6A6"/>
+        </Style>
+
+        <Style x:Key="ChartLabel" TargetType="Label" >
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+        </Style>
+
+        <Style x:Key="MyTitleLabel" TargetType="Label" >
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+
+        <Style x:Key="MyValueLabel" TargetType="Label" >
+            <Setter Property="FontFamily" Value="calibribold"/>           
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource GrayShade}"/>            
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style x:Key="DatePickerStyle" TargetType="DatePicker">
+            <Setter Property="FontFamily" Value="calibribold"/>           
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource GrayShade}"/>            
+            <Setter Property="Opacity" Value="100"/>
+       </Style>
+
+        <Style x:Key="EnteryTxtValues" TargetType="Entry" >
+            <Setter Property="FontFamily" Value="calibribold"/>           
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource GrayShade}"/>
+            <Setter Property="PlaceholderColor" Value="{StaticResource PlcGray}"/>
+            <Setter Property="Opacity" Value="100"/>
+       </Style>
+
+         <Style x:Key="EditorTxtValues" TargetType="Editor" >
+            <Setter Property="FontFamily" Value="calibribold"/>           
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource GrayShade}"/>
+            <Setter Property="PlaceholderColor" Value="{StaticResource PlcGray}"/>
+            <Setter Property="Opacity" Value="100"/>
+       </Style>
+
+        <Style TargetType="Label" x:Key="DashboardButtonLabel">
+            <Setter Property="TextColor" Value="{StaticResource BlueColor}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelBlue">
+            <Setter Property="TextColor" Value="{StaticResource BlueColor}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelLargeBlue">
+            <Setter Property="TextColor" Value="{StaticResource BlueColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="calibribold"/>            
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="SimpleLabelBlack">
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="calibribold"/>            
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelLargeBlack">
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelLargeGreen">
+            <Setter Property="TextColor" Value="{StaticResource GreenColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelLargeWhite">
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelLargeGray">
+            <Setter Property="TextColor" Value="{StaticResource GrayColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelLargeRed">
+            <Setter Property="TextColor" Value="{StaticResource RedColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelMediumWhite">
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelMediumBlack">
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="LabelMediumYellow">
+            <Setter Property="TextColor" Value="{StaticResource LightGray}"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource YellowColor}" />
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelMediumGreen">
+            <Setter Property="TextColor" Value="{StaticResource GreenColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelMediumRed">
+            <Setter Property="TextColor" Value="{StaticResource RedColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelMediumBlue">
+            <Setter Property="TextColor" Value="{StaticResource BlueColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelMediumGray">
+            <Setter Property="TextColor" Value="{StaticResource GrayColor}"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="calibribold"/>           
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelGray">
+            <Setter Property="TextColor" Value="{StaticResource DarkGray}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>           
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="Placeholder">
+            <Setter Property="TextColor" Value="{StaticResource GrayColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>           
+             <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        
+        <Style TargetType="Label" x:Key="LabelSmallWhite">
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelSmallBlack">
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelSmallRed">
+            <Setter Property="TextColor" Value="{StaticResource RedColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelSmallGreen">
+            <Setter Property="TextColor" Value="{StaticResource GreenColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelSmallBlue">
+            <Setter Property="TextColor" Value="{StaticResource BlueColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="LabelSmallGray">
+            <Setter Property="TextColor" Value="{StaticResource DarkGray}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+         <Style TargetType="Label" x:Key="LabelLeftSideMenu">
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonPinkStyle">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Color="{StaticResource PinkColor}" Offset="0.1"/>
+                        <GradientStop Color="{StaticResource PinkColor}" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize" Value="14.5" />
+            <Setter Property="TextTransform" Value="None"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonBlueStyle">
+
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush>
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="0.7"/>
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize" Value="14.5" />
+            <Setter Property="TextTransform" Value="None"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+
+        <Style TargetType="SearchBar" x:Key="SearchStyle">
+            <Setter Property="BackgroundColor" Value="{StaticResource WhiteColor}"/>
+            <Setter Property="CancelButtonColor" Value="{StaticResource GrayColor}"/>
+            <Setter Property="FontFamily" Value="calibribold"/>           
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource GrayShade}"/>
+            <Setter Property="PlaceholderColor" Value="{StaticResource PlcGray}"/>
+            <Setter Property="Opacity" Value="100"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="LabelLargeBlueTitle">
+            <Setter Property="TextColor" Value="{StaticResource BlueColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="calibribold"/>            
+            <Setter Property="Opacity" Value="30"/>
+            <Setter Property="FontAttributes" Value="None"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="LabelLightGray">
+            <Setter Property="TextColor" Value="{StaticResource LighterGray}"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontFamily" Value="calibribold"/>            
+            <Setter Property="Opacity" Value="30"/>
+            <Setter Property="FontAttributes" Value="None"/>
+        </Style>
+        
+        <Style TargetType="BoxView" x:Key="CardBlueStyle" >
+            <Setter Property="Background" >
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="0.1"/>
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="HeightRequest" Value="100"/>
+            <Setter Property="CornerRadius" Value="0,0,10,300"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="LabelCardMediumBlack">
+            <Setter Property="TextColor" Value="{StaticResource GrayColor}"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontFamily" Value="calibribold"/>
+            <Setter Property="FontAttributes" Value="None"/>
+            <Setter Property="Opacity" Value="50"/>
+        </Style>
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Controls.DefaultFooterSection">
+    <Grid
+        HeightRequest="40"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label
+            FontAttributes="Bold"
+            FontSize="Medium"
+            Text="{Binding SelectedDateText}"
+            TextColor="{Binding SelectedDateColor}"
+            VerticalOptions="CenterAndExpand"
+            VerticalTextAlignment="Center" />
+
+        <!--<Label
+            x:Name="showHideLabel"
+            Grid.Column="1"
+            Margin="0,0,15,0"
+            FontAttributes="Bold"
+            FontSize="Medium"
+            HorizontalOptions="End"
+            IsVisible="{Binding FooterArrowVisible}"
+            Text="↑"
+            TextColor="{Binding ArrowsColor}"
+            VerticalOptions="CenterAndExpand"
+            VerticalTextAlignment="Center">
+            <Label.Triggers>
+                <DataTrigger
+                    Binding="{Binding CalendarSectionShown}"
+                    TargetType="Label"
+                    Value="False">
+                    <Setter Property="Text" Value="↓" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>-->
+        <Image  x:Name="showHideLabel"
+                Grid.Column="1"
+                HorizontalOptions="End"
+                IsVisible="{Binding FooterArrowVisible}"
+                VerticalOptions="CenterAndExpand"
+                Source="downicon"
+                WidthRequest="25"
+                HeightRequest="25" >
+            <!--<Image.Triggers>
+                <DataTrigger
+                    Binding="{Binding CalendarSectionShown}"
+                    TargetType="Label"
+                    Value="False" >
+                    <Setter Property="Source" Value="downicon"/>
+                </DataTrigger>
+
+            </Image.Triggers>-->
+             <Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                         <DataTrigger
+                            Binding="{Binding CalendarSectionShown}"
+                            TargetType="Image"
+                            Value="False" >
+                            <Setter Property="Source" Value="upicon"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+
+        </Image>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding ShowHideCalendarCommand}" />
+        </Grid.GestureRecognizers>
+    </Grid>
+</ContentView>

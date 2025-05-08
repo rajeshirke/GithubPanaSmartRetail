@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Retail.Controls"
+    x:Class="Retail.Views.Dashboard.SampleCalender" >
+
+    <Grid>
+         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>   
+        </Grid.RowDefinitions>
+          <Grid Grid.Row="1" RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>                                                
+                </Grid.RowDefinitions>                                            
+                <Label    Grid.Row="0" Text="Store" />
+                <controls:RoundedCornerView HeightRequest="60" Margin="5"  Grid.Row="1" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                    
+                        <Grid Grid.Row="0" >
+                            <Picker 
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Center"                                                                                                    
+                                SelectedIndexChanged="StoreDropdown_SelectedIndexChanged"
+                                ItemDisplayBinding="{Binding StoreName}"
+                                x:Name="StoreDropdown" />
+                        </Grid>                     
+                    </Grid>
+                </controls:RoundedCornerView>                                 
+          </Grid>   
+        <controls:Calendar Grid.Row="1" DayTappedCommand="{Binding DayTappedCommand}" Events="{Binding Events}" > <!--Events="{Binding Events}"-->
+            <controls:Calendar.EventTemplate>
+                <DataTemplate>                        
+                </DataTemplate>
+            </controls:Calendar.EventTemplate>        
+        </controls:Calendar>
+        <Grid Padding="5" Grid.Row="2" IsVisible="{Binding IsAttendanceVisible}" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>                   
+            </Grid.RowDefinitions>
+            <controls:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="5" RoundedCornerRadius="15" >                         
+                    <Grid VerticalOptions="Center" BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label    Grid.Row="0" Text="Stores"  HorizontalOptions="Start" Style="{StaticResource LabelMediumBlack}" />
+                        <Picker Grid.Row="1"                             
+                        BackgroundColor="White"
+                        SelectedIndexChanged="dropdownStores_SelectedIndexChanged"
+                        ItemDisplayBinding="{Binding StoreName}"
+                        x:Name="dropdownStores" />
+                        <Label    Text="{Binding CheckInTime}"  HorizontalOptions="Start" Style="{StaticResource LabelMediumBlack}" Grid.Row="2" Grid.Column="0"/>
+                        <Label    Text="{Binding CheckOutTime}"  HorizontalOptions="Start" Style="{StaticResource LabelMediumBlack}" Grid.Row="2" Grid.Column="1"/>
+                        <Button Grid.Row="3" Grid.Column="0" HeightRequest="40" Text="Check-in" TextColor="{StaticResource WhiteColor}" IsEnabled="{Binding IsEnableCheckIn}" Command="{Binding CheckinCommand}"  BorderWidth="1" CornerRadius="6" BackgroundColor="{Binding CheckInBackgroungColor}"/>
+                        <Button Grid.Row="3" Grid.Column="1" HeightRequest="40" Text="Check-out" TextColor="{StaticResource WhiteColor}" IsEnabled="{Binding IsEnableCheckOut}" Command="{Binding CheckoutCommand}"  BorderWidth="1" CornerRadius="6" BackgroundColor="{Binding CheckOutBackgroungColor}"/>
+
+                </Grid>
+            </controls:RoundedCornerView>
+    </Grid>
+        <Grid Padding="5" Grid.Row="2" IsVisible="{Binding IsHistoryVisible}">
+                    <CollectionView Grid.Row="0" ItemsSource="{Binding AttendanceHistory}" BackgroundColor="{StaticResource TransparentColor}" EmptyView="No record">
+                        <CollectionView.EmptyViewTemplate>
+                        <DataTemplate>
+                            <Label     HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Style="{StaticResource LabelMediumBlack}" Text="No history available!!!" HeightRequest="60" />                
+                        </DataTemplate>
+                    </CollectionView.EmptyViewTemplate>
+                    <CollectionView.ItemTemplate>  
+                        <DataTemplate>
+                            <Grid Padding="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                            
+                                    <controls:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >
+                         
+                                        <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                                <ColumnDefinition Width="auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label    Grid.Row="0"  LineBreakMode="WordWrap" Style="{StaticResource LabelSmallBlack}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span   Text="Location : " Style="{StaticResource LabelLargeBlack}"/>
+                                                        <Span   Text="{Binding StoreName}" Style="{StaticResource LabelLargeBlack}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label    Grid.Row="1" HorizontalOptions="Start" Text="Check-in Time" Style="{StaticResource LabelMediumBlack}" />
+                                            <Label    Grid.Row="2" HorizontalOptions="Start" Text="{Binding HistoryCheckInTime}" Style="{StaticResource LabelMediumBlack}" />
+                                            <Label    Grid.Row="1" HorizontalOptions="End" Text="Check-out Time" Style="{StaticResource LabelMediumBlack}" />
+                                            <Label    Grid.Row="2" HorizontalOptions="End" Text="{Binding HistoryCheckOutTime}" Style="{StaticResource LabelMediumBlack}"/>
+                                        </Grid>
+                                    </controls:RoundedCornerView>
+                                </Grid>
+                        </DataTemplate>  
+                    </CollectionView.ItemTemplate>  
+                </CollectionView>           
+                </Grid>
+    </Grid>
+
+</ContentPage>
+
+<!--<StackLayout
+                            Padding="15,0,0,0">
+                            <Label
+                                Text="{Binding Name}"
+                                FontAttributes="Bold"
+                                FontSize="Medium" />
+
+                            <Picker HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Center"
+                                BackgroundColor="White"
+                                SelectedIndexChanged="dropdownStores_SelectedIndexChanged"
+                                ItemDisplayBinding="{Binding StoreNames}"
+                                x:Name="dropdownStores" />
+
+                            <Label
+                                Text="{Binding Description}"
+                                FontSize="Small"
+                                LineBreakMode="WordWrap" />
+                        </StackLayout>-->

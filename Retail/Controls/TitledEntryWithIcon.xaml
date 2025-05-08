@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    x:Class="Retail.Controls.TitledEntryWithIcon">
+    <ContentView.Content>
+       <Grid RowSpacing="0" VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" x:Name="LabelTitle" Text="{Binding Title}"  Style="{StaticResource EnteryTitleLabel}" VerticalTextAlignment="End" />
+              <Grid Grid.Row="1" VerticalOptions="Center" RowSpacing="0"  BackgroundColor="Transparent" >
+                  <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="8*"/>
+                       <ColumnDefinition Width="2*"/>
+                      <ColumnDefinition Width="2"/>
+                  </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                     <RowDefinition Height="auto"/>
+                     <RowDefinition Height="1"/>
+                 </Grid.RowDefinitions>
+                  <StackLayout IsEnabled="{Binding IsEnabledView}" Grid.Row="0" Grid.Column="0">
+                  <contr:ImageEntry  VerticalOptions="End" IsReadOnly="{Binding IsEnabledView}"  x:Name="EntryContent"
+                                     Text="{Binding Text}" Placeholder="{Binding Placeholder}"
+                                     Style="{StaticResource EnteryTxtValues}" BackgroundColor="White"
+                                     VerticalTextAlignment="Center"
+                                     PlaceholderColor="{Binding PlaceholderColor}"   HorizontalTextAlignment="Start"
+                                />
+                 </StackLayout>
+                  <Image x:Name="imgicon" BackgroundColor="White" Grid.Column="1" Source="{Binding ImageSource}"
+                         Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,2,0"
+                         HeightRequest="{OnPlatform iOS='25' ,Android='35'}"
+                           WidthRequest="{OnPlatform iOS='25',Android='35'}" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"
+                                    NumberOfTapsRequired="1" />
+                      </Image.GestureRecognizers>
+                 </Image>
+                    <BoxView Grid.Row="1" Grid.ColumnSpan="3" BackgroundColor="#DADADA" VerticalOptions="Start"/>
+              </Grid>
+            
+        </Grid> 
+    </ContentView.Content>
+</ContentView>

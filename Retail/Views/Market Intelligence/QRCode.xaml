@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:contr="clr-namespace:Retail.Controls"
+    x:Class="Retail.Views.MarketIntelligence.QRCode"
+    BackgroundColor="{StaticResource LighterGray}"
+    FlowDirection="{Binding flowDirection}"
+    x:Name="root"
+    Title="QR Code">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid Padding="5">
+             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>                     
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" VerticalOptions="FillAndExpand" RowSpacing="0"  BackgroundColor="Transparent" >
+                <contr:RoundedCornerView  Margin="5,0"  Grid.Row="0"
+                                      BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="8"  >                         
+                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                       
+                    </Grid.RowDefinitions>                   
+                    <Grid Padding="10,0,10,0" VerticalOptions="Start" >
+                       <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>                  
+                            <ColumnDefinition Width="auto"/>                  
+                        </Grid.ColumnDefinitions>
+                       
+                        <Grid.RowDefinitions>
+                             <RowDefinition Height="2*"/>
+                             <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                         <Label  VerticalOptions="Center" Text="Scan QRcode" Style="{StaticResource MyTitleLabel}"/>
+                         <Image  Source="qrcodedashboard"
+                               Grid.Column="1" Grid.Row="0"  HeightRequest="30" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,-20,0" > 
+                           <Image.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                               Command="{Binding QRCodeCommand}" />
+                                  </Image.GestureRecognizers>
+                       </Image>
+                    <BoxView Grid.Row="1" Grid.ColumnSpan="3" BackgroundColor="White" VerticalOptions="Start"/>
+                    </Grid>                     
+                </Grid>
+            </contr:RoundedCornerView>
+                  
+              </Grid>
+             <contr:RoundedCornerView  Margin="5,0"  Grid.Row="1"
+                                      BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="8"  >                         
+                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                       
+                    </Grid.RowDefinitions>                   
+                    <Grid Padding="10,0,10,0" VerticalOptions="Start" >
+                         <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>                     
+                    <Label  Grid.Row="0" Text="Scanned Result" Style="{StaticResource SimpleLabelBlack}" />
+                         <contr:ImageEntry PlaceholderColor="LightGray"                                    
+                                    Grid.Row="1"
+                                    HeightRequest="100"
+                                    Text="{Binding SerialNo}"
+                                    x:Name="txtSerialNo"
+                                    Placeholder="Scanned Result"
+                                    Style="{StaticResource EnteryTxtValues}"
+                                    BackgroundColor="White"
+                                    VerticalOptions="StartAndExpand"
+                                    VerticalTextAlignment="Start"
+                                    HorizontalTextAlignment="Start" />
+                    </Grid>                     
+                </Grid>
+            </contr:RoundedCornerView>
+            </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

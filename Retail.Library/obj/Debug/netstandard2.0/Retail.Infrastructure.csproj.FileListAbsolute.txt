@@ -1,0 +1,14 @@
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/bin/Debug/netstandard2.0/Retail.Infrastructure.deps.json
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/bin/Debug/netstandard2.0/Retail.Infrastructure.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/bin/Debug/netstandard2.0/Retail.Infrastructure.pdb
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/Retail.Infrastructure.csproj.AssemblyReference.cache
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/Retail.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/MainPage.xaml.g.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/Retail.Infrastructure.AssemblyInfoInputs.cache
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/Retail.Infrastructure.AssemblyInfo.cs
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/Retail.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/Retail.Infrastructure.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/refint/Retail.Infrastructure.dll
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/Retail.Infrastructure.pdb
+/Users/imacslim2015/Projects/PanaSmartRetail/Retail.Library/obj/Debug/netstandard2.0/ref/Retail.Infrastructure.dll

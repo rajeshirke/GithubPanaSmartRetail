@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls" xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+    x:Class="Retail.Views.MarketIntelligence.MarketIntelligenceView"
+    FlowDirection="{Binding flowDirection}"
+    BackgroundColor="{StaticResource LighterGray}"
+    xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+    x:Name="root"
+    Title="Market Intelligence">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+            <BoxView Style="{StaticResource CardBlueStyle}"
+                 AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+
+            <Grid Padding="10"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                  AbsoluteLayout.LayoutFlags="All">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Behaviors>
+                    <xamanimation:EntranceTransition Duration="200"/>
+                </Grid.Behaviors>
+                 
+                <cards:SfCardView Padding="5,0,5,0"
+                                  Grid.Row="0"
+                                  Grid.Column="0"
+                                  HeightRequest="150"
+                                  BorderColor="{StaticResource BlueColor}"
+                                  BackgroundColor="AliceBlue"
+                                  BorderWidth="1" CornerRadius="15,0,0,0">                         
+                    <Grid BackgroundColor="{StaticResource TransparentColor}"
+                          Padding="8" HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />                       
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Padding="10">
+                            <Image Grid.Row="0"  Source="marketinteldashboard.png"
+                                   HeightRequest="100"
+                                   WidthRequest="100" />
+                            <Label   Grid.Row="1"  Text="Market Insights"
+                                   Margin="0,0,0,0" VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Style="{StaticResource LabelLargeBlack}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding MarketInsightsCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding MarketInsightsCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers> 
+                    </Grid>
+                </cards:SfCardView>
+
+                <cards:SfCardView Padding="5,0,5,0"
+                                  Grid.Row="0" Grid.Column="1"
+                                  HeightRequest="150"
+                                  BorderColor="{StaticResource BlueColor}"
+                                  BackgroundColor="AliceBlue"
+                                  BorderWidth="1" CornerRadius="0,15,0,0"  >                         
+                    <Grid HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand"
+                          Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />                      
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Padding="10">
+                            <Image Grid.Row="0"  Source="questionnairedashboard.png"
+                                   HeightRequest="150"
+                                   WidthRequest="150" />
+                            <Label   Grid.Row="1" Margin="0,0,0,0"
+                                   Text="Questionnaire"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Style="{StaticResource  LabelLargeBlack}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding QuestionnaireCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding QuestionnaireCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers> 
+                    </Grid>
+                </cards:SfCardView>
+
+                <cards:SfCardView Padding="5,0,5,0"
+                                  Grid.Row="1" Grid.Column="0"
+                                  HeightRequest="150"
+                                  BorderColor="{StaticResource BlueColor}"
+                                  BackgroundColor="AliceBlue"
+                                  BorderWidth="1" CornerRadius="0,0,0,0"  >                         
+                    <Grid HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand"
+                          Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />                      
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Padding="10">
+                            <Image Grid.Row="0"  Source="ptdashboard.png"
+                                   HeightRequest="40"
+                                   WidthRequest="40" />
+                            <Label   Grid.Row="1" Margin="0,0,0,0"
+                                   Text="Product Test"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Style="{StaticResource  LabelLargeBlack}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ProductTestCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ProductTestCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers> 
+                    </Grid>
+                </cards:SfCardView>
+
+                <cards:SfCardView Padding="5,0,5,0"
+                                  Grid.Row="1" Grid.Column="1"
+                                  HeightRequest="150"
+                                  BorderColor="{StaticResource BlueColor}"
+                                  BorderWidth="1" CornerRadius="0,0,0,0">                         
+                    <Grid BackgroundColor="AliceBlue"
+                          HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand"
+                          Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>   
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />    
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Padding="10">
+                            <Image Grid.Row="0" Source="surveydashboard.png" 
+                                   HeightRequest="150" WidthRequest="150" />
+                            <Label   Grid.Row="1" Margin="0,0,0,0" Text="Survey" VerticalOptions="Center"
+                                   HorizontalOptions="Center" Style="{StaticResource  LabelLargeBlack}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding SurveyCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding SurveyCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers> 
+                    </Grid>
+                </cards:SfCardView>
+
+                <cards:SfCardView Padding="5,0,5,0"
+                                  Grid.Row="2" Grid.Column="0"
+                                  HeightRequest="150"
+                                  BorderColor="{StaticResource BlueColor}"
+                                  BorderWidth="1" CornerRadius="0,0,0,7"  >                         
+                    <Grid BackgroundColor="AliceBlue"
+                          HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand"
+                          Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />                      
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Padding="10">
+                            <Image Grid.Row="0"  Source="barcodedashboard.png"
+                                   HeightRequest="150" WidthRequest="150" />
+                            <Label   Grid.Row="1" Margin="0,0,0,0" Text="Barcode" VerticalOptions="Center"
+                                   HorizontalOptions="Center" Style="{StaticResource  LabelLargeBlack}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ScanBarcodeCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ScanBarcodeCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers> 
+                    </Grid>
+                </cards:SfCardView>
+
+                <cards:SfCardView Padding="5,0,5,0"
+                                  Grid.Row="2" Grid.Column="1"
+                                  HeightRequest="150"
+                                  BorderColor="{StaticResource BlueColor}"
+                                  BackgroundColor="AliceBlue"
+                                  BorderWidth="1" CornerRadius="0,0,15,0"  >                         
+                    <Grid HorizontalOptions="CenterAndExpand"
+                          VerticalOptions="CenterAndExpand"
+                          Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />                      
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Padding="10">
+                            <Image Grid.Row="0"  Source="qrcodedashboard.png" HeightRequest="150" WidthRequest="150" />
+                            <Label   Grid.Row="1" Margin="0,0,0,0" Text="QR Code" VerticalOptions="Center"
+                                   HorizontalOptions="Center" Style="{StaticResource  LabelLargeBlack}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ScanQRCodeCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ScanQRCodeCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers> 
+                    </Grid>
+                </cards:SfCardView>
+            </Grid>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ci="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Retail.Views.Dashboard.DashboardMenuPage"
+    xmlns:views="clr-namespace:Retail.Views.Dashboard"
+    xmlns:viewSalesTarget="clr-namespace:Retail.Views.SalesTargetViews"
+    xmlns:viewVisitsTasks="clr-namespace:Retail.Views.MyVisits"
+    xmlns:viewReports="clr-namespace:Retail.Views.Reports"
+    xmlns:UserProfile="clr-namespace:Retail.Views.Account"
+    xmlns:SupervisorVisits="clr-namespace:Retail.Views.SupervisorFlow"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"    
+    xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+    FlyoutBackgroundImageAspect="Fill"    
+    FlyoutHeaderBehavior="CollapseOnScroll"    
+    Navigating="OnNavigating"
+    Navigated="OnNavigated"
+    FlowDirection="{Binding flowDirection}"
+    Title="Menues"
+    x:Name="CurrentShell">
+
+    
+    <Shell.Resources>         
+        <Style x:Key="BaseStyle"
+               TargetType="Element">            
+            <Setter Property="Shell.BackgroundColor"
+                    Value="Transparent" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                    Value="Transparent" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="#95FFFFFF" />
+        </Style>
+        <Style TargetType="ShellItem"
+               BasedOn="{StaticResource BaseStyle}" />
+        <Style x:Key="DomesticShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource BottomTab}" />
+        </Style>
+        <Style x:Key="MonkeysShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource BottomTab}" />
+        </Style>
+        <Style x:Key="ElephantsShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource contentBG}"/>
+            
+          
+        </Style>
+        <Style x:Key="MenuShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource BlueColor}"/>
+            <Setter Property="Shell.TitleColor" Value="{StaticResource BlueColor}" />
+        </Style>
+        <Style x:Key="BearsShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource BlueColor}" />
+        </Style>
+        <Style x:Key="AboutShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{StaticResource BlueColor}" />
+        </Style>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <cards:SfCardView Grid.Row="0" Padding="0" CornerRadius="5,5,5,5">
+            <Grid VerticalOptions="FillAndExpand">
+                <!--<Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="-2"/>
+                        <GradientStop Color="{StaticResource WhiteColor}" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Grid.Background>-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <!--<RowDefinition Height="1"/>-->
+                </Grid.RowDefinitions>
+
+                <Image Source="hesderprofile"
+                       Grid.RowSpan="4"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Fill"
+                       HeightRequest="200"
+                       Aspect="Fill"
+                       Opacity="0.3"
+                       />
+
+                <ci:CircleImage Grid.Row="0" x:Name="imgUserPic" Source="{Binding UserPic}"
+                            WidthRequest="80"   Aspect="AspectFill"
+                            Margin="0,6,0,0"
+                        HeightRequest="80"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+
+                <Label    HorizontalTextAlignment="Center" FontSize="17"  Grid.Row="1" Style="{StaticResource  LabelMediumBlue}">
+                    <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding Person.FirstName}" FontFamily="LeagueSpartan-SemiBold" FontSize="17" TextColor="{StaticResource BlackColor}" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>
+                        <Span   Text=" "/>
+                        <Span Text="{Binding Person.LastName}" FontFamily="LeagueSpartan-SemiBold" FontSize="17" TextColor="{StaticResource BlackColor}" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>                            
+                    </FormattedString>
+                    </Label.FormattedText>
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double" Android="20"/>
+                    </Label.FontSize>
+                </Label>              
+             
+                <Label  VerticalTextAlignment="End" VerticalOptions="EndAndExpand" Grid.Row="2" Margin="5,0,5,0" Padding="5" Style="{StaticResource LabelMediumBlack}" LineBreakMode="WordWrap" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span  Text="Version " FontSize="17" Style="{StaticResource LabelMediumBlack}" FontFamily="LeagueSpartan-SemiBold" FontAttributes="Bold" />
+                        <Span Text="{Binding VersionNumber}" FontSize="17" Style="{StaticResource LabelMediumBlack}" FontFamily="LeagueSpartan-SemiBold" FontAttributes="Bold"/>                                                  
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+                <!--<BoxView Grid.Row="3" BackgroundColor="Gray"/>-->             
+            </Grid>
+        </cards:SfCardView>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Route="MainRoute"
+                Title="Dashboard"                
+                FlexLayout.AlignSelf="Center"
+                FlyoutDisplayOptions="AsSingleItem" >
+        <Shell.ItemTemplate>
+            <DataTemplate>
+                <!--<Frame.Background>
+                    <LinearGradientBrush EndPoint="1,1">
+                        <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="10.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>-->
+                <StackLayout Orientation="Vertical" VerticalOptions="Center" 
+                             Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="homedashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                   
+                        <Label Text="Dashboard" VerticalOptions="Center" FontFamily="LeagueSpartan-SemiBold" VerticalTextAlignment="Center" FontAttributes="Bold"
+                                Style="{StaticResource MyValueLabel}" FontSize="18" TextColor="{StaticResource BlackColor}"/>
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>
+            </DataTemplate>
+        </Shell.ItemTemplate>        
+        <ShellContent
+            Route="HomeRoute"            
+            Style="{StaticResource ElephantsShell}"           
+            Title="Home" 
+            Icon="home.png"
+            ContentTemplate="{DataTemplate views:DashboardMasterPage}" >
+        </ShellContent>
+
+        <ShellContent Route="PromVisitRoute"
+                      IsVisible="{Binding IsVisitsandTasksBottomTab}"
+                      Style="{StaticResource ElephantsShell}"
+                      Title="Visits"
+                      Icon="footerlocation"                      
+                      ContentTemplate="{DataTemplate viewVisitsTasks:PlannedVisitsView}" />
+
+         <ShellContent Route="SupVisitRoute"
+                        IsVisible="{Binding IsSupervisorVisitsBottomTab}" 
+                        Style="{StaticResource ElephantsShell}"
+                        Title="Supervisor Visits"
+                        Icon="footerlocation"
+                        ContentTemplate="{DataTemplate SupervisorVisits:VisitsAndTasksView}" />
+
+        <ShellContent Route="SalesEntryRoute"                      
+                      IsVisible="{Binding IsSalesEntryBottomTab}"
+                      Style="{StaticResource ElephantsShell}"
+                      Title="Sales Entry"
+                      Icon="footersalesentry"
+                      ContentTemplate="{DataTemplate viewSalesTarget:SalesDataEntry}">
+        </ShellContent>
+
+        <ShellContent Route="TargetsOverviewRoute"
+                      IsVisible="{Binding IsTargetsOverviewBottomTab}"
+                      Style="{StaticResource ElephantsShell}"
+                      Title="Targets Overview"
+                      Icon="footersalestarget"
+                      ContentTemplate="{DataTemplate viewSalesTarget:TargetsOverview}" />
+
+        <ShellContent Route="ReportsRoute"
+                      IsVisible="{Binding IsReportsBottomTab}"
+                      Style="{StaticResource ElephantsShell}"
+                      Title="Reports"                     
+                      Icon="footerreports"
+                      ContentTemplate="{DataTemplate viewReports:ReportsView}" />
+        <ShellContent 
+                      Route="ProfileRoute"
+                      Style="{StaticResource BearsShell}"
+                      Title="Profile"
+                      Icon="user"
+                      ContentTemplate="{DataTemplate UserProfile:MyProfileNew}" />
+    </FlyoutItem>
+
+    <!--#region Promoter Menues-->
+        <MenuItem Text="Attendance"  
+                Command="{Binding PromoterAttendanceCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                 <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                             <GradientStop Color="{StaticResource WhiteColor}" Offset="0.5"/>
+                             <GradientStop Color="{StaticResource BlueColor}" Offset="10"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="attendancedashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="My Attendance" VerticalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold"
+                            Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" FontSize="18" TextColor="{StaticResource BlackColor}"/>
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>     
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+        <MenuItem Text="Sales Target"
+                Command="{Binding SalesTargetCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                <!--<Frame.Background>
+                    <LinearGradientBrush EndPoint="1,1">
+                        <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                        <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                    </LinearGradientBrush>
+                </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="targetdashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="Sales Target" VerticalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold"
+                            Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" FontSize="18" TextColor="{StaticResource BlackColor}"/>
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>    
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+        <MenuItem Text="Sales Entry"  
+                  Command="{Binding SalesEntryCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                         <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                        <StackLayout Orientation="Vertical"  Padding="15" BackgroundColor="White">
+                            <StackLayout Orientation="Horizontal">
+                            <Image Source="salesentrydashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Sales Entry" VerticalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold"
+                                    Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" FontSize="18" TextColor="{StaticResource BlackColor}"/>
+                            </StackLayout>
+                            <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                        </StackLayout>
+                   
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+        <MenuItem Text="Sales Return"  
+                  Command="{Binding SalesReturnCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                    <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                    <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Source="salesreturnsadhboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Sales Return" VerticalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold"
+                                    Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" FontSize="18" TextColor="{StaticResource BlackColor}"/>
+                        </StackLayout>
+                         <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                     </StackLayout>
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+        <MenuItem Text="Out of Stock"  
+                  Command="{Binding OutOfStockCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                        <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="2.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                    <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Source="inventorydashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Out of Stock" VerticalOptions="Center" FontSize="18" FontAttributes="Bold"
+                                    VerticalTextAlignment="Center" FontFamily="LeagueSpartan-SemiBold" Style="{StaticResource MyValueLabel}" TextColor="{StaticResource BlackColor}"/>
+                        </StackLayout>
+                         <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                     </StackLayout>
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+        <MenuItem Text="Product Catalogue"  
+                  Command="{Binding ViewBrochureCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                        <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                    <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                         <StackLayout Orientation="Horizontal" >
+                            <Image Source="cataloguedashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Product Catalogue" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                                    Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" TextColor="{StaticResource BlackColor}"/>
+                        </StackLayout>
+                         <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                     </StackLayout>
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+        <MenuItem Text="Market Insights"  
+                  Command="{Binding MarketInsightsCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                        <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                    <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Source="marketinteldashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Market Intel" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                                    Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" TextColor="{StaticResource BlackColor}"/>
+                        </StackLayout>
+                         <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                     </StackLayout>
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+        <MenuItem Text="Reports"  
+                  Command="{Binding ReportsCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                        <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                    <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Source="reportsdashbaord.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Reports" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                                    Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" TextColor="{StaticResource BlackColor}"/>
+                        </StackLayout>
+                        <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                     </StackLayout>
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+        <MenuItem Text="Visits &amp; Tasks"  
+                  Command="{Binding VisitsandTasksCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                        <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                    <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Source="locationdashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Visits &amp; Tasks" VerticalOptions="Center" VerticalTextAlignment="Center" FontAttributes="Bold"
+                                    Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" FontSize="18" TextColor="{StaticResource BlackColor}"/>
+                        </StackLayout>
+                        <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                     </StackLayout>
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+    <!--#endregion-->
+
+    <!--#region Supervisor Menues-->
+    <MenuItem Text="Supervisor Visits"  
+              Command="{Binding SupervisorVisitsandTasksCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal" >
+                        <Image Source="locationdashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="Supervisor Visits" VerticalOptions="Center" FontSize="18"  FontAttributes="Bold"
+                            VerticalTextAlignment="Center" FontFamily="LeagueSpartan-SemiBold" Style="{StaticResource MyValueLabel}" TextColor="{StaticResource BlackColor}"/>
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+    <MenuItem Text="Stock Entry"  
+                  Command="{Binding InventoryStockCommand}">
+            <Shell.MenuItemTemplate>
+                <DataTemplate>
+                        <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                    <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Source="inventorydashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                            <Label     Text="Inventory Stock Entry" VerticalOptions="Center" FontSize="18" FontAttributes="Bold"
+                                    VerticalTextAlignment="Center" FontFamily="LeagueSpartan-SemiBold" Style="{StaticResource MyValueLabel}" TextColor="{StaticResource BlackColor}"/>
+                        </StackLayout>
+                        <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                    </StackLayout>
+                </DataTemplate>
+            </Shell.MenuItemTemplate>
+        </MenuItem>
+
+    <MenuItem Text="Attendance Tracking"  
+              Command="{Binding AttendanceTrackerCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                    <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal" >
+                        <Image Source="attendancedashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="Attendance Tracking" VerticalOptions="Center" FontSize="18" FontAttributes="Bold"
+                            VerticalTextAlignment="Center" FontFamily="LeagueSpartan-SemiBold" Style="{StaticResource MyValueLabel}" TextColor="{StaticResource BlackColor}" />
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+    <MenuItem Text="Targets Overview"  
+              Command="{Binding TargetsOverviewCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                    <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal" >
+                        <Image Source="targetdashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="Targets Overview" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                                Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" TextColor="{StaticResource BlackColor}" />
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+    <MenuItem Text="Price Tracker Entry"  
+              Command="{Binding PriceTrackerCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                    <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal" >
+                        <Image Source="pricetracker.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="Price Tracker Entry" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                                Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" TextColor="{StaticResource BlackColor}" />
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+    <MenuItem Text="Display Tracker Entry"  
+              Command="{Binding DisplayTrackerCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                    <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal" >
+                        <Image Source="displaytracker.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="Display Tracker Entry" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                                Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" TextColor="{StaticResource BlackColor}" />
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem> 
+
+    <MenuItem Text="Logout"  
+              Command="{Binding LogoutCommand}">
+        <Shell.MenuItemTemplate>
+            <DataTemplate>
+                    <!--<Frame.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.1"/>
+                            <GradientStop Color="{StaticResource BlueColor}" Offset="4.5"/>
+                        </LinearGradientBrush>
+                    </Frame.Background>-->
+                <StackLayout Orientation="Vertical" Padding="15" BackgroundColor="White">
+                    <StackLayout Orientation="Horizontal" >
+                        <Image Source="logoutdashboard.png" HeightRequest="24" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="24"/>                    
+                        <Label     Text="Logout" VerticalOptions="Center" VerticalTextAlignment="Center" FontSize="18" FontAttributes="Bold"
+                                Style="{StaticResource MyValueLabel}" FontFamily="LeagueSpartan-SemiBold" TextColor="{StaticResource BlackColor}"/>
+                    </StackLayout>
+                    <BoxView BackgroundColor="LightBlue" HeightRequest="1" Margin="0,15,0,0"/>
+                </StackLayout>
+            </DataTemplate>
+        </Shell.MenuItemTemplate>
+    </MenuItem>
+
+    <!--#endregion-->
+
+    <!--<MenuItem Text="{Binding VersionNumber}" >
+        
+    </MenuItem>-->
+
+</Shell>

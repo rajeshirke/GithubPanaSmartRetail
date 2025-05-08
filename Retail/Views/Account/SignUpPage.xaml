@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:contr="clr-namespace:Retail.Controls"
+    x:Class="Retail.Views.Account.SignUpPage">
+    <ContentPage.Content>
+         <ScrollView Grid.Row="0" BackgroundColor="White">
+            <Grid  Padding="30,0,30,0" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="Auto"/>
+                     <RowDefinition Height="Auto"/>
+                     <RowDefinition Height="Auto"/>
+                     <RowDefinition Height="Auto"/>
+                     <RowDefinition Height="Auto"/>
+                     <RowDefinition Height="Auto"/>
+                     <RowDefinition Height="10"/>
+                     <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                       <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                     <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Image Source="pslogo.png" Aspect="AspectFit" Grid.Row="0">
+                      <Image.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android">60</On>
+                        <On Platform="iOS">90</On>
+                    </OnPlatform>
+                 </Image.HeightRequest> 
+              </Image>
+
+                 <contr:TitledEntryView Grid.Row="1" Title="" Placeholder="Full Name" Text="{Binding AccountDetails.Name}"  PlaceholderColor="Gray"/>
+
+                <contr:TitledEntryView Grid.Row="2" Title="" Placeholder="Email" EntryKeyboard="Email" Text="{Binding AccountDetails.Email}"   PlaceholderColor="Gray"/>
+                 <Grid Grid.Row="4" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Label    Grid.Row="0" Margin="4,0,0,0"   TextColor="Black" VerticalTextAlignment="Center"/>
+
+                        <Grid Grid.Row="1"  VerticalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label    Text="{Binding PhoneCode}" Style="{StaticResource EnteryLabelValues}" TextColor="#707070" FontAttributes="Bold" FontSize="16" Grid.Column="0" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                              <contr:ImageEntry Margin="0,0,0,0"  Grid.Column="1" BackgroundColor="White"  Text="{Binding AccountDetails.ContactNumber}" Placeholder="Mobile Number"  Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" VerticalTextAlignment="Center"
+                                    Keyboard="Telephone"        PlaceholderColor="Gray" MaxLength="10"   HorizontalTextAlignment="Start"  />
+                        </Grid>
+                      
+                              <BoxView Grid.Row="2" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                 </Grid>
+
+                 <!--<contr:TitledEntryWithIcon Grid.Row="4" ImageSource="dropdown" IsEnabledView="False" Text="{Binding SelectCountry.Title}" Placeholder="Select Country"   Command="{Binding CountryChangeCommand}" />-->
+                 <Grid Grid.Row="3" VerticalOptions="Center" RowSpacing="0"  BackgroundColor="Transparent" >
+                  <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="8*"/>
+                       <ColumnDefinition Width="2*"/>
+                      <ColumnDefinition Width="2"/>
+                  </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                     <RowDefinition Height="auto"/>
+                     <RowDefinition Height="1"/>
+                 </Grid.RowDefinitions>
+                     <StackLayout Grid.Row="0" IsEnabled="False">
+                  <contr:ImageEntry   VerticalOptions="End" Grid.Column="0"   Text="{Binding SelectCountry.Title}" Placeholder="Select Country"  Style="{StaticResource EnteryTxtValues}" TextColor="#707070" BackgroundColor="White"  VerticalTextAlignment="Center"
+                                PlaceholderColor="#707070"   HorizontalTextAlignment="Start"
+                                />
+                 </StackLayout>
+                  <Image  BackgroundColor="White" Grid.Column="1" Source="dropdown" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,2,0" HeightRequest="30" WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Command="{Binding CountryChangeCommand}"
+                                    NumberOfTapsRequired="1" />
+                      </Image.GestureRecognizers>
+                 </Image>
+                    <BoxView Grid.Row="1" Grid.ColumnSpan="3" BackgroundColor="#DADADA" VerticalOptions="Start"/>
+              </Grid>
+
+                <contr:TitledEntryView Grid.Row="5"  Text="{Binding Password}"  IsTextPassword="True" Placeholder="Password" EntryKeyboard="Text"    PlaceholderColor="Gray"/>
+            <contr:TitledEntryView Grid.Row="6" Text="{Binding ConfirmPassword}" IsTextPassword="True" Placeholder="Confirm Password" EntryKeyboard="Text"    PlaceholderColor="Gray"/>
+            
+                <Grid Grid.Row="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30"/>
+                         <ColumnDefinition Width="*"/> 
+                    </Grid.ColumnDefinitions>
+                     <CheckBox Grid.Column="0" IsChecked="true" IsEnabled="False"/>
+                <Label    Grid.Column="1" MaxLines="3" HorizontalTextAlignment="Center" HorizontalOptions="Center" WidthRequest="250"  TextColor="{StaticResource btnbgColor}"  >
+                      <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                                         </Label.FontSize>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span   Text="By proceeding you agree to the "
+                                  TextColor="Black"
+                                  />
+                            <Span   Text="Terms of service"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                                Command="{Binding TermsConditionCommand}"
+                                                NumberOfTapsRequired="1" />
+                                  </Span.GestureRecognizers>
+                            </Span>
+                            <Span   Text=" &amp; "
+                                  TextColor="Blue"
+                                  >
+                               
+                            </Span>
+                            <Span   Text="Privacy policy"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                                Command="{Binding TermsConditionCommand2}"
+                                                NumberOfTapsRequired="1" />
+                                  </Span.GestureRecognizers>
+                            </Span>
+                          
+                        </FormattedString>
+                    </Label.FormattedText>
+
+                    <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                   Command="{Binding TermsConditionCommand2}"
+                                    NumberOfTapsRequired="1" />
+                      </Label.GestureRecognizers>
+                </Label>
+
+                </Grid>
+               
+                <Button Grid.Row="10" Text="Proceed" BackgroundColor="#E62E75" TextColor="White"  Command="{Binding OTPCommand}" FontAttributes="Bold"/>
+
+                  <Grid Grid.Row="11">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="7*"/>
+                                         <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label    Grid.Column="0" Text="Already have an Account?" TextColor="#D2D0D0" HorizontalTextAlignment="End"  FontAttributes="Bold">
+                                          <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                                         </Label.FontSize>
+                                    </Label>
+                                    <Label    Grid.Column="1" Text="Sign In" TextColor="#3F50C1" HorizontalTextAlignment="Start" FontAttributes="Bold">
+                                         <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                                         </Label.FontSize>
+                                    </Label>
+                                     <Grid.GestureRecognizers>
+                             <TapGestureRecognizer
+                                   Command="{Binding LoginCommand}"
+                                    NumberOfTapsRequired="1" />
+                      </Grid.GestureRecognizers>
+                                </Grid>
+            </Grid>
+               </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

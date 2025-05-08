@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eWarranty.Views.Customer.UserProfile.ProfileUpdatePage"
+             BackgroundColor="White"           
+             
+             xmlns:contr="clr-namespace:Retail.Controls"
+             Title="Update Profile">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid Padding="20,10,20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Padding="10" RowSpacing="30">
+                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                      <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                  <contr:TitledEntryView Grid.Row="0" Title="Name" Placeholder="Full Name"  Text="{Binding Name}" IsEnabled="False"
+                                PlaceholderColor="Gray"/>
+                
+                 <Grid Grid.Row="1" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <Label    Text="Alternate Number" Grid.Row="0" Margin="4,0,0,0"   Style="{StaticResource EnteryTitleLabel}"  VerticalTextAlignment="Center"/>
+
+                        <Grid Grid.Row="1"  VerticalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label    Text="{Binding PhoneCode}" Style="{StaticResource EnteryLabelValues}" TextColor="#707070" FontAttributes="Bold"  Grid.Column="0" VerticalTextAlignment="Center" FontSize="14"  VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                              <contr:ImageEntry Margin="0,0,0,0"  Grid.Column="1" BackgroundColor="White"  Text="{Binding AlternateNumber}"  Placeholder="Alternate Number"  Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" VerticalTextAlignment="Center"
+                                    Keyboard="Telephone"        PlaceholderColor="Gray" MaxLength="10"   HorizontalTextAlignment="Start"  />
+                        </Grid>
+                      
+                              <BoxView Grid.Row="2" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                 </Grid>
+
+                  <!--<Grid Grid.Row="2" VerticalOptions="Center" RowSpacing="0"  BackgroundColor="Transparent" >
+                      <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="8*"/>
+                           <ColumnDefinition Width="2*"/>
+                          <ColumnDefinition Width="2"/>
+                      </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                             <RowDefinition Height="auto"/>
+                         <RowDefinition Height="auto"/>
+                         <RowDefinition Height="1"/>
+                     </Grid.RowDefinitions>
+                      <Label    Grid.Row="0" Text="Country " Style="{StaticResource EnteryTxtValues}" TextColor="#707070"/>
+                         <StackLayout Grid.Row="1" IsEnabled="False" >
+                      <contr:ImageEntry   VerticalOptions="End" Grid.Column="0"   Text="{Binding SelectCountry.Title}" Placeholder="Select Country"  Style="{StaticResource EnteryTxtValues}" TextColor="#707070" BackgroundColor="White"  VerticalTextAlignment="Center"
+                                    PlaceholderColor="#707070"   HorizontalTextAlignment="Start"
+                                    />
+                     </StackLayout>
+                      <Image  BackgroundColor="White" Grid.Column="1" Source="dropdown" Aspect="AspectFit" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,2,0" HeightRequest="30" WidthRequest="30">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        Command="{Binding CountryChangeCommand}"
+                                        NumberOfTapsRequired="1" />
+                          </Image.GestureRecognizers>
+                     </Image>
+                        <BoxView Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="#DADADA" VerticalOptions="Start"/>
+                  </Grid>-->
+                <contr:TitledEntryWithIcon Grid.Row="2" IsEnabledView="True" Title="Country"  ImageSource="dropdown" Placeholder="Select Country"  Text="{Binding SelectCountry.Title}" Command="{Binding CountryChangeCommand}"
+                                PlaceholderColor="LightGray"/>
+
+                 <contr:TitleDropdownView Grid.Row="3" Title="Primary Language" Placeholder="Primary Language" PickerItemsSource="{Binding Languages}" ItemDisplayBinding="Title"  SelectedItem="{Binding SelectedLanguageType}" Command="{Binding LonguageChangeCommand}" />
+
+
+                <!--<Button Command="{Binding UpdateCommand}" Grid.Row="4" Text="Update" Style="{StaticResource ButtonPinkStyle}" WidthRequest="100" HorizontalOptions="Center" Padding="0,0,10,0"/>-->
+                 <Grid Grid.Row="4"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="10"/>
+                     <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                 <Button Grid.Column="0" Command="{Binding UpdateCommand}" Text="Update" Style="{StaticResource ButtonBlueStyle}" />
+                 <Button Grid.Column="2" Command="{Binding BackCommand}" Text="Cancel" Style="{StaticResource ButtonPinkStyle}"/>
+
+            </Grid>
+            </Grid>
+        </Grid>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

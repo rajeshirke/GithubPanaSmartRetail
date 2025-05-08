@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.MarketIntelligence.Questionnaires.ManagerSignature"
+    xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+    FlowDirection="{Binding flowDirection}"
+    BackgroundColor="{StaticResource WhiteColor}"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    Title="Manager Signature"
+    x:Name="RootMarketPhoto">
+    <ContentPage.Content>
+        <ScrollView>
+
+            <Grid Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height=".5*"/>
+                </Grid.RowDefinitions> 
+                <Image Source="{Binding FileInfos.DisplayPhoto}"
+                        BackgroundColor="{StaticResource contentBG}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Aspect="AspectFill"/>
+
+                <forms:SignaturePadView x:Name="spForms" Grid.Row="1"
+                        BackgroundColor="White"
+                        WidthRequest="250"
+                        HeightRequest="350"
+                        StrokeColor="Black"
+                        IsBlank="{Binding IsSigBlank}"
+                        StrokeWidth="3" />
+
+                
+                <Grid Grid.Row="2"  Margin="5" HeightRequest="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <contr:RoundedCornerView Grid.Column="0"
+                                             BorderColor="{StaticResource BlueColor}"
+                                             BorderWidth="1" RoundedCornerRadius="6"
+                                             BackgroundColor="{StaticResource TransparentColor}">
+                        <Grid x:Name="Save" BackgroundColor="{StaticResource BlueColor}"
+                              VerticalOptions="FillAndExpand">
+                        <Label  Text="Done" HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                VerticalOptions="Center"
+                                Style="{StaticResource LabelMediumWhite}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"                                                    
+                                    NumberOfTapsRequired="1" />
+                        </Grid.GestureRecognizers>
+                        </Grid>
+                    </contr:RoundedCornerView>
+
+                    <contr:RoundedCornerView Grid.Column="1"
+                                             BorderColor="{StaticResource PinkColor}"
+                                             BorderWidth="1" RoundedCornerRadius="6"
+                                             BackgroundColor="{StaticResource TransparentColor}">
+                        <Grid BackgroundColor="{StaticResource PinkColor}"
+                              VerticalOptions="FillAndExpand">
+                        <Label    Text="Cancel" HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" VerticalOptions="Center"
+                               Style="{StaticResource LabelMediumWhite}" />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped_Cancel"
+                                    NumberOfTapsRequired="1" />
+                        </Grid.GestureRecognizers>
+                        </Grid>
+                    </contr:RoundedCornerView>                                       
+                </Grid>
+
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:contr="clr-namespace:Retail.Controls" xmlns:views="http://xamarin.com/schemas/2020/toolkit" xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+    x:Class="Retail.Views.MarketIntelligence.MarketInsights"
+    BackgroundColor="{StaticResource LighterGray}"
+    FlowDirection="{Binding flowDirection}"
+    x:Name="Root"
+    Title="Market Insights" >
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <Grid Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>                
+                </Grid.RowDefinitions>
+                 
+                <contr:RoundedCornerView Margin="5,0"  Grid.Row="0"
+                                         BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="8"  >                         
+                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                    
+                        <Grid Grid.Row="0" Padding="5">
+                            <Image Grid.Row="0"  Source="cameranew.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40" />
+                            <Label   Grid.Row="0"  Text="Take Photo"
+                                   VerticalOptions="Center" HorizontalOptions="Start"
+                                   Style="{StaticResource MyTitleLabel}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding ImageButtonCommand}"                                
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>                     
+                    </Grid>
+                </contr:RoundedCornerView>
+
+                <Grid Padding="5,0,5,0" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <contr:RoundedCornerView Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >  
+                        <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="100"/>                                
+                            </Grid.RowDefinitions>
+                            <Label   Grid.Row="0"  Text="Uploaded images" HorizontalTextAlignment="Start"
+                                   Style="{StaticResource MyTitleLabel}" />
+                            <Grid Grid.Row="1">
+                                <StackLayout x:Name="MainLayout" >
+
+                                    <StackLayout Orientation="Vertical"
+                                         VerticalOptions="Fill"
+                                         HorizontalOptions="StartAndExpand">
+
+                                         <CollectionView
+                                                  ItemsSource="{Binding obMarketInsightFileRequest}"
+                                                  BackgroundColor="{StaticResource WhiteColor}"
+                                                  x:Name="ListPage">
+                                             <CollectionView.ItemsLayout>
+                                                 <GridItemsLayout Orientation="Vertical" Span="3"/>
+                                             </CollectionView.ItemsLayout>
+                                            <CollectionView.ItemTemplate>  
+                                                <DataTemplate>  
+                                                    <StackLayout Padding="4,0" WidthRequest="100" HeightRequest="100"
+                                                                 BackgroundColor="{StaticResource WhiteColor}">
+                                                            <Grid>
+                                                                <Image Source="{Binding FileInfo.DisplayPhoto}"
+                                                                       Rotation="{Binding FileInfo.Rotation}"                                                                                                                                
+                                                                       BackgroundColor="{StaticResource LightGray}"
+                                                                       HorizontalOptions="CenterAndExpand"
+                                                                       Aspect="AspectFill"/>
+
+                                                              <Image Source="closenew.png"
+                                                                    VerticalOptions="Start"
+                                                                    HorizontalOptions="EndAndExpand"
+                                                                    WidthRequest="20" HeightRequest="20"                                                                                                                                  
+                                                                    AbsoluteLayout.LayoutBounds="1, 0, 25, 25"
+                                                                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                                    BackgroundColor="{StaticResource LighterGray}"
+                                                                    >
+                                                                <Image.GestureRecognizers>
+                                                                    <TapGestureRecognizer
+                                                                        Command="{Binding BindingContext.DeletePhotoCommand,
+                                                                        Source={x:Reference Name=Root}}"
+                                                                        CommandParameter="{Binding .}"
+                                                                        NumberOfTapsRequired="1"
+                                                                        />
+                                                                </Image.GestureRecognizers>
+                                                                </Image>
+                                                            </Grid>
+                                                    </StackLayout>
+                                                </DataTemplate>  
+                                            </CollectionView.ItemTemplate>  
+                                        </CollectionView>
+
+                                    </StackLayout>
+
+                                </StackLayout>                           
+                            </Grid>                            
+                        </Grid>
+                    </contr:RoundedCornerView>
+                </Grid>
+
+                <contr:RoundedCornerView Margin="5,0"  Grid.Row="2" BorderColor="{StaticResource borderColor}"
+                                          BorderWidth="1" RoundedCornerRadius="8"  >                         
+                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                   
+                        <Grid Grid.Row="0" Padding="5">
+                            <Image Grid.Row="0"  Source="videonew.png"  HorizontalOptions="End" HeightRequest="40" WidthRequest="40" />
+                            <Label   Grid.Row="0"  Text="Record Video"  VerticalOptions="Center"
+                                   HorizontalOptions="Start" Style="{StaticResource MyTitleLabel}"  />
+                        
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding RecordVideoCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <contr:RoundedCornerView Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >  
+                        <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="100"/>                                
+                            </Grid.RowDefinitions>
+                            <Label   Grid.Row="0"  Text="Uploaded videos" HorizontalTextAlignment="Start"
+                                   Style="{StaticResource MyTitleLabel}" />
+                            <Grid Grid.Row="1">
+                                <StackLayout x:Name="MainLayout1" >
+
+                                    <StackLayout Orientation="Vertical"
+                                         VerticalOptions="Fill"
+                                         HorizontalOptions="StartAndExpand">
+
+                                         <CollectionView
+                                                  ItemsSource="{Binding obMarketInsightFileRequestVideo}"
+                                                  BackgroundColor="{StaticResource WhiteColor}"                                              
+                                                  x:Name="ListPage1">
+                                             <CollectionView.ItemsLayout>
+                                                 <GridItemsLayout Orientation="Vertical" Span="3"/>
+                                             </CollectionView.ItemsLayout>
+                                            <CollectionView.ItemTemplate>  
+                                                <DataTemplate>  
+                                                    <StackLayout Padding="5"
+                                                                 BackgroundColor="{StaticResource WhiteColor}">
+                                                            <Grid>
+                                                                <!--<Image Source="{Binding FileInfo.DisplayPhoto}"
+                                                                       WidthRequest="100"
+                                                                       HeightRequest="100"
+                                                                       BackgroundColor="{StaticResource LightGray}"
+                                                                       HorizontalOptions="Center"                                                                  
+                                                                       Aspect="AspectFill"/>-->
+                                                                <!--<views:MediaElement
+                                                                    x:Name="mediaElement"
+                                                                    Source="{Binding FileInfo.DisplayVideo}"
+                                                                    WidthRequest="100"
+                                                                    HeightRequest="100"
+                                                                    BackgroundColor="{StaticResource LightGray}"
+                                                                    HorizontalOptions="FillAndExpand"
+                                                                    VerticalOptions="FillAndExpand"
+                                                                    Aspect="AspectFill"
+                                                                    ShowsPlaybackControls="True"
+                                                                    AutoPlay="False"/>-->
+                                                                <o:VideoPlayer
+                                                                    x:Name="mediaElement"
+                                                                    Source="{Binding FileInfo.DisplayVideo}"
+                                                                    WidthRequest="80"
+                                                                    HeightRequest="80"
+                                                                    BackgroundColor="{StaticResource LightGray}"
+                                                                    HorizontalOptions="Fill" />
+                                                                 <Image Source="closenew.png"
+                                                                       VerticalOptions="Start"
+                                                                       HorizontalOptions="EndAndExpand"
+                                                                       WidthRequest="20" HeightRequest="20"
+                                                                       Margin="-260,0,0,150"
+                                                                       BackgroundColor="{StaticResource LighterGray}"
+                                                                       >
+                                                                    <Image.GestureRecognizers>
+                                                                        <TapGestureRecognizer
+                                                                            Command="{Binding BindingContext.DeleteVideoCommand, Source={x:Reference Name=Root}}"
+                                                                            CommandParameter="{Binding .}"
+                                                                            NumberOfTapsRequired="1"
+                                                                            />
+                                                                    </Image.GestureRecognizers>
+                                                                </Image>
+                                                            </Grid>
+                                                    </StackLayout>
+                                                </DataTemplate>  
+                                            </CollectionView.ItemTemplate>  
+                                        </CollectionView>
+
+                                    </StackLayout>
+
+                                </StackLayout>                           
+                            </Grid>                            
+                        </Grid>
+                    </contr:RoundedCornerView>
+                        </Grid>
+                    </Grid>
+                </contr:RoundedCornerView>
+
+                <contr:RoundedCornerView  Margin="5,0"  Grid.Row="3"
+                                          BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="8"  >                         
+                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>                   
+                        <Grid Padding="10,0,10,0" VerticalOptions="Start" >
+                             <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                             <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>   
+                         <Label   Grid.Row="0"  Text="Comments" 
+                                HorizontalOptions="Start" Style="{StaticResource MyTitleLabel}"  />
+                    
+                             <contr:ImageEntry Text="{Binding MarketIntelComment}" Grid.Row="1"
+                                               HeightRequest="100"  BackgroundColor="White"
+                                     Placeholder="Enter comments" VerticalTextAlignment="Start" 
+                                     VerticalOptions="StartAndExpand" Style="{StaticResource EnteryTxtValues}"
+                                                />
+                            <BoxView Grid.Row="2" BackgroundColor="Gray"/>
+                        </Grid>                     
+                    </Grid>
+                </contr:RoundedCornerView>
+
+                <Grid Grid.Row="4"  Margin="5" HeightRequest="40" VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <contr:RoundedCornerView Grid.Column="0"
+                                        BorderColor="{StaticResource BlueColor}" BorderWidth="1"
+                                        RoundedCornerRadius="6" BackgroundColor="{StaticResource TransparentColor}">
+                    <Grid BackgroundColor="{StaticResource BlueColor}" VerticalOptions="FillAndExpand">
+                    <Label   Text="Save" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center"  Style="{StaticResource LabelMediumWhite}" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Command="{Binding SaveCommand}"                                                    
+                                NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    </Grid>
+                </contr:RoundedCornerView>
+
+                <contr:RoundedCornerView Grid.Column="1"
+                                        BorderColor="{StaticResource PinkColor}"
+                                        BorderWidth="1" RoundedCornerRadius="6"
+                                        BackgroundColor="{StaticResource TransparentColor}">
+                    <Grid BackgroundColor="{StaticResource PinkColor}" VerticalOptions="FillAndExpand">
+                    <Label   Text="Cancel" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" Style="{StaticResource LabelMediumWhite}" />
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Command="{Binding CancelCommand}"
+                                NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                    </Grid>
+                </contr:RoundedCornerView>
+                                       
+            </Grid>
+                                    
+
+            </Grid>
+
+            <contr:LoaderAnimView AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+
+            </AbsoluteLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

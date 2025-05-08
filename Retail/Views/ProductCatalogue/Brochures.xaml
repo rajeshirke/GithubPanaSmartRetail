@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.ProductCatalogue.Brochures"     
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:views="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:cvrt="clr-namespace:Retail.Converters"
+    xmlns:forms="clr-namespace:Plugin.Media;assembly=Plugin.Media"
+    x:Name="Root"
+    BackgroundColor="{StaticResource LighterGray}"
+    Title="Product Catalogues">
+     <ContentPage.Resources>
+        <ResourceDictionary>
+            <cvrt:ExtensionConverter x:Key="ExtensionConverters"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+ <ContentPage.Content>
+     <ScrollView>
+         <AbsoluteLayout>
+             <BoxView Style="{StaticResource CardBlueStyle}"
+                 AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+            
+            <Grid>    
+        <CollectionView Grid.Row="0" ItemsSource="{Binding obProductCatalogueByCategoryResponse}" EmptyView="No Catalogues!!!" >
+            <CollectionView.ItemTemplate>
+
+             <DataTemplate>
+             
+                 <Grid HeightRequest="245" WidthRequest="250" BackgroundColor="Transparent" Padding="5,0">
+                
+                    <contr:RoundedCornerView  VerticalOptions="Center" Grid.Row="0"    BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12" BackgroundColor="Transparent" >
+                        <Grid BackgroundColor="White" VerticalOptions="FillAndExpand" Padding="5" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>                                        
+                            </Grid.RowDefinitions>
+                     <Label Grid.Row="0" Padding="8" Text="{Binding ProductCategoryName}" Style="{StaticResource LabelLargeBlack}"/>
+                 
+                    <Grid Grid.Row="1"  VerticalOptions="Start" BackgroundColor="black">
+                    <Grid Grid.Row="0">
+                        <Grid Grid.Row="0" HorizontalOptions="Center" BackgroundColor="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <CarouselView  ItemsSource="{Binding ProductCatalogues}" x:Name="cvBanners" Grid.Row="0" Grid.RowSpan="2"  IndicatorView="indicatorview">
+
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>                                          
+                                            </Grid.RowDefinitions>
+                                            <Grid  Grid.Row="0" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="100"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                 <!--Source="https://picsum.photos/200?random={1}"-->
+                                                <Image Grid.Row="0" Grid.Column="0"
+                                                       Source="{Binding FileFullPath}"
+                                                       IsVisible="{Binding FileFullPath, Converter={StaticResource Key=ExtensionConverters},ConverterParameter=image}"
+                                                       BackgroundColor="{StaticResource TransparentColor}"
+                                                       Aspect="AspectFill"
+                                                       Margin="5"
+                                                       Visual="Material"
+                                                       >
+                                                     <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer                                                            
+                                                            Tapped="TapGestureRecognizer_Tapped"
+                                                            NumberOfTapsRequired="1"
+                                                            />
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+
+                                                <Label   Grid.Row="0" Grid.Column="0" x:Name="lblPDF"
+                                                       TextDecorations="Underline"
+                                                       TextColor="Blue"
+                                                       Text="{Binding FileFullPath}"                                                   
+                                                       IsVisible="{Binding FileFullPath, Converter={StaticResource Key=ExtensionConverters},ConverterParameter=pdf}"
+                                                       HorizontalTextAlignment="Center"
+                                                       BackgroundColor="{StaticResource TransparentColor}"
+                                                       Style="{StaticResource LabelSmallBlack}"
+                                                       Visual="Material">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Tapped="TapGestureRecognizer_Tapped_1"
+                                                            NumberOfTapsRequired="1"
+                                                            />
+                                                    </Label.GestureRecognizers>
+                                                </Label>
+
+                                                <views:MediaElement Grid.Row="0" Grid.Column="0"
+                                                                    IsVisible="{Binding FileFullPathMedia, Converter={StaticResource Key=ExtensionConverters},ConverterParameter=video}"
+                                                                    x:Name="mediaElement"
+                                                                    Source="{Binding FileFullPathMedia}"
+                                                                    BackgroundColor="{StaticResource TransparentColor}"
+                                                                    Aspect="AspectFill"
+                                                                    Margin="5"
+                                                                    ShowsPlaybackControls="True"
+                                                                    AutoPlay="False"
+                                                                    Visual="Material">
+                                                </views:MediaElement>
+                                           
+                                                <Label   Grid.Row="1"  Text="{Binding Title}" Padding="5"
+                                                       HorizontalTextAlignment="Center"   Style="{StaticResource LabelSmallBlack}"/>
+                                                <Label  Padding="5" Grid.Row="2" Text="{Binding UploadedDate,StringFormat='{0:dd/MM/yyyy}'}"
+                                                       HorizontalTextAlignment="Center" VerticalOptions="End" VerticalTextAlignment="End" Style="{StaticResource LabelSmallBlack}" />
+                                            
+                                            </Grid>
+                                        </Grid>
+                                    </DataTemplate>
+
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+                            <IndicatorView Grid.Row="1"
+                                x:Name="indicatorview"
+                                IndicatorColor="LightGray"
+                                IndicatorSize="10"
+                                SelectedIndicatorColor="#687089" />
+                        </Grid>
+                    </Grid>
+
+
+                </Grid>
+                </Grid>
+             </contr:RoundedCornerView>
+
+            </Grid>
+             </DataTemplate>
+         </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>      
+         </AbsoluteLayout>
+     </ScrollView>   
+ </ContentPage.Content>
+</ContentPage>
+
+

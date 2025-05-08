@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{D36C56C3-D607-43CA-B6E7-BB7AC14CB15A}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.galaxy_nexus_r_11_0_-_api_30" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Retail.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.Generic" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Retail/App.xaml">
+    <Files>
+      <File FileName="Retail/App.xaml" Line="12" Column="49" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Retail" expanded="True">
+            <Node name="Retail">
+              <Node name="App.xaml" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Retail.Android PreferredExecutionTarget="Android.galaxy_nexus_r_11_0_-_api_30" />
+  <MultiItemStartupConfigurations />
+</Properties>

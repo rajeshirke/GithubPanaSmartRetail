@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.Account.LoginPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:contr="clr-namespace:Retail.Controls"
+     xmlns:lang="clr-namespace:Retail.Hepler" xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms" xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+     NavigationPage.HasNavigationBar="False"
+    BackgroundColor="{StaticResource LighterGray}"
+    FlowDirection="{Binding flowDirection}"
+    Title="Login">
+
+    <ContentPage.Content>
+        <ScrollView>            
+            <AbsoluteLayout>
+                <Grid VerticalOptions="FillAndExpand"
+                      RowSpacing="0" 
+                      AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                      AbsoluteLayout.LayoutFlags="All">
+                <BoxView x:Name="bgGradient" Opacity="0.5">
+                     <BoxView.Background>
+                        <LinearGradientBrush EndPoint="1,1">                          
+                            <GradientStop Color="{StaticResource WhiteColor}" Offset="0.5"/>
+                            <GradientStop Color="{StaticResource DarkBlueolor}" Offset="1.0"/>
+                        </LinearGradientBrush>
+                     </BoxView.Background>
+                 </BoxView>
+                <Grid BackgroundColor="Transparent" VerticalOptions="FillAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>             
+                    <Image Source="applogo.png" VerticalOptions="EndAndExpand" Aspect="AspectFit" Grid.Row="0" >
+                        <Image.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android">140</On>
+                                <On Platform="iOS">120</On>
+                            </OnPlatform>
+                        </Image.HeightRequest>
+                        <Image.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="Android">0,50,0,0</On>
+                                <On Platform="iOS">0,50,0,0</On>
+                            </OnPlatform>
+                        </Image.Margin>
+                    </Image>
+                    <cards:SfCardView HeightRequest="450" BorderColor="{StaticResource borderColor}" BorderWidth="1" CornerRadius="30,0,30,0"  Margin="20" Grid.Row="1">
+                        <Grid Grid.Row="0" BackgroundColor="{StaticResource WhiteColor}">
+                            <Grid Padding="30,0,30,0" VerticalOptions="FillAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>                                
+                                </Grid.RowDefinitions>                         
+                                <Grid Grid.Row="0" Padding="0,0,0,0">
+                                    <Grid.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <On Platform="Android">0,20,0,0</On>
+                                        <On Platform="iOS">0,50,0,0</On>
+                                    </OnPlatform>
+                                    </Grid.Padding>
+                                    <Grid.RowDefinitions>                                
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                            
+                                    <Grid Padding="10" Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="70"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="1"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Text="Email" Style="{StaticResource MyTitleLabel}"/>
+
+                                        <contr:ImageEntry Margin="0,0,0,0" Grid.Row="1" HeightRequest="40" BackgroundColor="Transparent" Text="{Binding Email}" Placeholder="Email" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" VerticalTextAlignment="Center" MaxLength="40" HorizontalTextAlignment="Start" />
+
+                                        <BoxView Grid.Row="2" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                    </Grid>
+                                    <Grid Grid.Row="1" RowSpacing="0" Padding="0,20,0,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="1"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Text="Password" Style="{StaticResource MyTitleLabel}"/>
+                                        <contr:ImageEntry Margin="0,0,0,0" Grid.Row="1" IsPassword="{Binding IsPassword}" HeightRequest="40" BackgroundColor="Transparent" Text="{Binding Password}" Placeholder="Password" Style="{StaticResource EnteryTxtValues}" VerticalOptions="Start" VerticalTextAlignment="Center" MaxLength="40" HorizontalTextAlignment="Start" Image=""/>
+
+                                        <ImageButton Source="{Binding IsPasswordIcon}" Margin="0,0,0,0" Grid.Row="1" Aspect="AspectFit" HeightRequest="30" HorizontalOptions="EndAndExpand" Command="{Binding IsPasswordCommand}" BackgroundColor="Transparent"/>
+                                        <BoxView Grid.Row="2" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                    </Grid>
+                                    <Label Text="{lang:Translate lblForgotPassword}" Style="{StaticResource LabelMediumBlue}" Grid.Row="2" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand">
+                                        <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                                        </Label.FontSize>
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ForgotPwdCommand}" NumberOfTapsRequired="1" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                        
+                                    <Grid Grid.Row="4" Padding="5">
+
+                                    <Button Grid.Row="0" Text="{lang:Translate lblSignin}" Style="{StaticResource ButtonBlueStyle}" Command="{Binding SignInCommand}" />
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding SignInCommand}"
+                                                NumberOfTapsRequired="1"
+                                                />
+                                        </Grid.GestureRecognizers>
+
+                                    </Grid>
+                                    <Grid Grid.Row="5" VerticalOptions="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <CheckBox Grid.Column="0" IsChecked="{Binding IspsswordSave}" VerticalOptions="Center"/>
+                                        <Label Grid.Column="1" Text="Remember my password" Style="{StaticResource LabelMediumGray}" VerticalTextAlignment="Center">
+                                            <Label.FontSize>
+                                                <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                                            </Label.FontSize>
+                                        </Label>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SelectedSavePasswordCommand}" NumberOfTapsRequired="1" />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                </Grid>                                                               
+                                    
+                                </Grid>
+                            </Grid>
+                            <Picker x:Name="pkLong" IsVisible="false" ItemsSource="{Binding languages}" ItemDisplayBinding="{Binding LongName}" SelectedIndexChanged="Picker_SelectedIndexChanged" ios:Picker.UpdateMode="WhenFinished" SelectedItem="{Binding SelectedLanguage}"/>
+                        </Grid>
+                    </cards:SfCardView>
+                </Grid>
+                
+            </Grid>
+
+                 <contr:LoaderAnimView
+                        Margin="10"
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,50,50"   
+                        AbsoluteLayout.LayoutFlags="XProportional,YProportional"    
+                       />
+
+            </AbsoluteLayout>
+              
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--0.5,0,1.5,0.5 AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5,0.5,80,80' ,Android = '0.5,0.7,150,150'}"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"-->

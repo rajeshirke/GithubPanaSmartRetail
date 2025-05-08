@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    BackgroundColor="#C0808080"
+    x:Name="Root"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.InventoryStock.ConfirmInventoryPopup" >
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <ScrollView>
+        <AbsoluteLayout VerticalOptions="CenterAndExpand">
+        <StackLayout Margin="20" Padding="20" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="{StaticResource WhiteColor}">
+            <Grid Padding="5" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>             
+            </Grid.RowDefinitions>                         
+                <Grid  Padding="0,0,0,0">
+                    <Grid.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android">0,0,0,0</On>
+                        <On Platform="iOS">0,0,0,0</On>
+                    </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>                                
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>                        
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Image x:Name="CancelImg" Source="cancelnew.png" HeightRequest="15" WidthRequest="15" HorizontalOptions="End" VerticalOptions="Start">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"
+                                    NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>       
+                    <Grid Padding="5" Grid.Row="1">
+                        <Grid.RowDefinitions>                         
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="300"/>           
+                                </Grid.RowDefinitions>
+                                    <Label    Padding="0,5,0,5" Style="{StaticResource LabelMediumBlack}"
+                                           Grid.Row="0" LineBreakMode="WordWrap" HorizontalOptions="Start" HorizontalTextAlignment="Start">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span   Text="Total Stock Entries : " Style="{StaticResource LabelLargeBlack}"  />
+                                                <Span   Text="{Binding TotalCount}" Style="{StaticResource EnteryTxtValues}" />                                                  
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label     Grid.Row="1" HorizontalOptions="Start" Text="Product Model" LineBreakMode="WordWrap" Style="{StaticResource MyTitleLabel}" />
+                                    <Label     Grid.Row="1" HorizontalOptions="End" Text="Quantity" Margin="0,0,5,0" LineBreakMode="WordWrap" Style="{StaticResource MyTitleLabel}" />
+                                                        
+                                <CollectionView  x:Name="InventoryLists" Grid.Row="2" BackgroundColor="Transparent" EmptyView="No Inventory Details">  
+                                    <CollectionView.EmptyViewTemplate>
+                                        <DataTemplate>
+                                            <Label     HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="15"  Style="{StaticResource LabelLargeBlack}" Text="No Inventory Details" HeightRequest="60" />                 
+                                        </DataTemplate>
+                                    </CollectionView.EmptyViewTemplate>
+                                    <CollectionView.ItemTemplate>  
+                                        <DataTemplate> 
+                                            <Grid BackgroundColor="Transparent" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>                                                    
+                                                </Grid.RowDefinitions>
+                       
+                                                <contr:RoundedCornerView Grid.Row="0" BorderWidth="2">
+                                                    <Grid Grid.Row="0" Padding="5" BackgroundColor="White">                                                       
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="1"/> 
+                                                        </Grid.RowDefinitions>
+                                                        <Label    Padding="0,5,0,5" Style="{StaticResource MyTitleLabel}"
+                                                               Grid.Row="0" LineBreakMode="TailTruncation" MaxLines="1" HorizontalTextAlignment="Start">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span   Text="{Binding ProductCategoryName}" Style="{StaticResource MyValueLabel}" />
+                                                                    <Span   Text=" - " Style="{StaticResource MyValueLabel}" />
+                                                                    <Span   Text="{Binding ProductSubCategoryName}" Style="{StaticResource MyValueLabel}" />                                                  
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                        <!--<Label     Grid.Row="0" HorizontalOptions="Start" Text="{Binding ProductCategoryName}" LineBreakMode="WordWrap" Style="{StaticResource LabelBlue}" />-->
+                                                        <Label     Grid.Row="1" HorizontalOptions="Start" Text="{Binding ProductModelNumber}"
+                                                                LineBreakMode="TailTruncation" MaxLines="1" Style="{StaticResource MyValueLabel}" />
+                                                        <Label     Grid.Row="1" HorizontalOptions="End" Text="{Binding Quantity}"
+                                                                   Margin="0,0,5,0" LineBreakMode="WordWrap" Style="{StaticResource MyValueLabel}" />
+                                                        <BoxView Grid.Row="2" BackgroundColor="{StaticResource borderColor}" VerticalOptions="Start"/>
+                                                    </Grid>
+                                                </contr:RoundedCornerView>                                  
+                                      
+                                                </Grid>
+                                        </DataTemplate>  
+                                    </CollectionView.ItemTemplate>  
+                               </CollectionView> 
+                            </Grid>
+
+                        <Grid Grid.Row="1" HeightRequest="45">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                               
+                            <!--<contr:RoundedCornerView IsEnabled="{Binding IsSaveInventoryEnable}" Grid.Column="0" BorderColor="{StaticResource BlueColor}" BorderWidth="1" RoundedCornerRadius="6" BackgroundColor="{StaticResource TransparentColor}">
+                                <Grid BackgroundColor="{StaticResource BlueColor}" VerticalOptions="FillAndExpand">
+                                <Label    x:Name="txtSaveNotifyme" Text="Save" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center"  Style="{StaticResource LabelMediumWhite}" />
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                            Command="{Binding SaveInventoryCommand}"                                                    
+                                            NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                                </Grid>
+                            </contr:RoundedCornerView>
+
+                            <contr:RoundedCornerView Grid.Column="1" BorderColor="{StaticResource PinkColor}" BorderWidth="1" RoundedCornerRadius="6" BackgroundColor="{StaticResource TransparentColor}">
+                                <Grid BackgroundColor="{StaticResource PinkColor}" VerticalOptions="FillAndExpand">
+                                <Label    Text="Go Back" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="Center" Style="{StaticResource LabelMediumWhite}" />
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                            Command="{Binding CancelCommand}"
+                                            NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                                </Grid>
+                            </contr:RoundedCornerView>-->
+
+                            <Button x:Name="txtSaveNotifyme" Grid.Column="0" Text="Save"
+                                    IsEnabled="{Binding IsSaveInventoryEnable}"                                                 
+                                    Style="{StaticResource ButtonBlueStyle}"                                                     
+                                    Command="{Binding SaveInventoryCommand}"/>
+
+                            <Button Grid.Column="1" Text="Go Back"                                                    
+                                    Style="{StaticResource ButtonPinkStyle}"                                                     
+                                    Command="{Binding CancelCommand}" />
+                            
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>           
+        </StackLayout>
+             <contr:LoaderAnimView 
+                AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        </AbsoluteLayout>
+    </ScrollView>
+</pages:PopupPage>

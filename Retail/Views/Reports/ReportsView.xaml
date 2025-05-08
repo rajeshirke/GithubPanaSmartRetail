@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.Reports.ReportsView"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"    
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"   
+    ios:Page.UseSafeArea="true"
+    x:Name="root"
+    BackgroundColor="{StaticResource WhiteColor}"
+    Title="Reports">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+            <BoxView Style="{StaticResource CardBlueStyle}"
+                 AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+
+            <Grid Padding="10" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                  AbsoluteLayout.LayoutFlags="All">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                 
+                <contr:RoundedCornerView IsVisible="{Binding IsSalesReportVisible}"
+                                         Padding="5,0,5,0"  Grid.Row="0"
+                                         BorderColor="{StaticResource borderColor}"
+                                         BorderWidth="1" RoundedCornerRadius="12"  >                         
+                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                       
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />                       
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Padding="10">
+                        <Image Grid.Row="0"  Source="nextnew.png"  HorizontalOptions="Start" HeightRequest="30" WidthRequest="30" />
+                        <Label   Grid.Row="0"  Text="Sales" Margin="50,0,0,0" VerticalOptions="Center"
+                                HorizontalOptions="Center" Style="{StaticResource LabelLargeBlack}"  />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding SalesReportCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                     <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding SalesReportCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>     
+                </Grid>
+            </contr:RoundedCornerView>
+       
+                <contr:RoundedCornerView IsVisible="{Binding IsPromoterwiseAchievementReportVisible}"
+                                         Padding="5,0,5,0"  Grid.Row="1" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                       
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />                      
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Padding="10">
+                        <Image Grid.Row="0"  Source="nextnew.png"  HorizontalOptions="Start" HeightRequest="30" WidthRequest="30" />
+                        <Label   Grid.Row="0" Margin="50,0,0,0" Text="Promoter wise Achievement" VerticalOptions="Center"
+                                HorizontalOptions="Start" Style="{StaticResource  LabelLargeBlack}"  />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding SalesTargetPromoterAchievementCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                     <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding SalesTargetPromoterAchievementCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>    
+                </Grid>
+            </contr:RoundedCornerView>
+
+                <contr:RoundedCornerView Padding="5,0,5,0" IsVisible="{Binding IsDailySalesByCategoryReportVisible}"
+                                         Grid.Row="2" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                       
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />    
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Padding="10">
+                        <Image Grid.Row="0" Source="nextnew.png"  HorizontalOptions="Start" HeightRequest="30" WidthRequest="30" />
+                        <Label   Grid.Row="0" Margin="50,0,0,0" Text="Daily Sales By Category" VerticalOptions="Center"
+                                HorizontalOptions="Start" Style="{StaticResource  LabelLargeBlack}"  />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding DailySalesTrendBySubcategoryCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                      <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding DailySalesTrendBySubcategoryCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>   
+                </Grid>
+            </contr:RoundedCornerView>
+
+                <contr:RoundedCornerView Padding="5,0,5,0" IsVisible="{Binding IsPromoterAttendanceReportVisible}"
+                                         Grid.Row="3" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                       
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />                      
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Row="0" Padding="10">
+                            <Image Grid.Row="0"  Source="nextnew.png"  HorizontalOptions="Start" HeightRequest="30" WidthRequest="30" />
+                            <Label   Grid.Row="0" Margin="50,0,0,0" Text="Promoter Attendance" VerticalOptions="Center"
+                                   HorizontalOptions="Start" Style="{StaticResource  LabelLargeBlack}"  />
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding PromoterAttendanceCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                         <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding PromoterAttendanceCommand}"
+                                    NumberOfTapsRequired="1"/>
+                            </Grid.GestureRecognizers>
+                    </Grid>
+                </contr:RoundedCornerView>
+
+                <contr:RoundedCornerView Padding="5,0,5,0" IsVisible="{Binding IsVisitTargetsReportVisible}"
+                                         Grid.Row="4" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                       
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />                      
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Padding="10">
+                        <Image Grid.Row="0"  Source="nextnew.png"  HorizontalOptions="Start" HeightRequest="30" WidthRequest="30" />
+                        <Label   Grid.Row="0" Margin="50,0,0,0" Text="Visit Targets" VerticalOptions="Center"
+                                HorizontalOptions="Start" Style="{StaticResource  LabelLargeBlack}"  />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding VisitTargetsCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding VisitTargetsCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers> 
+                    </Grid>
+                </contr:RoundedCornerView>
+
+                <contr:RoundedCornerView Padding="5,0,5,0" IsVisible="{Binding IsCategorywiseContributionReportVisible}"
+                                         Grid.Row="5" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                       
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />                      
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Padding="10">
+                        <Image Grid.Row="0"  Source="nextnew.png"  HorizontalOptions="Start" HeightRequest="30" WidthRequest="30" />
+                        <Label   Grid.Row="0" Margin="50,0,0,0" Text="Category wise Contribution" VerticalOptions="Center"
+                                HorizontalOptions="Start" Style="{StaticResource  LabelLargeBlack}"  />
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding CategorywiseContributionCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                         <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding CategorywiseContributionCommand}"
+                                NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </contr:RoundedCornerView>
+
+            </Grid>
+            </AbsoluteLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="Retail.Views.SupervisorFlow.PromoterTargetsView"
+    FlowDirection="{Binding flowDirection}"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource LighterGray}"
+    Title="Promoter Targets"
+    x:Name="RootPromoterTargets"
+    xmlns:rainbow="clr-namespace:Xamarin.Forms.DebugRainbows;assembly=Xamarin.Forms.DebugRainbows" xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout >
+
+                <Grid Padding="5" VerticalOptions="FillAndExpand" rainbow:DebugRainbow.ShowColors="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>                         
+                <Grid  >
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android">0,0,0,0</On>
+                            <On Platform="iOS">0,5,0,0</On>
+                        </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>               
+                    
+                    </Grid.RowDefinitions>
+                     <!--#region first row-->
+                    <Frame HasShadow="False" Grid.Row="0" CornerRadius="10" BackgroundColor="{StaticResource WhiteColor}" Padding="5">
+
+                    </Frame>
+                    <Grid Grid.Row="0" RowSpacing="0" Padding="5">
+                        <syncfusion:SfExpander Grid.Row="0"  IsExpanded="False" HeaderIconPosition="End" HeaderBackgroundColor="{StaticResource WhiteColor}" BackgroundColor="{StaticResource WhiteColor}" AnimationDuration="200" AnimationEasing="SinInOut">
+                            <syncfusion:SfExpander.Header>
+                                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                                    <Label   Text="Apply Filter" Style="{StaticResource MyTitleLabel}" Padding="0,0,2,0"/>                             
+                                </Grid>                                
+                            </syncfusion:SfExpander.Header>
+                            <syncfusion:SfExpander.Content>
+                                <Grid RowSpacing="0" >
+                                    <Grid.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android">180</On>
+                                                <On Platform="iOS">150</On>
+                                        </OnPlatform>
+                                    </Grid.HeightRequest>
+                                    <Grid.RowDefinitions>                                   
+                                        <RowDefinition Height="auto"/>                             
+                                    </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>                                           
+                                    </Grid.RowDefinitions> 
+                    
+                                    <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <!--<RowDefinition Height="auto"/>--> 
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" Padding="5,0" BackgroundColor="{StaticResource WhiteColor}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="1"/>                                                
+                                                </Grid.RowDefinitions>                    
+                                                <Grid Grid.Row="0" HorizontalOptions="StartAndExpand">
+                                                
+                                                    <contr:MonthYearPickerView
+                                                        x:Name="monthyearpicker"
+                                                        Date="{Binding Date}"                                                       
+                                                        TextColor="{StaticResource DarkGray}"                                                                                                                                                             
+                                                        BackgroundColor="Transparent"
+                                                        WidthRequest="1500"
+                                                        HorizontalOptions="StartAndExpand"                                                        
+                                                        Image="downarrowgray"                                                                                                     
+                                                        ImageAlignment="Right"
+                                                        FontSize="Micro"
+                                                        TextFont="calibribold"
+                                                        FontAttributes="Bold">                                                   
+                                                   
+                                                    </contr:MonthYearPickerView>
+                                                     <Grid.Padding>
+                                                            <OnPlatform x:TypeArguments="Thickness">
+                                                                <On Platform="Android">0,0,0,0</On>
+                                                                <On Platform="iOS">5,0,0,5</On>
+                                                            </OnPlatform>
+                                                    </Grid.Padding>
+                                                    <Grid.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                                <On Platform="Android">38</On>
+                                                                <On Platform="iOS">32</On>
+                                                            </OnPlatform>
+                                                    </Grid.HeightRequest>
+                                                </Grid>
+                                                <BoxView  Grid.Row="1"
+                                                            BackgroundColor="#B4B1B1"
+                                                            VerticalOptions="CenterAndExpand"/>
+                                           
+                                            </Grid>
+                                    <Grid Grid.Row="2" Padding="5,0">
+                                       <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="1"/>                                   
+                                    </Grid.RowDefinitions>
+                                       <contr:ImageEntry  Focused="txtPromoters_Focused" 
+                                                         VerticalTextAlignment="Center" ImageHeight="20" ImageWidth="20"
+                                            Grid.Row="0" BackgroundColor="Transparent" IsEnabled="False" 
+                                            Placeholder="Select Promoters"  Style="{StaticResource EnteryTxtValues}"
+                                            VerticalOptions="Start"  Image="downarrowgray" ImageAlignment="Right"  
+                                            x:Name="txtPromoters"  HorizontalTextAlignment="Start">
+                                          <contr:ImageEntry.HeightRequest>
+                                              <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="Android">40</On>
+                                                    <On Platform="iOS">30</On>
+                                            </OnPlatform>
+                                          </contr:ImageEntry.HeightRequest>
+                                            <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Disabled">
+                                                                <VisualState.Setters>
+                                                                    <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                </VisualState.Setters>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                       </contr:ImageEntry>
+                                        <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="TapGestureRecognizer_Tapped"
+                                                NumberOfTapsRequired="1"
+                                                />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <Grid Grid.Row="1" Padding="5,0">
+                                       <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="1"/>                                   
+                                    </Grid.RowDefinitions>
+                                       <contr:ImageEntry  
+                                           Focused="txtLocationNames_Focused" Grid.Row="0"
+                                           VerticalTextAlignment="Center" ImageHeight="20" ImageWidth="20"
+                                           BackgroundColor="Transparent" Placeholder="Select Locations"
+                                            VerticalOptions="Start" IsEnabled="False"
+                                            Image="downarrowgray" ImageAlignment="Right"  Style="{StaticResource EnteryTxtValues}"
+                                           x:Name="txtLocationNames"  HorizontalTextAlignment="Start"
+                                                                    >
+                                           <contr:ImageEntry.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android">40</On>
+                                                <On Platform="iOS">30</On>
+                                            </OnPlatform>
+                                           </contr:ImageEntry.HeightRequest>
+
+                                            <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Disabled">
+                                                                <VisualState.Setters>
+                                                                    <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                </VisualState.Setters>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                       </contr:ImageEntry>
+                                       <BoxView Grid.Row="1" BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Tapped="TapGestureRecognizer_Tapped_1"
+                                                NumberOfTapsRequired="1"
+                                                />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>
+                                    <!--<Grid Grid.Row="3" >
+                                       <Button Grid.Row="0"  Text="View" HeightRequest="45" CornerRadius="5" Clicked="Button_Clicked"
+                                                 Style="{StaticResource ButtonBlueStyle}"/> Command="{Binding ViewTargetsCommand}"
+                                    </Grid>-->  
+                                </Grid>                  
+                   
+                            </Grid>
+                                </Grid>
+                            </syncfusion:SfExpander.Content>
+                        </syncfusion:SfExpander>
+                    </Grid>
+                
+                    <!--#endregion-->
+
+                    <!--#region second row-->
+                    <Grid Grid.Row="1" Padding="5,0,5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="75"/>
+                        </Grid.RowDefinitions>
+                        <Frame HasShadow="False" Grid.Row="0" CornerRadius="10" BackgroundColor="{StaticResource WhiteColor}" Padding="5">
+
+                        </Frame>
+                        <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12" >                         
+                                <Grid VerticalOptions="Center" BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                                 <Label   Text="Target"  HorizontalOptions="Center" Style="{StaticResource MyTitleLabel}" Grid.Row="0" Grid.Column="0"/>
+                                <Label   Text="Achieved" HorizontalOptions="Center" Style="{StaticResource MyTitleLabel}" Grid.Row="0" Grid.Column="1"/>
+                                <Label   Text="Balance" HorizontalOptions="Center" Style="{StaticResource MyTitleLabel}" Grid.Row="0" Grid.Column="2"/>
+                                <Label   Text="%" HorizontalOptions="Center" Style="{StaticResource MyTitleLabel}" Grid.Row="0" Grid.Column="3"/>
+
+                                <Label   Text="{Binding Targets}" HorizontalOptions="Center" Style="{StaticResource LabelMediumBlack}" Grid.Row="1" Grid.Column="0"/>
+                                <Label   Text="{Binding AchievedTargets}"  HorizontalOptions="Center" Style="{StaticResource LabelMediumGreen}" Grid.Row="1" Grid.Column="1" />
+                                <Label   Text="{Binding BalanceTargets}"  HorizontalOptions="Center" Style="{StaticResource LabelMediumRed}" Grid.Row="1" Grid.Column="2"/>
+                                <Label   Text="{Binding AchievedTargetPercentage} "  HorizontalOptions="Center" Style="{StaticResource LabelMediumBlue}" Grid.Row="1" Grid.Column="3"/>
+
+                        </Grid>
+                        </contr:RoundedCornerView>
+                    </Grid>
+                    <!--#endregion-->
+                    <!--#region expandable list-->
+               
+                    <Grid Grid.Row="2" Padding="5,0,5,0">
+                               <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                        <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="8" >  
+                            <Grid Grid.Row="0" BackgroundColor="White" Padding="10">
+                                   <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>                        
+                                </Grid.RowDefinitions>
+
+                        <!--#region third row-->
+                        <Grid Grid.Row="0" Padding="5,0,5,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>                   
+                                <Grid Grid.Row="0" VerticalOptions="Center" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".7*" />
+                                        <ColumnDefinition Width="2.9*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width=".7*" />
+                                    </Grid.ColumnDefinitions>
+                            
+                                    <Label   Text="Category" Grid.Column="1"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Style="{StaticResource LabelMediumBlack}"
+                                            FontAttributes="Bold"
+                                            MaxLines="1" LineBreakMode="TailTruncation"/>
+                                    <Label   Text="Target"
+                                            Grid.Column="2" HorizontalOptions="CenterAndExpand"
+                                            Style="{StaticResource LabelMediumBlack}"
+                                            FontAttributes="Bold"
+                                            MaxLines="1" LineBreakMode="TailTruncation"/>
+                                    <Label   Text="Achieved" Grid.Column="3"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Style="{StaticResource LabelMediumBlack}"
+                                            FontAttributes="Bold"
+                                            MaxLines="1" LineBreakMode="TailTruncation"/>
+                                    <Label   Text="Balance" Grid.Column="4"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Style="{StaticResource LabelMediumBlack}"
+                                            FontAttributes="Bold"
+                                            MaxLines="1"
+                                            LineBreakMode="TailTruncation"/>
+                                    <!--<Label   Text=" %   " HorizontalOptions="Center" Style="{StaticResource SimpleLabelBlack}" Grid.Column="4"/>-->
+                                            
+                                </Grid>
+                    
+                            </Grid>
+                        <!--#endregion-->
+                        <!--#region expandable list-->
+                        <Grid Grid.Row="1" >
+                                <!--<Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>-->
+
+                                <StackLayout BindableLayout.ItemsSource="{Binding MasterCategoryTargets}">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <xct:Expander ExpandAnimationEasing="{x:Static Easing.CubicIn}"
+                                                        CollapseAnimationEasing="{x:Static Easing.CubicOut}"
+                                                        IsExpanded="{Binding IsExpanded}">
+                                                <xct:Expander.Header>
+                                                <Grid HeightRequest="40" BackgroundColor="{StaticResource LighterGray}"
+                                                                VerticalOptions="CenterAndExpand">
+                                                        <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width=".7*" />
+                                                        <ColumnDefinition Width="2.9*" />
+                                                        <ColumnDefinition Width="2*" />
+                                                        <ColumnDefinition Width="2*" />
+                                                        <ColumnDefinition Width="2*" />
+                                                        <ColumnDefinition Width=".7*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackLayout Padding="5,0,5,0" Grid.Column="0">
+                                                        <xct:AvatarView Size="15"
+                                                            Source="{Binding MasterTargetSummary.ArrowUrl}" BackgroundColor="{StaticResource LighterGray}"
+                                                            HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                                                                        Color="{StaticResource LighterGray}"/>
+                                                    </StackLayout>
+                                                    <StackLayout WidthRequest="120" Grid.Column="1">
+                                                        <Label   Text="{Binding MasterTargetSummary.CategoryName}" Grid.Column="0"
+                                                                Style="{StaticResource MyTitleLabel}" FontSize="Small"
+                                                                LineBreakMode="TailTruncation" MaxLines="1"
+                                                                HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                                                    </StackLayout>
+                                                    <Label   Text="{Binding MasterTargetSummary.TotalTargets}" FontSize="Small"
+                                                            Style="{StaticResource LabelMediumBlack}"
+                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                            Grid.Column="2"/>
+                                                    <Label   Text="{Binding MasterTargetSummary.AchievedTargets}" FontSize="Small"
+                                                            Style="{StaticResource LabelMediumGreen}"
+                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                            Grid.Column="3"/>
+                                                    <Label   Text="{Binding MasterTargetSummary.BalanceTargets}" FontSize="Small"
+                                                            Style="{StaticResource LabelMediumRed}"
+                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                            Grid.Column="4"/>
+                                                    <!--<StackLayout Grid.Column="5">
+                                                        <xct:AvatarView Size="20" 
+                                                            Source="{Binding MasterTargetSummary.SalesEntryUrl}"
+                                                            HorizontalOptions="Start" VerticalOptions="CenterAndExpand"
+                                                            Color="{StaticResource LightGray}">                                                            
+                                                        </xct:AvatarView>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer
+                                                                Command="{Binding BindingContext.SelectedSubCatCommand, Source={x:Reference RootPromoterTargets}}"
+                                                                CommandParameter="{Binding .}">
+                                                            </TapGestureRecognizer>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>-->
+                                                </Grid>
+                                                </xct:Expander.Header>
+                                                <!--#region sub category list-->
+                                                <CollectionView x:Name="SubCatCollectionView"                                                                            
+                                                                ItemsSource="{Binding SubCategoryTargets}"
+                                                                SelectionMode="Single"
+                                                                VerticalOptions="FillAndExpand"
+                                                                HorizontalOptions="FillAndExpand"                                                                         
+                                                                HeightRequest="{Binding SubCategoryHeight}">
+                                                    <CollectionView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid HeightRequest="20" Padding="5">
+                                                                <Grid>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width=".7*" />
+                                                                        <ColumnDefinition Width="2.9*" />
+                                                                        <ColumnDefinition Width="2*" />
+                                                                        <ColumnDefinition Width="2*" />
+                                                                        <ColumnDefinition Width="2*" />
+                                                                        <ColumnDefinition Width=".7*" />
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <StackLayout Padding="5,0,5,0" Grid.Column="0">
+                                                                    </StackLayout>
+                                                                    <StackLayout Grid.Column="1">
+                                                                        <Label   Text="{Binding CategoryName}"                                                                                   
+                                                                                LineBreakMode="TailTruncation"
+                                                                                MaxLines="1"
+                                                                                HorizontalOptions="StartAndExpand"
+                                                                                HorizontalTextAlignment="Start"
+                                                                                FontSize="Small"
+                                                                                FlexLayout.Shrink="20"
+                                                                                Style="{StaticResource LabelMediumBlue}">
+                                                                        </Label>
+                                                                    </StackLayout>
+                                                                    <Label   Text="{Binding TotalTargets}"
+                                                                            LineBreakMode="NoWrap" 
+                                                                            HorizontalOptions="CenterAndExpand"
+                                                                            HorizontalTextAlignment="Center"
+                                                                            FontSize="Small"
+                                                                            Style="{StaticResource LabelMediumBlack}"
+                                                                            Grid.Column="2"/>
+                                                                    <Label   Text="{Binding AchievedTargets}"
+                                                                            LineBreakMode="NoWrap"
+                                                                            HorizontalOptions="CenterAndExpand"
+                                                                            HorizontalTextAlignment="Center"
+                                                                            FontSize="Small"
+                                                                            Style="{StaticResource LabelMediumGreen}"
+                                                                            Grid.Column="3"/>
+                                                                    <Label   Text="{Binding BalanceTargets}"
+                                                                            LineBreakMode="NoWrap"
+                                                                            HorizontalOptions="CenterAndExpand"
+                                                                            HorizontalTextAlignment="Center"
+                                                                            FontSize="Small"
+                                                                            Style="{StaticResource LabelMediumRed}"
+                                                                            Grid.Column="4"/>
+                                                                    <StackLayout Grid.Column="5">
+                                                                    </StackLayout>
+                                                                    <!--<Grid.GestureRecognizers>
+                                                                        <TapGestureRecognizer Command="{Binding BindingContext.SelectedSubcategoryItemCommand, Source={x:Reference RootPromoterTargets}}"
+                                                                            CommandParameter="{Binding .}" />
+                                                                    </Grid.GestureRecognizers>-->
+                                                                </Grid>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </CollectionView.ItemTemplate>
+                                                    <CollectionView.EmptyView>
+                                                        <StackLayout>
+                                                            <Label   Text="{Binding EmptyViewText}"
+                                                                    Margin="0,10,0,10"
+                                                                    FontSize="Large" />
+                                                        </StackLayout>
+                                                    </CollectionView.EmptyView>
+                                                </CollectionView>       
+                                                <!--#endregion-->
+                                                </xct:Expander>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                            
+
+                            </Grid>
+                        <!--#endregion-->
+                    </Grid>
+                        </contr:RoundedCornerView>
+                             </Grid>
+                    <!--#endregion-->
+
+                </Grid>
+            </Grid>
+            
+                <Grid>
+                    <Label   IsVisible="false" x:Name="txtIds"/>
+                </Grid>
+           </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
+

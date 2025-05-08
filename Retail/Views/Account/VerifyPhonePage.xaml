@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.Account.VerifyPhonePage"
+    FlowDirection="{Binding flowDirection}"
+    Title="Verify registration"
+    BackgroundColor="{StaticResource WhiteColor}">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                            <RowDefinition Height="9*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+        <!--<Image Source="topbg.png" Margin="0,-180,0,0" Grid.Row="0"  Aspect="AspectFill" BackgroundColor="White" VerticalOptions="StartAndExpand"/>-->
+          <Image Source="pslogo.png" VerticalOptions="Start" Aspect="AspectFit" Grid.Row="0" Grid.RowSpan="2"   >
+                 <Image.Margin>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="Android">0,5,0,0</On>
+                                    <On Platform="iOS">0,10,0,0</On>
+                                </OnPlatform>
+                             </Image.Margin>
+              <Image.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="140" Android="160"/>
+                                         </Image.HeightRequest>
+          </Image>
+              
+        <Grid   Grid.Row="0"  >
+            <Grid.Padding>
+                                <OnPlatform x:TypeArguments="Thickness">
+                                    <On Platform="Android">0,0,10,50</On>
+                                    <On Platform="iOS">10,0,10,50</On>
+                                </OnPlatform>
+                             </Grid.Padding>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="Auto"/>
+                 <RowDefinition Height="5"/>
+                 <RowDefinition Height="Auto"/>
+                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                 <RowDefinition Height="10"/>
+                <RowDefinition Height="auto"/>
+                
+            </Grid.RowDefinitions>
+             
+         
+           <Label    x:Name="lblemailmsg"  HorizontalTextAlignment="Center" Grid.Row="1" Style="{StaticResource EnteryTitleLabel}" TextColor="#707070" FontSize="16" FontAttributes="Bold" >
+                                   
+                               </Label>
+            <!--<Label    Text="Sent to (052) 5665713" HorizontalTextAlignment="Center" Grid.Row="2"/>-->
+            <Label    x:Name="lbltime"  Text="{Binding SecondsElapsed}" HorizontalTextAlignment="Center" Grid.Row="3" Style="{StaticResource EnteryTitleLabel}" TextColor="#707070" FontSize="10" FontAttributes="Bold"/>
+           
+            <Grid Grid.Row="4" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="txt1" Grid.Column="1" TextChanged="Entry_TextChanged" Text="{Binding N1}" Keyboard="Numeric" Placeholder="0" MaxLength="1" WidthRequest="55" HeightRequest="55" BackgroundColor="WhiteSmoke" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#707070" FontSize="16" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>
+                <Entry x:Name="txt2" Grid.Column="2" TextChanged="Entry_TextChanged" Text="{Binding N2}" Keyboard="Numeric" Placeholder="0" MaxLength="1" WidthRequest="55" HeightRequest="55" BackgroundColor="WhiteSmoke" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#707070" FontSize="16" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>
+                 <Entry x:Name="txt3" Grid.Column="3" TextChanged="Entry_TextChanged" Text="{Binding N3}" Keyboard="Numeric" Placeholder="0" MaxLength="1" WidthRequest="55" HeightRequest="55" BackgroundColor="WhiteSmoke" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#707070" FontSize="16" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>
+                 <Entry x:Name="txt4" Grid.Column="4" TextChanged="Entry_TextChanged" Text="{Binding N4}" Keyboard="Numeric" Placeholder="0" MaxLength="1" WidthRequest="55" HeightRequest="55" BackgroundColor="WhiteSmoke" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#707070" FontSize="16" FontAttributes="Bold" Style="{StaticResource EnteryTxtValues}"/>
+            </Grid>
+               <Button x:Name="btnVerfy" IsEnabled="False" Grid.Row="6" Text="verify" WidthRequest="150" HorizontalOptions="Center" FontSize="Medium" BackgroundColor="#E62E75" TextColor="White" FontAttributes="Bold" Command="{Binding NextCommand}"/>
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+            <Grid  x:Name="btnnewCode" Grid.Row="0"  WidthRequest="300" HeightRequest="60" VerticalOptions="Center" Margin="40,0,40,0" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="7*"/>
+                                         <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label     Grid.Column="0" Text="Didn't receive an OTP." TextColor="Black" HorizontalTextAlignment="End"  FontAttributes="Bold" VerticalOptions="CenterAndExpand" >
+                                         <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                                         </Label.FontSize>
+                                    </Label>
+                                    <Label    Grid.Column="1"  HorizontalOptions="Start" TextColor="#5755CD" Text="Resend" TextDecorations="Underline"  VerticalOptions="CenterAndExpand" >
+                                         <Label.FontSize>
+                                            <OnPlatform x:TypeArguments="x:Double" iOS="15" Android="15"/>
+                                         </Label.FontSize>
+                                    </Label>
+                 <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                   Tapped="btnnewCode_Clicked"
+                                    NumberOfTapsRequired="1" />
+                      </Grid.GestureRecognizers>
+                                     
+                                </Grid>
+                </Grid>
+            
+        </Grid>
+           
+             </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

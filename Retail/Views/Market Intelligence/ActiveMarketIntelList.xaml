@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.MarketIntelligence.ActiveMarketIntelList"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"    
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:plugin="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"   
+    ios:Page.UseSafeArea="true"
+    x:Name="Root"
+    BackgroundColor="{StaticResource LighterGray}"
+    Title="{Binding PageName}" >
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Padding="5" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>                
+                </Grid.RowDefinitions>                         
+                <Grid  Padding="0,0,0,0">
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android">0,0,0,0</On>
+                            <On Platform="iOS">0,0,0,0</On>
+                        </OnPlatform>
+                    </Grid.Padding>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>                                            
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>                            
+                        </Grid.RowDefinitions>                        
+                        <CollectionView Grid.Row="0" ItemsSource="{Binding obMarketIntel}" BackgroundColor="Transparent" EmptyView="No Records">  
+                            <CollectionView.EmptyViewTemplate>
+                                <DataTemplate>
+                                    <Label     HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="15"  Style="{StaticResource EnteryTxtValues}" Text="No Records" HeightRequest="60" />                 
+                                </DataTemplate>
+                            </CollectionView.EmptyViewTemplate>
+                            <CollectionView.ItemTemplate>  
+                                <DataTemplate> 
+                                    <Grid BackgroundColor="Transparent" Padding="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>                                                 
+                                        </Grid.RowDefinitions>
+                                        <contr:RoundedCornerView Padding="5,0,5,0"  Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="12"  >                         
+                                            <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="8">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>                       
+                                                </Grid.RowDefinitions>
+                                                
+                                                <Grid Grid.Row="0" Padding="10">
+                                                     <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/> 
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>                                               
+                                                        <ColumnDefinition Width="9*" />
+                                                        <ColumnDefinition Width="1*" />                                                        
+                                                    </Grid.ColumnDefinitions>
+                                                    <Image Grid.Row="1" Grid.Column="1" Source="nextnew.png"  HorizontalOptions="End" VerticalOptions="CenterAndExpand" HeightRequest="30" WidthRequest="30" />
+                                                    <Label  Grid.Row="0" Grid.Column="0" Text="{Binding MarketIntelName}" MaxLines="1" LineBreakMode="TailTruncation" Grid.ColumnSpan="2"
+                                                            HorizontalOptions="StartAndExpand" Style="{StaticResource LabelLargeBlack}"  />
+                                                    <Label  Grid.Row="1" Grid.Column="0" MaxLines="1" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation" Grid.ColumnSpan="2" HorizontalTextAlignment="Start">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span   Text="CreationDate :" Style="{StaticResource MyTitleLabel}"  />
+                                                                <Span   Text="{Binding CreationDate,StringFormat='{0:dd-MMM-yyyy}'}" Style="{StaticResource  EnteryTxtValues}" />                                                  
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label  Grid.Row="2" IsVisible="{Binding IsExpiryDateVisible}" VerticalOptions="CenterAndExpand" Grid.Column="0" MaxLines="1" LineBreakMode="TailTruncation" Grid.ColumnSpan="2" HorizontalTextAlignment="Start">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span   Text="ExpiryDate :" Style="{StaticResource  MyTitleLabel}"  />
+                                                                <Span   Text="{Binding ExpiryDate,StringFormat='{0:dd-MMM-yyyy}'}" Style="{StaticResource  EnteryTxtValues}" />                                                  
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label   Grid.Row="3" Grid.Column="0" IsVisible="{Binding IsTimerVisible}" MaxLines="1" LineBreakMode="TailTruncation" HorizontalTextAlignment="Start">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span   Text="Timer :" Style="{StaticResource  MyTitleLabel}"  />
+                                                                <Span   Text="{Binding Timer}" Style="{StaticResource  EnteryTxtValues}" />                                                  
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>  
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Command="{Binding BindingContext.ActiveMarketIntelCommand, Source={x:Reference Name=Root}}"
+                                                            CommandParameter="{Binding .}"
+                                                            NumberOfTapsRequired="1"/>
+                                                    </Grid.GestureRecognizers>
+                                                </Grid>
+                                                <Grid.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                        Command="{Binding BindingContext.ActiveMarketIntelCommand, Source={x:Reference Name=Root}}"
+                                                        CommandParameter="{Binding .}"
+                                                        NumberOfTapsRequired="1"/>
+                                                </Grid.GestureRecognizers>     
+                                            </Grid>
+                                        </contr:RoundedCornerView>
+                                    </Grid>
+                                </DataTemplate>  
+                            </CollectionView.ItemTemplate>  
+                        </CollectionView>                     
+                    </Grid> 
+                </Grid>
+            </Grid>
+       </ScrollView> 
+    </ContentPage.Content>
+</ContentPage>

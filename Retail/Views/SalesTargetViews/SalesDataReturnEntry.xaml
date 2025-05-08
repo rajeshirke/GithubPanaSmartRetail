@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Class="Retail.Views.SalesTargetViews.SalesDataReturnEntry"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" ios:Page.UseSafeArea="true" x:Name="root" BackgroundColor="{StaticResource WhiteColor}"
+    xmlns:cvrt="clr-namespace:Retail.Converters" Title="Sales Return Entry">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cvrt:LabelColorChangeConverter x:Key="LabelColorChangeConverters"/>
+            <cvrt:BooleanTrueFalseConverter x:Key="BooleanTrueFalseConverters"/>
+            <cvrt:LabelValueChangeConverter x:Key="LabelValueChangeConverters"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <BoxView Style="{StaticResource CardBlueStyle}" AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+
+                <Grid Padding="5" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="Android">0,0,0,0</On>
+                                <On Platform="iOS">0,0,0,0</On>
+                            </OnPlatform>
+                        </Grid.Padding>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Padding="5" Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <cards:SfCardView Grid.Row="0" Padding="10" HasShadow="False">
+                                <StackLayout>
+                                    <Grid Grid.Row="0" Padding="5,0,5,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Text="Select Entry Date" Style="{StaticResource MyTitleLabel}" Padding="2" />
+
+                                        <contr:RoundedCornerView HeightRequest="42" VerticalOptions="Start" Grid.Row="1">
+                                            <Grid BackgroundColor="{StaticResource WhiteColor}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="1"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid Grid.Row="0" VerticalOptions="End" Padding="5,5,5,0">
+                                                    <contr:TitledDateTimePicker Grid.Row="0" SDate="{x:Static sys:DateTime.Now}" SelectedDate="{Binding SelectedDate}" ItemTapped="TitledDateTimePicker_ItemTapped" />
+                                                </Grid>
+                                                <BoxView Margin="5,0" Grid.Row="1" BackgroundColor="{StaticResource LightGray}"/>
+
+                                            </Grid>
+                                        </contr:RoundedCornerView>
+
+                                    </Grid>
+
+                                    <Grid Grid.Row="1" Padding="5,5,5,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Button Text="Get Sales Transactions" Style="{StaticResource ButtonBlueStyle}" Command="{Binding GetSalesTransactionCommand}"/>
+
+                                    </Grid>
+                                </StackLayout>
+                            </cards:SfCardView>
+
+                            <cards:SfCardView Grid.Row="2" Padding="10" HasShadow="False">
+
+                                <Grid Grid.Row="2" Padding="5,0,5,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5.5*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Model" Style="{StaticResource MyTitleLabel}" Margin="2" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="Qty" Margin="2" Style="{StaticResource MyTitleLabel}" />
+                                    <Label Grid.Row="0" Grid.Column="2" Text="Unit Price" Margin="2" Style="{StaticResource MyTitleLabel}" />
+
+                                    <contr:EntryWithRoundedCorner x:Name="txtModelNo" Placeholder="Model Number" HeightRequest="40" Text="{Binding ModelNumber}" Margin="0,0,2,0" Grid.Row="1" Grid.Column="0" BackgroundColor="{StaticResource WhiteColor}" BorderColor="{StaticResource LightGray}" BorderWidth="1" IsEnabled="False" Style="{StaticResource EnteryTxtValues}">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Disabled">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </contr:EntryWithRoundedCorner>
+
+                                    <contr:EntryWithRoundedCorner Placeholder="Quantity" HorizontalTextAlignment="End" HeightRequest="40" Text="{Binding Quantity}" Margin="0,0,2,0" Grid.Row="1" Grid.Column="1" Style="{StaticResource EnteryTxtValues}" BackgroundColor="{StaticResource WhiteColor}" Keyboard="Numeric" BorderColor="{StaticResource LightGray}" BorderWidth="1" />
+
+                                    <contr:EntryWithRoundedCorner Placeholder="Unit Price" HorizontalTextAlignment="End" IsEnabled="False" Style="{StaticResource EnteryTxtValues}" HeightRequest="40" Text="{Binding UnitPrice,StringFormat='{0:F2}'}" Grid.Row="1" Grid.Column="2" BackgroundColor="{StaticResource WhiteColor}" Keyboard="Numeric" BorderColor="{StaticResource LightGray}" BorderWidth="1">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Disabled">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </contr:EntryWithRoundedCorner>
+
+                                    <Image Grid.Row="1" Grid.Column="3" Source="salesreturnsadhboard" HeightRequest="5" WidthRequest="5">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding AddEntriesCommand}" NumberOfTapsRequired="1"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+
+                            </cards:SfCardView>
+
+                            <cards:SfCardView Grid.Row="3">
+                                <AbsoluteLayout>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Padding="0,0,0,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" LineBreakMode="WordWrap" HorizontalTextAlignment="Center">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Total Transactions : " Style="{StaticResource MyTitleLabel}" />
+                                                        <Span Text="{Binding TotalCount}" Style="{StaticResource EnteryTxtValues}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+
+                                            <CollectionView Grid.Row="1" ItemsSource="{Binding lstAddSalesEntryRequest}" BackgroundColor="Transparent" HeightRequest="{Binding ScreenHeightSize}">
+                                                <CollectionView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid BackgroundColor="White">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="{Binding ReturnEntriesHeight}"/>
+                                                            </Grid.RowDefinitions>
+                                                            <contr:RoundedCornerView Padding="5,0,5,0" Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="2" BackgroundColor="WhiteSmoke">
+                                                                <Grid Grid.Row="1" Padding="10">
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="4.5*"/>
+                                                                        <ColumnDefinition Width="4*"/>
+                                                                        <ColumnDefinition Width="auto"/>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="auto"/>
+                                                                        <RowDefinition Height="auto"/>
+                                                                    </Grid.RowDefinitions>
+
+                                                                    <Label Grid.Row="0" Grid.Column="0" VerticalOptions="Center" Text="{Binding ProductModelNumber}" LineBreakMode="TailTruncation" MaxLines="1" Style="{StaticResource EnteryTxtValues}" TextColor="{Binding SelectedReturn, Converter={StaticResource LabelColorChangeConverters}}" />
+                                                                    <Label HorizontalOptions="EndAndExpand" Grid.Row="1" Grid.Column="1" LineBreakMode="TailTruncation" MaxLines="1">
+                                                                        <Label.FormattedText>
+                                                                            <FormattedString>
+                                                                                <Span Text="{Binding Quantity}" Style="{StaticResource EnteryTxtValues}" TextColor="{Binding SelectedReturn, Converter={StaticResource LabelColorChangeConverters}}" />
+                                                                                <Span Text=" x " Style="{StaticResource EnteryTxtValues}" TextColor="{Binding SelectedReturn, Converter={StaticResource LabelColorChangeConverters}}" />
+                                                                                <Span Text="{Binding UnitPrice,StringFormat='{0:F2}'}" Style="{StaticResource EnteryTxtValues}" TextColor="{Binding SelectedReturn, Converter={StaticResource LabelColorChangeConverters}}" />
+                                                                            </FormattedString>
+                                                                        </Label.FormattedText>
+                                                                    </Label>
+                                                                    <Label Padding="5,0,0,0" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" Text="{Binding . ,StringFormat='{0:F2}', Converter={StaticResource LabelValueChangeConverters}}" LineBreakMode="TailTruncation" MaxLines="1" Style="{StaticResource EnteryTxtValues}" TextColor="{Binding SelectedReturn, Converter={StaticResource LabelColorChangeConverters}}" />
+                                                                    <Image Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" HeightRequest="20" WidthRequest="20" Source="editnew" IsVisible="{Binding SelectedReturn, Converter={StaticResource BooleanTrueFalseConverters}}">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding BindingContext.EditCommand, Source={x:Reference Name=root}}" CommandParameter="{Binding .}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                    <Image Grid.Row="0" Grid.Column="3" HeightRequest="20" WidthRequest="20" Grid.RowSpan="2" Source="editnew">
+                                                                        <Image.GestureRecognizers>
+                                                                            <TapGestureRecognizer Command="{Binding BindingContext.EditCommand, Source={x:Reference Name=root}}" CommandParameter="{Binding .}"/>
+                                                                        </Image.GestureRecognizers>
+                                                                    </Image>
+                                                                </Grid>
+                                                            </contr:RoundedCornerView>
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </CollectionView.ItemTemplate>
+                                            </CollectionView>
+
+                                        </Grid>
+                                    </Grid>                                    
+                                </AbsoluteLayout>
+                            </cards:SfCardView>
+
+                            <Grid Grid.Row="4" BackgroundColor="Transparent" Padding="1">
+
+                                <Button Grid.Column="0" IsEnabled="{Binding IsEnableSaveSalesEntry}" Text="Confirm" Command="{Binding ConfirmSalesReturnCommand}" Style="{StaticResource ButtonPinkStyle}"/>
+
+                                <Button Grid.Column="1" Text="Cancel" Command="{Binding CancelCommand}" Style="{StaticResource ButtonBlueStyle}"/>
+                            </Grid>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+
+                <contr:LoaderAnimView AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.5, 0.5, 100, 100',Android='0.5, 0.5, 100, 100'}" AbsoluteLayout.LayoutFlags="PositionProportional" IsVisibles="False"/>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

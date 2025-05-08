@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2622" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="GeoTimeZone" Version="5.3.0" />
+    <PackageReference Include="TimeZoneConverter" Version="6.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Enums\" />
+    <Folder Include="ExtraModels\" />
+    <Folder Include="Hepler\" />
+    <Folder Include="Models\" />
+    <Folder Include="Properties\" />
+    <Folder Include="RequestModels\" />
+    <Folder Include="ResponseModels\" />
+    <Folder Include="ServiceLayer\" />
+    <Folder Include="DataServices\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Common\" />
+    <None Remove="Xamarin.Essentials" />
+    <None Remove="GeoTimeZone" />
+    <None Remove="TimeZoneConverter" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\RoleMobileSubMenu.cs" />
+  </ItemGroup>
+</Project>

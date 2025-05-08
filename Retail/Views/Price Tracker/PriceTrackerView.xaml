@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Retail.Views.PriceTracker.PriceTrackerView"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:contr="clr-namespace:Retail.Controls"
+    xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:syncfusion1="clr-namespace:Syncfusion.SfNumericTextBox.XForms;assembly=Syncfusion.SfNumericTextBox.XForms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"    
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"    
+    xmlns:syncfusion2="http://schemas.syncfusion.com/xamarin"
+    xmlns:syncfusion3="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms"
+    xmlns:behaviors="clr-namespace:Retail.Controls.Behaviors" xmlns:autocomplete="clr-namespace:Syncfusion.SfAutoComplete.XForms;assembly=Syncfusion.SfAutoComplete.XForms" xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    ios:Page.UseSafeArea="true" x:Name="root" Title="Price Tracker"
+    BackgroundColor="{StaticResource LighterGray}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout VerticalOptions="FillAndExpand">
+                <BoxView Style="{StaticResource CardBlueStyle}" AbsoluteLayout.LayoutBounds="{Binding HomeCircle}"/>
+
+                <Grid Padding="5" VerticalOptions="FillAndExpand"
+                      AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                      AbsoluteLayout.LayoutFlags="All">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Padding="0,0,0,0">                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Padding="4" Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--#region Filter Selection-->
+                            <cards:SfCardView Grid.Row="0" Padding="10" CornerRadius="10" HasShadow="False">
+                                <StackLayout>
+                                    <Grid Grid.Row="0" RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid RowSpacing="0" Padding="5,0,5,0">
+                                            <!--<Grid.HeightRequest>
+                                                <OnPlatform x:TypeArguments="x:Double">
+                                                    <On Platform="Android">190</On>
+                                                    <On Platform="iOS">180</On>
+                                                </OnPlatform>
+                                            </Grid.HeightRequest>-->
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid Grid.Row="0" RowSpacing="0" Padding="5,0,5,0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                
+                                                <Grid Grid.Row="1" RowSpacing="0" >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <Label Grid.Row="0" Text="Select Entry Date" Style="{StaticResource MyTitleLabel}" Padding="2" />
+                                                    <contr:RoundedCornerView Grid.Row="1" HeightRequest="42">
+                                                        <Grid Padding="0,0,0,0" RowSpacing="0">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="auto"/>
+                                                                <RowDefinition Height="1"/>
+                                                            </Grid.RowDefinitions>
+
+                                                            <Grid Grid.Row="0" Padding="5,5,5,0" VerticalOptions="EndAndExpand"  >
+                                                                <contr:TitledDateTimePicker x:Name="selectDate"
+                                                                    Grid.Row="0" SDate="{x:Static sys:DateTime.Now}"
+                                                                    SelectedDate="{Binding SelectedDate}" Command="{Binding DateSlectCommand}"
+                                                                    ItemTapped="selectDate_ItemTapped"
+                                                                    IsEnabled="{Binding EntryDateEnable}"/>
+                                                            </Grid>
+                                                            <!--<Grid Grid.Row="0" Padding="5,5,5,0">
+                                                                
+                                                                <contr:DatePickerCtrl TextColor="{StaticResource DarkGray}" FontSize="15"
+                                                                           FontFamily="calibribold" x:Name="selectDate" Placeholder="Select Date"                                                                           
+                                                                           Grid.Row="0" IsVisible="{Binding SelectedDateVisible}" HeightRequest="40"
+                                                                           Format="dd-MMM-yyyy" HasBorder="False"
+                                                                           MaximumDate="{x:Static sys:DateTime.Now}" PlaceholderColor="{StaticResource PlcGray}"/>
+                                                              
+
+                                                                <Image x:Name="imgDP" Source="calendarnew" Grid.Row="0" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Margin="0,0,5,0" HeightRequest="20" WidthRequest="20">
+                                                                    <Image.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                                                    </Image.GestureRecognizers>
+                                                                </Image>
+                                                            </Grid>-->
+                                                            <Grid Grid.Row="1" Padding="5,0">
+                                                                <BoxView Grid.Row="0" BackgroundColor="{StaticResource LightGray}" VerticalOptions="Start"/>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </contr:RoundedCornerView>
+                                                </Grid>
+                                                <Grid Grid.Row="2" RowSpacing="0" >
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Grid.Row="0" Text="Store" Style="{StaticResource MyTitleLabel}" Padding="2" />
+                                                    <Grid Grid.Row="1" BackgroundColor="White" VerticalOptions="Center" Padding="5,0,5,0">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="1"/>
+                                                            <RowDefinition Height="auto"/> 
+                                                        </Grid.RowDefinitions>
+                                                        <contr:ImageEntry VerticalOptions="Center"
+                                                                        Focused="txtStore_Focused"
+                                                                        Grid.Row="0" Placeholder="Select Store"
+                                                                        Style="{StaticResource MyValueLabel}" 
+                                                                        x:Name="txtStore" FontSize="15"
+                                                                        Text="{Binding SelectedStoreText}"
+                                                                        HorizontalTextAlignment="Start" Image="downarrowgray"
+                                                                        IsEnabled="False" ImageHeight="20" ImageWidth="20"
+                                                                        ImageAlignment="Right">
+                                                                <VisualStateManager.VisualStateGroups>
+                                                                    <VisualStateGroup x:Name="CommonStates">
+                                                                        <VisualState x:Name="Disabled">
+                                                                            <VisualState.Setters>
+                                                                                <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                            </VisualState.Setters>
+                                                                        </VisualState>
+                                                                    </VisualStateGroup>
+                                                                </VisualStateManager.VisualStateGroups>
+                                                            <contr:ImageEntry.HeightRequest>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                            <On Platform="Android">40</On>
+                                                                            <On Platform="iOS">42</On>
+                                                                        </OnPlatform>
+                                                            </contr:ImageEntry.HeightRequest>
+                                                        </contr:ImageEntry>
+                                                        <Grid Grid.Row="1">
+                                                            <BoxView  BackgroundColor="#B4B1B1" VerticalOptions="Start"/>
+                                                        </Grid>
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer
+                                                                Tapped="TapGestureRecognizer_Tapped_2"
+                                                                NumberOfTapsRequired="1"
+                                                                />
+                                                        </Grid.GestureRecognizers>
+                                                    </Grid>
+                                                    <!--<Label Grid.Row="0" Text="Store" Style="{StaticResource MyTitleLabel}" Padding="2" />
+                                                    <contr:RoundedCornerView Grid.Row="1" HeightRequest="42">
+                                                        <Grid Padding="{OnPlatform iOS='-2,-2,-2,5',Android='0,0,0,5'}" RowSpacing="0">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="auto"/>
+                                                                <RowDefinition Height="1"/>
+                                                            </Grid.RowDefinitions>
+
+                                                            <Grid Grid.Row="0" >
+                                                                <contr:TitleDropdownView x:Name="dropdwonStore" Placeholder="Select Store" PlaceholderColor="{StaticResource PlcGray}"
+                                                                                         HorizontalOptions="StartAndExpand"
+                                                                                         PickerItemsSource="{Binding StoreDropDown}" ItemDisplayBinding="Title" SelectedItem="{Binding SelectedStore}" Command="{Binding SelectStoreCommand}" />
+                                                                 
+                                                            </Grid>
+                                                            <Grid Grid.Row="1" Padding="5,0">
+                                                                <BoxView Grid.Row="0" BackgroundColor="{StaticResource LightGray}" VerticalOptions="Start"/>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </contr:RoundedCornerView>-->
+                                                </Grid>
+                                                <Grid Grid.Row="3" Padding="8,8,8,0" RowSpacing="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Grid.Row="0" HorizontalOptions="StartAndExpand" Text="Product Category - Subcategory" TextDecorations="Underline" Style="{StaticResource LabelMediumBlue}" MaxLines="1" LineBreakMode="TailTruncation">
+                                                        <Label.GestureRecognizers>
+                                                            <TapGestureRecognizer
+                                                                Command="{Binding SearchByCategoryCommand}"/>
+                                                            <!--<TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1"/>-->
+                                                        </Label.GestureRecognizers>
+                                                    </Label>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+
+                                        <Grid Grid.Row="1" RowSpacing="0" Margin="5,3,5,0" Padding="5,0,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Text="Model" Style="{StaticResource MyTitleLabel}" Margin="2" />
+
+                                            <Grid Grid.Row="1" RowSpacing="0" >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>                                
+                                                </Grid.RowDefinitions>
+
+                                                <contr:RoundedCornerView Grid.Row="0" HeightRequest="45" RoundedCornerRadius="10">
+                                                    <Grid BackgroundColor="{StaticResource WhiteColor}" >
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="1"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Grid Grid.Row="0">
+                                                            <!--<inputLayout:SfTextInputLayout>                                                                
+
+                                                            </inputLayout:SfTextInputLayout>-->
+                                                            <autocomplete:SfAutoComplete
+                                                                x:Name="modelnumberAutocomplete"                                                    
+                                                                Grid.Row="0"                                                    
+                                                                VerticalOptions="CenterAndExpand"                                                    
+                                                                BackgroundColor="White"
+                                                                AutoCompleteMode="SuggestAppend"
+                                                                DisplayMemberPath="Name"                                                           
+                                                                Watermark="Enter Model Number"
+                                                                WatermarkColor="{StaticResource PlcGray}"
+                                                                HeightRequest="45"
+                                                                SuggestionMode="Contains"
+                                                                TextColor="{Binding ModelNoStatusText}"
+                                                                DropDownBackgroundColor="{StaticResource LighterGray}"
+                                                                FontFamily="calibribold"
+                                                                DropDownItemFontFamily="calibribold"
+                                                                FontAttributes="Bold"
+                                                                Text="{Binding ModelNumber,Mode=TwoWay}"
+                                                                TextSize="{OnPlatform iOS='15',Android='14'}"
+                                                                ShowBorder="False"                                                                
+                                                                SelectionChanged="modelnumberAutocomplete_SelectionChanged">
+                                                                <autocomplete:SfAutoComplete.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <StackLayout Orientation="Horizontal" 
+                                                                                        Padding="2,0,0,0">
+                                                                            <Label Text="{Binding Name}" Style="{StaticResource MyTitleLabel}" TextColor="{Binding ModelNoStatusText}"
+                                                                                    VerticalOptions="Center"/>
+                                                                        </StackLayout>
+                                                                    </DataTemplate>
+                                                                </autocomplete:SfAutoComplete.ItemTemplate>
+                                                            </autocomplete:SfAutoComplete>
+                                                            
+                                                        </Grid>
+                                                        <Grid Grid.Row="1" Padding="5,0">
+                                                            <BoxView Grid.Row="0" BackgroundColor="#B4B1B1" VerticalOptions="CenterAndExpand"/>
+                                                        </Grid>
+                                                    </Grid>
+                                                </contr:RoundedCornerView>
+                                            </Grid>
+
+                                            <!--<Grid  Grid.Row="1">                                                                             
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="10*"/>
+                                                    <ColumnDefinition Width=".1*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <contr:EntryWithRoundedCorner x:Name="txtModelNo" Placeholder="Model Number" HeightRequest="40"
+                                                    Text="{Binding ModelNumber}" Style="{StaticResource EnteryTxtValues}"
+                                                    Grid.Column="0" TextChanged="txtModelNo_TextChanged"
+                                                    IsEnabled="True" BorderWidth="1" BorderColor="{StaticResource LightGray}">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Disabled">
+                                                                <VisualState.Setters>
+                                                                    <Setter Property="TextColor" Value="{StaticResource DarkGray}" />
+                                                                </VisualState.Setters>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                </contr:EntryWithRoundedCorner>
+                                            
+                                                <Grid Grid.Column="0" HorizontalOptions="End" Padding="5">
+                                                
+                                                    <Image Source="searchnew" HeightRequest="20" WidthRequest="20" HorizontalOptions="End" VerticalOptions="Center">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Command="{Binding ModelsPopupCommand}" />
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </Grid>
+                                            </Grid>-->
+                                        </Grid>
+
+                                        <Grid Grid.Row="2" RowSpacing="0" Margin="5,3,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>                            
+                                            </Grid.RowDefinitions>
+                                            <Label Grid.Row="0" Margin="0,5,0,2" Text="Comment"  Style="{StaticResource MyTitleLabel}"  VerticalTextAlignment="Center"/>
+                                            <contr:RoundedCornerView Grid.Row="1"  BorderColor="{StaticResource LightGray}" BorderWidth="1" RoundedCornerRadius="10">
+                                                <Editor HeightRequest="80" Text="{Binding PriceTrackerComment}"
+                                                        BackgroundColor="White"
+                                                        Placeholder="Please Enter Comment"
+                                                        Style="{StaticResource EditorTxtValues}" VerticalOptions="Start"  />
+                                            </contr:RoundedCornerView>                    
+                                        </Grid>
+
+                                        <Grid Grid.Row="3" RowSpacing="0" Margin="5,3,5,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>                       
+                                            </Grid.RowDefinitions>
+                                            <Button Grid.Row="0" Command="{Binding SearchCompModelsCommand}"
+                                                    Text="Search" Style="{StaticResource ButtonBlueStyle}" />
+
+                                        </Grid>
+                                    </Grid>
+                                </StackLayout>
+                            </cards:SfCardView>                            
+                            <!--#endregion-->
+
+                            <!--#region Todays Existing Entries -->
+                            <cards:SfCardView IsVisible="false" Grid.Row="1" Padding="5" CornerRadius="10" HasShadow="False">
+                                <Grid Grid.Row="0" RowSpacing="0" Margin="2,0,2,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                     <Grid >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                         <syncfusion:SfExpander  DynamicSizeMode="None" BackgroundColor="{StaticResource WhiteColor}" Grid.Row="0" HeaderBackgroundColor="{StaticResource WhiteColor}" IsExpanded="False">
+                                            <syncfusion:SfExpander.Header>
+                                                <Grid BackgroundColor="{StaticResource WhiteColor}" Padding="10">
+                                                    <Label Text="Todays Entries" Style="{StaticResource MyTitleLabel}" Padding="0,0,2,0"/>
+                                                </Grid>
+                                            </syncfusion:SfExpander.Header>
+                                            <syncfusion:SfExpander.Content>
+                                                <Grid Grid.Row="0" RowSpacing="0" HeightRequest="{Binding ScreenHeightSize}">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid Grid.Row="0" Margin="2" HeightRequest="{Binding ScreenHeightSize}">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="auto"/>
+                                                            </Grid.RowDefinitions>
+                                                            <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="10" >  
+                                                                <Grid Grid.Row="0" BackgroundColor="White" Padding="5">
+                                                                        <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="auto"/>
+                                                                        <RowDefinition Height="*"/>                        
+                                                                    </Grid.RowDefinitions>
+
+                                                                    <!--#region header row-->
+                                    
+                                                                    <Grid Grid.Row="0" Padding="2,0,2,0">
+                                                                        <Grid.RowDefinitions>
+                                                                            <RowDefinition Height="auto"/>
+                                                                        </Grid.RowDefinitions>
+                                        
+                                                                        <Grid Grid.Row="0" VerticalOptions="Center">
+                                                                            <Grid.ColumnDefinitions>
+                                                                                <ColumnDefinition Width="5*" />
+                                                                                <ColumnDefinition Width="4*" />
+                                                                                <ColumnDefinition Width="4*" />
+                                                                                <ColumnDefinition Width="5*" />
+                                                                            </Grid.ColumnDefinitions>
+                            
+                                                                            <Label  Text="Model Name" Margin="2,0,0,0" Grid.Column="0"
+                                                                                    HorizontalOptions="StartAndExpand"
+                                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                                    MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                                            <Label  Text="RRP"
+                                                                                    Grid.Column="1" HorizontalOptions="CenterAndExpand"
+                                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                                    MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                                            <Label  Text="Net RRP" Grid.Column="2"
+                                                                                    HorizontalOptions="CenterAndExpand"
+                                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                                    MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                                            <Label  Text="Promo" Grid.Column="3"
+                                                                                    HorizontalOptions="CenterAndExpand"
+                                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                                    MaxLines="1"
+                                                                                    LineBreakMode="TailTruncation"/>
+                                                                        </Grid>
+                    
+                                                                    </Grid>
+                                                                    <!--#endregion-->
+                                                                    <!--#region expandable list-->                                                                                                           
+                                                                    <Grid Grid.Row="1" HeightRequest="{Binding ScreenHeightSize}">
+                                                                            <Grid.RowDefinitions>
+                                                                                <RowDefinition Height="auto"/>
+                                                                            </Grid.RowDefinitions>
+                                                                            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                                                <ScrollView>
+                                                                                    <StackLayout Orientation="Vertical" BackgroundColor="Transparent"  BindableLayout.ItemsSource="{Binding PriceTrackerResponseExistingList}">
+                                                                                        <BindableLayout.ItemTemplate>
+                                                                                            <DataTemplate>
+                                                                                                <StackLayout HeightRequest="47" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                                                                    <Grid  BackgroundColor="{StaticResource LighterGray}" HorizontalOptions="FillAndExpand">
+
+                                                                                                            <Grid.RowDefinitions>
+                                                                                                                <RowDefinition Height="auto"/>
+                                                                                                            </Grid.RowDefinitions>
+
+                                                                                                            <Grid.ColumnDefinitions>
+                                                                                                                <ColumnDefinition Width="5*" />
+                                                                                                                <ColumnDefinition Width="4*" />
+                                                                                                                <ColumnDefinition Width="4*" />
+                                                                                                                <ColumnDefinition Width="5*" />
+                                                                                                            </Grid.ColumnDefinitions>
+                                                                                                            <StackLayout Grid.Column="0" Margin="2,0,0,0">
+                                                                                                                <Label  Text="{Binding ProductModelName}"
+                                                                                                                        Style="{StaticResource LabelMediumBlue}" FontSize="Small"
+                                                                                                                        HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                                            </StackLayout>
+                                                                                                            <contr:EntryWithoutDoneBtn x:Name="txtRRP" Margin="0,2,0,2"
+                                                                                                                    WidthRequest="130" HeightRequest="42" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding RRP}" FontSize="Small"
+                                                                                                                    Style="{StaticResource EditorTxtValues}" IsEnabled="True"
+                                                                                                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                                                    Grid.Column="1" IsReadOnly="True">
+                                                                                                            </contr:EntryWithoutDoneBtn>
+                                                                                                            <contr:EntryWithoutDoneBtn x:Name="txtNetRRP" Margin="0,2,0,2" WidthRequest="130" HeightRequest="42" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding NetRRP}" FontSize="Small"
+                                                                                                                    Style="{StaticResource EditorTxtValues}" 
+                                                                                                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                                                    Grid.Column="2" IsReadOnly="True">
+                                                                                               
+                                                                                                            </contr:EntryWithoutDoneBtn>
+                                                                                                            <StackLayout Grid.Column="3" Margin="2,0,0,0" >
+                                                                                                                <Label  Text="{Binding Promo,StringFormat='{0:0,0.00}'}" HorizontalTextAlignment="Center"
+                                                                                                                        Style="{StaticResource LabelMediumBlue}" FontSize="Small"                                                                                                    
+                                                                                                                        HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                                            </StackLayout>
+                                                                                    
+                                                                                                        </Grid>
+
+                                                                                                </StackLayout>
+                                                                                
+                                                                                            </DataTemplate>
+                                                                                        </BindableLayout.ItemTemplate>
+                                                                                    </StackLayout>
+
+
+                                                                                </ScrollView>
+
+                                                                            </StackLayout>                                                      
+                                                                    </Grid>
+                                                                    <!--#endregion-->
+                                                                </Grid>
+                                                            </contr:RoundedCornerView>
+                                                        </Grid>
+                                                </Grid> 
+                                            </syncfusion:SfExpander.Content>
+                                         </syncfusion:SfExpander>
+
+                                     </Grid>             
+                                </Grid>
+                            </cards:SfCardView>                                
+                            <!--#endregion-->
+
+                            <!--#region Price tracker entries-->
+                            <cards:SfCardView Grid.Row="2" Padding="5,0,5,0" CornerRadius="10" HasShadow="False">
+                                <Grid Grid.Row="0" RowSpacing="0" Margin="2,0,2,0" HeightRequest="{Binding ScreenHeightSize}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid Grid.Row="0" Margin="2" HeightRequest="{Binding ScreenHeightSize}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="10" >  
+                                            <Grid Grid.Row="0" BackgroundColor="White" Padding="5">
+                                                    <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                    <RowDefinition Height="*"/>                        
+                                                </Grid.RowDefinitions>
+
+                                                <!--#region header row-->
+                                    
+                                                <Grid Grid.Row="0" Padding="2,0,2,0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                        
+                                                    <Grid Grid.Row="0" VerticalOptions="Center">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="5*" />
+                                                            <ColumnDefinition Width="4*" />
+                                                            <ColumnDefinition Width="4*" />
+                                                            <ColumnDefinition Width="5*" />
+                                                        </Grid.ColumnDefinitions>
+                            
+                                                        <Label  Text="Model Name" Margin="2,0,0,0" Grid.Column="0"
+                                                                HorizontalOptions="StartAndExpand"
+                                                                Style="{StaticResource MyTitleLabel}"                                                    
+                                                                MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                        <Label  Text="RRP"
+                                                                Grid.Column="1" HorizontalOptions="CenterAndExpand"
+                                                                Style="{StaticResource MyTitleLabel}"                                                    
+                                                                MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                        <Label  Text="Net RRP" Grid.Column="2"
+                                                                HorizontalOptions="CenterAndExpand"
+                                                                Style="{StaticResource MyTitleLabel}"                                                    
+                                                                MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                        <Label  Text="Promo" Grid.Column="3"
+                                                                HorizontalOptions="CenterAndExpand"
+                                                                Style="{StaticResource MyTitleLabel}"                                                    
+                                                                MaxLines="1"
+                                                                LineBreakMode="TailTruncation"/>
+                                                    </Grid>
+                    
+                                                </Grid>
+                                                <!--#endregion-->
+                                                <!--#region expandable list-->                                                                                                           
+                                                <Grid Grid.Row="1" HeightRequest="{Binding ScreenHeightSize}">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                        <ScrollView>
+                                                            <StackLayout x:Name="PriceTrackerListView" Orientation="Vertical" BackgroundColor="Transparent"  BindableLayout.ItemsSource="{Binding ObPriceTrackerResponse}">
+                                                                <BindableLayout.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <SwipeView>
+                                                                            <SwipeView.LeftItems>
+                                                                                <SwipeItems>
+                                                                                    <SwipeItem Text="Delete"
+                                                                                           IsVisible="{Binding IsVisibleDeletePriceTrakcer}"                                                                                           
+                                                                                           BackgroundColor="{StaticResource RedColor}"
+                                                                                           Command="{Binding BindingContext.DeletePriceTrackerCommand,Source={x:Reference Name=root}}"
+                                                                                           CommandParameter="{Binding .}" />
+                                                                                </SwipeItems>
+                                                                            </SwipeView.LeftItems>
+                                                                            <StackLayout HeightRequest="47" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                                            <Grid IsEnabled="{Binding IsEditPriceTrakcer}" BackgroundColor="{StaticResource LighterGray}" HorizontalOptions="FillAndExpand">
+
+                                                                                <Grid.RowDefinitions>
+                                                                                    <RowDefinition Height="auto"/>
+                                                                                </Grid.RowDefinitions>
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition Width="5*" />
+                                                                                    <ColumnDefinition Width="4*" />
+                                                                                    <ColumnDefinition Width="4*" />
+                                                                                    <ColumnDefinition Width="5*" />
+                                                                                </Grid.ColumnDefinitions>
+                                                                                <StackLayout Grid.Column="0" Margin="2,0,0,0">
+                                                                                    <Label  Text="{Binding ProductModelName}"
+                                                                                            Style="{StaticResource LabelMediumBlue}" FontSize="Small"
+                                                                                            HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                </StackLayout>
+                                                                                <contr:EntryWithRoundedCorner BorderRadius="1" BorderColor="Transparent"  x:Name="txtRRP" Grid.Column="1"  Margin="0,2,0,2" AutomationId="{Binding TxtId}"
+                                                                                        WidthRequest="130" HeightRequest="42" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding RRP}" FontSize="Small"
+                                                                                        Style="{StaticResource EditorTxtValues}" IsEnabled="True"
+                                                                                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                        Keyboard="Numeric" ReturnType="Next"
+                                                                                        xct:SetFocusOnEntryCompletedBehavior.NextElement="{x:Reference txtNetRRP}">                                                                                    
+                                                                                    <!--<Entry.Behaviors>                                                                                        
+                                                                                        <xct:EventToCommandBehavior
+                                                                                            EventName="Unfocused"
+                                                                                            Command="{Binding BindingContext.CalculatePromoCommandRRP,Source={x:Reference Name=root}}"
+                                                                                            CommandParameter="{Binding .}"/>
+                                                                                    </Entry.Behaviors>-->
+                                                                                    </contr:EntryWithRoundedCorner>
+                                                                                <contr:EntryWithoutDoneBtn x:Name="txtNetRRP" Grid.Column="2" Margin="0,2,0,2" WidthRequest="130" HeightRequest="42" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding NetRRP}" FontSize="Small"
+                                                                                    Style="{StaticResource EditorTxtValues}" 
+                                                                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                    Keyboard="Numeric" ReturnType="Done"
+                                                                                    ReturnCommand="{Binding BindingContext.CalculatePromoCommand,Source={x:Reference Name=root}}"
+                                                                                    ReturnCommandParameter="{Binding .}" >
+                                                                                    <contr:EntryWithoutDoneBtn.Behaviors>
+                                                                                        <xct:EventToCommandBehavior
+                                                                                            EventName="Unfocused"
+                                                                                            Command="{Binding BindingContext.CalculatePromoCommand,Source={x:Reference Name=root}}"
+                                                                                            CommandParameter="{Binding .}"/>
+                                                                                    </contr:EntryWithoutDoneBtn.Behaviors>
+                                                                                </contr:EntryWithoutDoneBtn>
+                                                                               
+                                                                                <StackLayout Grid.Column="3" Margin="2,0,0,0" >
+                                                                                    <Label  Text="{Binding Promo,StringFormat='{0:0,0.00}'}" HorizontalTextAlignment="Center"
+                                                                                            Style="{StaticResource LabelMediumBlue}" FontSize="Small"                                                                                                    
+                                                                                            HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                </StackLayout>
+                                                                                    
+                                                                            </Grid>
+
+                                                                        </StackLayout>
+                                                                        </SwipeView>
+                                                                    </DataTemplate>
+                                                                </BindableLayout.ItemTemplate>
+                                                            </StackLayout>
+                                                        </ScrollView>
+                                                    </StackLayout>                                                      
+                                                </Grid>
+                                                <!--#endregion-->
+                                            </Grid>
+                                        </contr:RoundedCornerView>
+                                    </Grid>
+                                </Grid>
+
+                                <!--<AbsoluteLayout Padding="5">
+                                    <Grid Grid.Row="0" RowSpacing="0" Margin="2,0,2,0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Margin="2">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <contr:RoundedCornerView   Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="1" RoundedCornerRadius="10" >  
+                                                <Grid Grid.Row="0" BackgroundColor="White" Padding="5">
+                                                       <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="*"/>                        
+                                                    </Grid.RowDefinitions>
+
+                                                    #region third row
+                                    
+                                                    <Grid Grid.Row="0" Padding="2,0,2,0">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                        </Grid.RowDefinitions>
+                                        
+                                                        <Grid Grid.Row="0" VerticalOptions="Center">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="6*" />
+                                                                <ColumnDefinition Width="5*" />
+                                                                <ColumnDefinition Width="5*" />
+                                                                <ColumnDefinition Width="3*" />
+                                                            </Grid.ColumnDefinitions>
+                            
+                                                            <Label  Text="Model Name" Margin="2,0,0,0" Grid.Column="0"
+                                                                    HorizontalOptions="StartAndExpand"
+                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                    MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                            <Label  Text="RRP"
+                                                                    Grid.Column="1" HorizontalOptions="CenterAndExpand"
+                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                    MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                            <Label  Text="Net RRP" Grid.Column="2"
+                                                                    HorizontalOptions="CenterAndExpand"
+                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                    MaxLines="1" LineBreakMode="TailTruncation"/>
+                                                            <Label  Text="Promo" Grid.Column="3"
+                                                                    HorizontalOptions="CenterAndExpand"
+                                                                    Style="{StaticResource MyTitleLabel}"                                                    
+                                                                    MaxLines="1"
+                                                                    LineBreakMode="TailTruncation"/>
+                                                        </Grid>
+                    
+                                                    </Grid>
+                                                    #endregion
+                                                    #region expandable list
+                                                                                                           
+                                                        <Grid Grid.Row="1" HeightRequest="{Binding ScreenHeightSize}">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="auto"/>
+                                                                </Grid.RowDefinitions>
+                                                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                             <ScrollView>
+                                                                    <StackLayout Orientation="Vertical" BackgroundColor="Transparent"  BindableLayout.ItemsSource="{Binding ObPriceTrackerResponse}">
+                                                                        <BindableLayout.ItemTemplate>
+                                                                            <DataTemplate>
+                                                                                <StackLayout HeightRequest="46" Orientation="Horizontal">
+                                                                                    <Grid  BackgroundColor="{StaticResource LighterGray}">
+
+                                                                                            <Grid.RowDefinitions>
+                                                                                                <RowDefinition Height="auto"/>
+                                                                                            </Grid.RowDefinitions>
+
+                                                                                            <Grid.ColumnDefinitions>
+                                                                                                <ColumnDefinition Width="6*" />
+                                                                                                <ColumnDefinition Width="5*" />
+                                                                                                <ColumnDefinition Width="5*" />
+                                                                                                <ColumnDefinition Width="3*" />
+                                                                                            </Grid.ColumnDefinitions>
+                                                                                            <StackLayout Grid.Column="0" Margin="5,0,0,0">
+                                                                                                <Label  Text="{Binding CompModelName}"
+                                                                                                        Style="{StaticResource LabelMediumBlue}" FontSize="Small"
+                                                                                                        LineBreakMode="TailTruncation" MaxLines="1"
+                                                                                                        HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                            </StackLayout>
+                                                                                            <contr:EntryWithoutDoneBtn x:Name="txtRRP" Margin="2"
+                                                                                                    WidthRequest="120" BorderColor="{StaticResource GrayShade}" HeightRequest="42" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding RRP}" FontSize="Small"
+                                                                                                    Style="{StaticResource EditorTxtValues}" IsEnabled="True"
+                                                                                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                                    Grid.Column="1" Keyboard="Numeric">
+                                                                                            </contr:EntryWithoutDoneBtn>
+                                                                                            <contr:EntryWithoutDoneBtn BorderColor="{StaticResource GrayShade}" x:Name="txtNetRRP" Margin="2" WidthRequest="120" HeightRequest="42" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding NetRRP}" FontSize="Small"
+                                                                                                    Style="{StaticResource EditorTxtValues}" 
+                                                                                                    HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                                    Grid.Column="2" Keyboard="Numeric" >
+                                                                                                    <contr:EntryWithoutDoneBtn.Behaviors>
+                                                                                                        <xct:EventToCommandBehavior
+                                                                                                            EventName="Unfocused"
+                                                                                                            Command="{Binding BindingContext.CalculatePromoCommand,Source={x:Reference Name=root}}"
+                                                                                                            CommandParameter="{Binding .}"/>
+                                                                                                    </contr:EntryWithoutDoneBtn.Behaviors>
+                                                                                            </contr:EntryWithoutDoneBtn>
+                                                                                            <StackLayout Grid.Column="3" Margin="5,0,0,0" >
+                                                                                                <Label  Text="{Binding Promo,StringFormat='{0:0,0.00}'}" TextColor="Black" HorizontalTextAlignment="End"
+                                                                                                        Style="{StaticResource LabelMediumBlue}" FontSize="Medium"                                                                                                    
+                                                                                                        HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                            </StackLayout>
+                                                                                    
+                                                                                        </Grid>
+
+                                                                                </StackLayout>
+                                                                                
+                                                                            </DataTemplate>
+                                                                        </BindableLayout.ItemTemplate>
+                                                                    </StackLayout>
+
+
+                                                             </ScrollView>
+
+                                                         </StackLayout>   
+
+                                                                
+
+                                                        <Grid RowSpacing="0">
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="auto"/>
+                                                            </Grid.RowDefinitions>
+                                                            <CollectionView Grid.Row="0" ItemsSource="{Binding ObPriceTrackerResponse}" BackgroundColor="Transparent" EmptyView="No record" HeightRequest="{Binding ScreenHeightSize}">
+                                                                <CollectionView.EmptyViewTemplate>
+                                                                    <DataTemplate>
+                                                                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="15" Style="{StaticResource LabelLargeBlack}" Text="No Entries" HeightRequest="60" />
+                                                                    </DataTemplate>
+                                                                </CollectionView.EmptyViewTemplate>
+                                                                <CollectionView.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <Grid BackgroundColor="White">
+                                                                            <Grid.RowDefinitions>
+                                                                                <RowDefinition Height="*"/>
+                                                                            </Grid.RowDefinitions>
+                                                                            <contr:RoundedCornerView Padding="0,5,0,0" Grid.Row="0" BorderColor="{StaticResource borderColor}" BorderWidth="2">
+                                                                                <Grid HeightRequest="45" BackgroundColor="{StaticResource LighterGray}">
+
+                                                                                    <Grid.RowDefinitions>
+                                                                                        <RowDefinition Height="auto"/>
+                                                                                    </Grid.RowDefinitions>
+
+                                                                                    <Grid.ColumnDefinitions>
+                                                                                        <ColumnDefinition Width="4*" />
+                                                                                        <ColumnDefinition Width="3*" />
+                                                                                        <ColumnDefinition Width="3*" />
+                                                                                        <ColumnDefinition Width="5*" />
+                                                                                    </Grid.ColumnDefinitions>
+                                                                                    <StackLayout Grid.Column="0" Margin="5,0,0,0">
+                                                                                        <Label  Text="{Binding ProductModelName}"
+                                                                                                Style="{StaticResource LabelMediumBlue}" FontSize="Small"
+                                                                                                LineBreakMode="TailTruncation" MaxLines="1"
+                                                                                                HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                    </StackLayout>
+                                                                                    <contr:EntryWithoutDoneBtn x:Name="txtRRP" Margin="0,2,0,2"
+                                                                                            WidthRequest="100" HeightRequest="45" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding RRP}" FontSize="Small"
+                                                                                            Style="{StaticResource EditorTxtValues}" IsEnabled="True"
+                                                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                            Grid.Column="1" Keyboard="Numeric">
+                                                                                    </contr:EntryWithoutDoneBtn>
+                                                                                    <contr:EntryWithoutDoneBtn x:Name="txtNetRRP" Margin="0,2,0,2" WidthRequest="100" HeightRequest="45" BackgroundColor="{StaticResource WhiteColor}" Text="{Binding NetRRP}" FontSize="Small"
+                                                                                            Style="{StaticResource EditorTxtValues}" 
+                                                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                            Grid.Column="2" Keyboard="Numeric" >
+                                                                                            <contr:EntryWithoutDoneBtn.Behaviors>
+                                                                                                <xct:EventToCommandBehavior
+                                                                                                    EventName="Unfocused"
+                                                                                                    Command="{Binding BindingContext.CalculatePromoCommand,Source={x:Reference Name=root}}"
+                                                                                                    CommandParameter="{Binding .}"/>
+                                                                                            </contr:EntryWithoutDoneBtn.Behaviors>
+                                                                                    </contr:EntryWithoutDoneBtn>
+                                                                                    <StackLayout Grid.Column="3" Margin="5,0,0,0" >
+                                                                                        <Label  Text="{Binding Promo}" TextColor="Black"
+                                                                                                Style="{StaticResource LabelMediumBlue}" FontSize="Medium"                                                                                                    
+                                                                                                HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+                                                                                    </StackLayout>
+                                                                                    <contr:ImageEntry Margin="0,2,0,2"
+                                                                                            WidthRequest="200" HeightRequest="45"
+                                                                                            BackgroundColor="{StaticResource WhiteColor}"
+                                                                                            Text="{Binding Promo,StringFormat='{0:0,0.00}'}" FontSize="Small"
+                                                                                            Style="{StaticResource EnteryTxtValues}" TextColor="{StaticResource RedColor}"
+                                                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                            Grid.Column="3">
+                                                                                    </contr:ImageEntry>
+                                                                                    <Label  Text="{Binding Promo,StringFormat='{0:0,0.00}'}" FontSize="Small"
+                                                                                            Style="{StaticResource SimpleLabelBlack}" HorizontalTextAlignment="End"
+                                                                                            HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                                                            Grid.Column="3"/>
+                                                                                </Grid>
+                                                                            </contr:RoundedCornerView>
+                                                                        </Grid>
+                                                                    </DataTemplate>
+                                                                </CollectionView.ItemTemplate>
+                                                            </CollectionView>
+                                                        </Grid>
+                                                        <AbsoluteLayout>
+                                                            
+                                                        </AbsoluteLayout>                                                        
+                                                    </Grid>
+                                                    #endregion
+                                                </Grid>
+                                            </contr:RoundedCornerView>
+                                        </Grid>
+                                    </Grid>
+                                </AbsoluteLayout>-->
+                            </cards:SfCardView>
+                             
+                            <!--#endregion-->
+
+                            <StackLayout
+                                    Grid.Row="3"  Orientation="Horizontal"
+                                    HorizontalOptions="CenterAndExpand" VerticalOptions="End"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.90}"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}">
+
+                                <Button WidthRequest="150" Clicked="Button_Clicked" IsEnabled="{Binding IsPriceTrackerSaveEnable}" Text="Submit" Style="{StaticResource ButtonBlueStyle}" />
+
+                                <Button WidthRequest="150" Clicked="Button_Clicked_1" Text="Cancel" Style="{StaticResource ButtonPinkStyle}"/>
+
+                                <!--<Grid BackgroundColor="Transparent" Padding="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="5*"/>
+                                        <ColumnDefinition Width="5*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button Grid.Column="0" Command="{Binding ConfirmPriceTrackerCommand}" Text="Submit" Style="{StaticResource ButtonBlueStyle}" />
+
+                                    <Button Grid.Column="1" Command="{Binding CancelCommand}" Text="Cancel" Style="{StaticResource ButtonPinkStyle}"/>
+
+                                </Grid>-->
+
+                            </StackLayout>                           
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <contr:LoaderAnimView
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,50,50"   
+                    AbsoluteLayout.LayoutFlags="XProportional,YProportional"/>
+                <!--<contr:LoaderAnimView
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,50,50"   
+                    AbsoluteLayout.LayoutFlags="XProportional,YProportional"    
+                    AbsoluteLayout.LayoutBounds="{OnPlatform iOS='0.6, 0.2, 150, 180',Android='0.5, 0.5, 100, 100'}"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>-->
+
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+   
+</ContentPage>
+

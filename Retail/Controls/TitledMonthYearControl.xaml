@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="Retail.Controls.TitledMonthYearControl">
+    <ContentView.Content>
+         <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            
+              <Grid Grid.Row="0" VerticalOptions="Start" Padding="0,0,0,5">                 
+                   <Grid.RowDefinitions>
+                     <RowDefinition Height="auto"/>                     
+                 </Grid.RowDefinitions>
+                 <DatePicker x:Name="dPicker" Format="MMM,yyyy" VerticalOptions="Center" Grid.Row="0" MinimumDate="01/01/1980"
+                             MaximumDate="{x:Static sys:DateTime.Now}" Date="{Binding SDate}"
+                             DateSelected="dPicker_DateSelected" 
+                                Style="{StaticResource EnteryTxtValues}"  BackgroundColor="White"
+                                />
+                 <Image x:Name="imgDP"  Source="downarrowgray" Grid.Row="0" Aspect="AspectFit" VerticalOptions="Center"
+                        HorizontalOptions="EndAndExpand" Margin="0,0,2,0"
+                        HeightRequest="{OnPlatform iOS='25' ,Android='35'}"
+                        WidthRequest="{OnPlatform iOS='25',Android='35'}" >
+                      <Image.GestureRecognizers>
+                            <TapGestureRecognizer
+                                    Tapped="TapGestureRecognizer_Tapped"
+                                    NumberOfTapsRequired="1" />
+                      </Image.GestureRecognizers>
+                 </Image>                   
+             </Grid>
+             
+        </Grid> 
+    </ContentView.Content>
+</ContentView>
