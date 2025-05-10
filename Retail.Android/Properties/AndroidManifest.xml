@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1090" android:versionName="1.0.90" package="com.panasonic.retail" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1091" android:versionName="1.0.91" package="com.panasonic.retail" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="32" />
 	<application android:label="Panasonic Smart Retail" android:theme="@style/MainTheme" android:supportsRtl="true" android:networkSecurityConfig="@xml/network_security_config" android:icon="@drawable/applogo">
 		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAHNIcXYU4i9JOO4F1DPO61J_f8m64b4YE" />
