@@ -1,26 +1,23 @@
-﻿<Properties StartupConfiguration="{D36C56C3-D607-43CA-B6E7-BB7AC14CB15A}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties StartupConfiguration="{D36C56C3-D607-43CA-B6E7-BB7AC14CB15A}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.ItemProperties.Retail.Android PreferredExecutionTarget="Android.galaxy_nexus_r_11_0_-_api_30" />
   <MonoDevelop.Ide.ItemProperties.Retail.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.Generic" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Retail/App.xaml">
-    <Files>
-      <File FileName="Retail/App.xaml" Line="10" Column="56" />
-    </Files>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.galaxy_nexus_r_11_0_-_api_30" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Retail" selected="True">
-            <Node name="Retail" expanded="True" />
+          <Node name="Retail" expanded="True">
+            <Node name="Retail.Android" selected="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.galaxy_nexus_r_11_0_-_api_30" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Retail.Android PreferredExecutionTarget="Android.galaxy_nexus_r_11_0_-_api_30" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

@@ -1,0 +1,7 @@
+﻿# Ignore Android build artifacts
+Retail.Android/bin/
+Retail.Android/obj/
+*.apk
+*.apk
+Retail.Android/bin/
+Retail.Android/obj/

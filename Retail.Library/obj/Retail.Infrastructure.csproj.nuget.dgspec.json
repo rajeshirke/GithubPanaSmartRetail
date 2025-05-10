@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.Library/Retail.Infrastructure.csproj": {}
+    "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.Library/Retail.Infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.Library/Retail.Infrastructure.csproj": {
+    "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.Library/Retail.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.Library/Retail.Infrastructure.csproj",
+        "projectUniqueName": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.Library/Retail.Infrastructure.csproj",
         "projectName": "Retail.Infrastructure",
-        "projectPath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.Library/Retail.Infrastructure.csproj",
+        "projectPath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.Library/Retail.Infrastructure.csproj",
         "packagesPath": "/Users/imacslim2015/.nuget/packages/",
-        "outputPath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.Library/obj/",
+        "outputPath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.Library/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/imacslim2015/.config/NuGet/NuGet.Config"

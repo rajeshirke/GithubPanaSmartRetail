@@ -10218,11 +10218,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/Retail.iOS.csproj",
+      "projectUniqueName": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/Retail.iOS.csproj",
       "projectName": "Retail.iOS",
-      "projectPath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/Retail.iOS.csproj",
+      "projectPath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/Retail.iOS.csproj",
       "packagesPath": "/Users/imacslim2015/.nuget/packages/",
-      "outputPath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/obj/",
+      "outputPath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -10237,8 +10237,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/Retail.csproj": {
-              "projectPath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/Retail.csproj"
+            "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail/Retail.csproj": {
+              "projectPath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail/Retail.csproj"
             }
           }
         }

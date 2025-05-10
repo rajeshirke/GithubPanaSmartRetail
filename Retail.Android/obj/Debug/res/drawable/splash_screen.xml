@@ -1,1 +1,0 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android"><item><color android:color="@color/splash_background" /></item><item android:left="50dp" android:right="50dp"><bitmap android:src="@drawable/applogo" android:tileMode="disabled" android:gravity="center" /></item></layer-list>

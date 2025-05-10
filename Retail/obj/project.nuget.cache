@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wWFHG6dAxM7TBVquFrJSlwWNURSY+QLMoF6zUxnVFwFKz0YWNrj9oN01Cvw4P7TQsEOHarE57U7QPgEIEl+HFQ==",
+  "dgSpecHash": "yQdPtc46/VelDZHwNC35lCt6vSO3xsJdeKqYolpkWcq3Io9qik9Jx6xdnJJpqe3K+O2qfCPadn4n8gECeTGc3Q==",
   "success": true,
-  "projectFilePath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/Retail.csproj",
+  "projectFilePath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail/Retail.csproj",
   "expectedPackageFiles": [
     "/Users/imacslim2015/.nuget/packages/com.airbnb.xamarin.forms.lottie/4.1.0/com.airbnb.xamarin.forms.lottie.4.1.0.nupkg.sha512",
     "/Users/imacslim2015/.nuget/packages/dltoolkit.forms.controls.flowlistview/2.0.11/dltoolkit.forms.controls.flowlistview.2.0.11.nupkg.sha512",

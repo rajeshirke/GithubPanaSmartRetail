@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VSk7B68kSHYhe1CKQcInHDHCNC3gH1X1dDbTyT/BCj5ejdz2ad6bEhDvmapBIkFHcufl/I2wuToZ2JtLB8Kaxw==",
+  "dgSpecHash": "acFyWfcR6bwX2KBXosg3PnwNwxgoQYES9CbNGCvKdWiqU3vDUYoHCZxqSTqKsmZUTEnmbsckhi4fvgUIVJWynw==",
   "success": true,
-  "projectFilePath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/Retail.iOS.csproj",
+  "projectFilePath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/Retail.iOS.csproj",
   "expectedPackageFiles": [
     "/Users/imacslim2015/.nuget/packages/btprogresshud/1.3.2/btprogresshud.1.3.2.nupkg.sha512",
     "/Users/imacslim2015/.nuget/packages/com.airbnb.ios.lottie/2.5.13/com.airbnb.ios.lottie.2.5.13.nupkg.sha512",

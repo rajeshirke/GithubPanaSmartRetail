@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8v44qSViBBUtrsVBSBuoLzUEV49w7BOIsKKlcQqaofMKmqPr0d1ht1OKDe0uBIZuAgiOtVuALaTc8DwHnsTTlA==",
+  "dgSpecHash": "u5s8lt2tlNT60akZVHNCF5+759WTMG6fS7SrzlxuSdajwBN9DtH4MXiwww/BOqzMAUyZ5RI6A1FrCHjwQ9cEWg==",
   "success": true,
-  "projectFilePath": "/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.Library/Retail.Infrastructure.csproj",
+  "projectFilePath": "/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.Library/Retail.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/imacslim2015/.nuget/packages/geotimezone/5.3.0/geotimezone.5.3.0.nupkg.sha512",
     "/Users/imacslim2015/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",

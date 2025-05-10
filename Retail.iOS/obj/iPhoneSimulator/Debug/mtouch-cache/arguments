@@ -3,23 +3,23 @@
 	--debug \
 	'/target-framework:Xamarin.iOS,Version=v1.0' \
 	--http-message-handler=NSUrlSessionHandler \
-	--cache=/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
-	--root-assembly=/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/bin/iPhoneSimulator/Debug/Retail.iOS.exe \
+	--cache=/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
+	--root-assembly=/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/bin/iPhoneSimulator/Debug/Retail.iOS.exe \
 	--sdkroot=/Applications/Xcode.app/Contents/Developer \
 	--targetver=10.0 \
-	--sim=/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/bin/iPhoneSimulator/Debug/Retail.iOS.app \
+	--sim=/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/bin/iPhoneSimulator/Debug/Retail.iOS.app \
 	--executable=Retail.iOS \
 	--nolink \
 	--sdk=18.4 \
 	--aot-options=-O=-float32 \
 	--abi=x86_64 \
-	--symbollist=/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
+	--symbollist=/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
 	--dsym=no \
 	--framework=/Users/imacslim2015/.nuget/packages/skiasharp/2.80.2/build/xamarinios1.0/libSkiaSharp.framework \
 	--reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Microsoft.CSharp.dll \
 	--reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
 	--reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/OpenTK-1.0.dll \
-	--reference=/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.dll \
+	--reference=/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail/bin/Debug/netstandard2.1/Retail.dll \
 	--reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Buffers.dll \
 	--reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
 	--reference=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
@@ -324,6 +324,6 @@
 	--reference=/Users/imacslim2015/.nuget/packages/zxing.net.mobile/2.4.1/lib/Xamarin.iOS10/zxing.portable.dll \
 	--reference=/Users/imacslim2015/.nuget/packages/zxing.net.mobile.forms/2.4.1/lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.dll \
 	--reference=/Users/imacslim2015/.nuget/packages/zxing.net.mobile.forms/2.4.1/lib/Xamarin.iOS10/ZXing.Net.Mobile.Forms.iOS.dll \
-	--reference=/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.dll \
-	--reference=/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail/bin/Debug/netstandard2.1/Retail.Infrastructure.dll \
-	@/Users/imacslim2015/Projects/Firstpanasonicsmartretail/Retail.iOS/obj/iPhoneSimulator/Debug/response-file.rsp \
+	--reference=/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail/bin/Debug/netstandard2.1/Retail.dll \
+	--reference=/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail/bin/Debug/netstandard2.1/Retail.Infrastructure.dll \
+	@/Users/imacslim2015/Projects/FirstpanasonicsmartretailGithub/Retail.iOS/obj/iPhoneSimulator/Debug/response-file.rsp \
